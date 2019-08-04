@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--app11_ver=2018-12-6=-->
+<html>
+<head>
+<title><#Web_Title#> - translate</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="icon" href="images/favicon.png">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/main.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/engage.itoggle.css">
+
+<script type="text/javascript" src="/jquery.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/bootstrap/js/engage.itoggle.min.js"></script>
+<script type="text/javascript" src="/state.js"></script>
+<script type="text/javascript" src="/general.js"></script>
+<script type="text/javascript" src="/itoggle.js"></script>
+<script type="text/javascript" src="/popup.js"></script>
+<script type="text/javascript" src="/help.js"></script>
+<script>
+var $j = jQuery.noConflict();
+
+$j(document).ready(function() {
+
+    init_itoggle('app_44',change_translate_enable);
+
+});
+
+</script>
+<script>
+
+function initial(){
+    show_banner(1);
+    show_menu(8,<% nvram_get_x("", "translate_L2"); %>,<% nvram_get_x("", "translate_L3"); %>);
+    show_footer();
+    change_translate_enable(1);
+
+}
+
+function applyRule(){
+//    if(validForm()){
+        showLoading();
+        
+        document.form.action_mode.value = " Apply ";
+        document.form.current_page.value = "/Advanced_Extensions_app11.asp";
+        document.form.next_page.value = "";
+        
+        document.form.submit();
+//    }
+}
+
+function done_validating(action){
+    refreshpage();
+}
+
+function change_translate_enable(mflag){
+	var m = document.form.app_44.value;
+	var is_translate_enable = (m == "1") ? "重启" : "更新";
+	document.form.updatetranslate.value = is_translate_enable;
+}
+function button_updatetranslate(){
+    change_translate_enable(1);
+	var $j = jQuery.noConflict();
+	$j.post('/apply.cgi',
+	{
+		'action_mode': ' updateapp11 ',
+	});
+}
+</script>
+</head>
+
+<body onload="initial();" onunLoad="return unload_body();">
+
+<div class="wrapper">
+    <div class="container-fluid" style="padding-right: 0px">
+        <div class="row-fluid">
+            <div class="span3"><center><div id="logo"></div></center></div>
+            <div class="span9" >
+                <div id="TopBanner"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Loading" class="popup_bg"></div>
+
+    <iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>
+
+    <form method="post" name="form" id="ruleForm" action="/start_apply.htm" target="hidden_frame">
+
+    <input type="hidden" name="current_page" value="Advanced_Extensions_app11.asp">
+    <input type="hidden" name="next_page" value="">
+    <input type="hidden" name="next_host" value="">
+    <input type="hidden" name="sid_list" value="APP;LANHostConfig;General;">
+    <input type="hidden" name="group_id" value="">
+    <input type="hidden" name="action_mode" value="">
+    <input type="hidden" name="action_script" value="">
+    <input type="hidden" name="wan_ipaddr" value="<% nvram_get_x("", "wan0_ipaddr"); %>" readonly="1">
+    <input type="hidden" name="wan_netmask" value="<% nvram_get_x("", "wan0_netmask"); %>" readonly="1">
+    <input type="hidden" name="dhcp_start" value="<% nvram_get_x("", "dhcp_start"); %>">
+    <input type="hidden" name="ss_enable_o" value="<% nvram_get_x("", "ss_enable"); %>">
+    <input type="hidden" name="dhcp_end" value="<% nvram_get_x("", "dhcp_end"); %>">
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3">
+                <!--Sidebar content-->
+                <!--=====Beginning of Main Menu=====-->
+                <div class="well sidebar-nav side_nav" style="padding: 0px;">
+                    <ul id="mainMenu" class="clearfix"></ul>
+                    <ul class="clearfix">
+                        <li>
+                            <div id="subMenu" class="accordion"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="span9">
+                <!--Body content-->
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="box well grad_colour_dark_blue">
+                            <h2 class="box_head round_top">translate</h2>
+                            <div class="round_bottom">
+                                <div class="row-fluid">
+                                    <div id="tabMenu" class="submenuBlock"></div>
+                                    <div class="alert alert-info" style="margin: 10px;">欢迎使用 translate，让我们可以使用【谷歌翻译】翻译管理页面的内容。
+                                    <div>项目地址：<a href="https://translate.google.com/" target="blank">https://translate.google.com/</a></div>
+                                    <div>当前 app 文件:【<% nvram_get_x("", "app11_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app11_ver_n"); %>】 </div>
+                                    <span style="color:#FF0000;" class=""></span></div>
+
+                                    <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
+                                        <tr>
+                                            <th colspan="4" style="background-color: #E3E3E3;">开关</th>
+                                        </tr>
+                                        <tr id="translate_enable_tr" >
+                                            <th width="30%">translate 开关</th>
+                                            <td>
+                                                    <div class="main_itoggle">
+                                                    <div id="app_44_on_of">
+                                                        <input type="checkbox" id="app_44_fake" <% nvram_match_x("", "app_44", "1", "value=1 checked"); %><% nvram_match_x("", "app_44", "0", "value=0"); %>  />
+                                                    </div>
+                                                </div>
+                                                <div style="position: absolute; margin-left: -10000px;">
+                                                    <input type="radio" value="1" name="app_44" id="app_44_1" class="input" value="1" onClick="change_translate_enable(1);" <% nvram_match_x("", "app_44", "1", "checked"); %> /><#checkbox_Yes#>
+                                                    <input type="radio" value="0" name="app_44" id="app_44_0" class="input" value="0" onClick="change_translate_enable(1);" <% nvram_match_x("", "app_44", "0", "checked"); %> /><#checkbox_No#>
+                                                </div>
+                                            </td>
+                                            <td colspan="1">
+                                                <input class="btn btn-success" style="width:60px" type="button" name="updatetranslate" value="更新" onclick="button_updatetranslate()" />
+                                            </td>
+                                            <td colspan="1">
+                                                <span style="color:#888;">版本：<% nvram_get_x("","translate_v"); %></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th width="30%" style="border-top: 0 none;">语言选项:</th>
+                                            <td style="border-top: 0 none;" colspan="2">
+                                                <select name="app_45" class="input">
+                                                    <option value="0" <% nvram_match_x("","app_45", "0","selected"); %>>English</option>
+                                                    <option value="1" <% nvram_match_x("","app_45", "1","selected"); %>>简体中文</option>
+                                                    <option value="2" <% nvram_match_x("","app_45", "2","selected"); %>>Українська</option>
+                                                    <option value="3" <% nvram_match_x("","app_45", "3","selected"); %>>Español</option>
+                                                    <option value="4" <% nvram_match_x("","app_45", "4","selected"); %>>Brazil</option>
+                                                    <option value="5" <% nvram_match_x("","app_45", "5","selected"); %>>Svensk</option>
+                                                    <option value="6" <% nvram_match_x("","app_45", "6","selected"); %>>Dansk</option>
+                                                    <option value="7" <% nvram_match_x("","app_45", "7","selected"); %>>Finsk</option>
+                                                    <option value="8" <% nvram_match_x("","app_45", "8","selected"); %>>Norsk</option>
+                                                    <option value="9" <% nvram_match_x("","app_45", "9","selected"); %>>Français</option>
+                                                    <option value="10" <% nvram_match_x("","app_45", "10","selected"); %>>Deutsch</option>
+                                                    <option value="11" <% nvram_match_x("","app_45", "11","selected"); %>>Pусский</option>
+                                                    <option value="12" <% nvram_match_x("","app_45", "12","selected"); %>>Polski</option>
+                                                    <option value="13" <% nvram_match_x("","app_45", "13","selected"); %>>Česky</option>
+                                                    <option value="14" <% nvram_match_x("","app_45", "14","selected"); %>>繁体中文</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4" style="border-top: 0 none;">
+                                                <br />
+                                                <center><input class="btn btn-primary" style="width: 219px" type="button" value="<#CTL_apply#>" onclick="applyRule()" /></center>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </form>
+
+    <div id="footer"></div>
+</div>
+</body>
+</html>
+

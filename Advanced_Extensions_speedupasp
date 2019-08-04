@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--app4_ver=2017-10-25=-->
+<html>
+<head>
+<title><#Web_Title#> - 家庭云提速</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="icon" href="images/favicon.png">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/main.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/engage.itoggle.css">
+
+<script type="text/javascript" src="/jquery.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/bootstrap/js/engage.itoggle.min.js"></script>
+<script type="text/javascript" src="/state.js"></script>
+<script type="text/javascript" src="/general.js"></script>
+<script type="text/javascript" src="/itoggle.js"></script>
+<script type="text/javascript" src="/popup.js"></script>
+<script type="text/javascript" src="/help.js"></script>
+<script>
+var $j = jQuery.noConflict();
+
+$j(document).ready(function() {
+
+    init_itoggle('app_10',change_speedup_enable);
+
+});
+
+</script>
+<script>
+
+function initial(){
+    show_banner(1);
+    show_menu(8,<% nvram_get_x("", "speedup_L2"); %>,<% nvram_get_x("", "speedup_L3"); %>);
+    show_footer();
+    change_speedup_enable(1);
+
+}
+
+function applyRule(){
+//    if(validForm()){
+        showLoading();
+        
+        document.form.action_mode.value = " Apply ";
+        document.form.current_page.value = "/Advanced_Extensions_app04.asp";
+        document.form.next_page.value = "";
+        
+        document.form.submit();
+//    }
+}
+
+function done_validating(action){
+    refreshpage();
+}
+
+function change_speedup_enable(mflag){
+	var m = document.form.app_10.value;
+	var is_speedup_enable = (m == "1") ? "重启" : "更新";
+	document.form.updatespeedup.value = is_speedup_enable;
+}
+function button_updatespeedup(){
+    change_speedup_enable(1);
+	var $j = jQuery.noConflict();
+	$j.post('/apply.cgi',
+	{
+		'action_mode': ' updateapp4 ',
+	});
+}
+
+</script>
+</head>
+
+<body onload="initial();" onunLoad="return unload_body();">
+
+<div class="wrapper">
+    <div class="container-fluid" style="padding-right: 0px">
+        <div class="row-fluid">
+            <div class="span3"><center><div id="logo"></div></center></div>
+            <div class="span9" >
+                <div id="TopBanner"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Loading" class="popup_bg"></div>
+
+    <iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>
+
+    <form method="post" name="form" id="ruleForm" action="/start_apply.htm" target="hidden_frame">
+
+    <input type="hidden" name="current_page" value="Advanced_Extensions_app04.asp">
+    <input type="hidden" name="next_page" value="">
+    <input type="hidden" name="next_host" value="">
+    <input type="hidden" name="sid_list" value="APP;LANHostConfig;General;">
+    <input type="hidden" name="group_id" value="">
+    <input type="hidden" name="action_mode" value="">
+    <input type="hidden" name="action_script" value="">
+    <input type="hidden" name="wan_ipaddr" value="<% nvram_get_x("", "wan0_ipaddr"); %>" readonly="1">
+    <input type="hidden" name="wan_netmask" value="<% nvram_get_x("", "wan0_netmask"); %>" readonly="1">
+    <input type="hidden" name="dhcp_start" value="<% nvram_get_x("", "dhcp_start"); %>">
+    <input type="hidden" name="ss_enable_o" value="<% nvram_get_x("", "ss_enable"); %>">
+    <input type="hidden" name="dhcp_end" value="<% nvram_get_x("", "dhcp_end"); %>">
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3">
+                <!--Sidebar content-->
+                <!--=====Beginning of Main Menu=====-->
+                <div class="well sidebar-nav side_nav" style="padding: 0px;">
+                    <ul id="mainMenu" class="clearfix"></ul>
+                    <ul class="clearfix">
+                        <li>
+                            <div id="subMenu" class="accordion"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="span9">
+                <!--Body content-->
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="box well grad_colour_dark_blue">
+                            <h2 class="box_head round_top">家庭云提速</h2>
+                            <div class="round_bottom">
+                                <div class="row-fluid">
+                                    <div id="tabMenu" class="submenuBlock"></div>
+                                    <div class="alert alert-info" style="margin: 10px;">欢迎使用 speedup【家庭云提速】 提速电信宽带。
+                                    <div><a href="http://home.cloud.189.cn/" target="blank">家庭云APP下载地址: http://home.cloud.189.cn/</a></div>
+                                    <div><a href="http://www.right.com.cn/forum/thread-255021-1-1.html" target="blank">抓取代码教程:【点击查看】</a></div>
+                                    <div>当前 app 文件:【<% nvram_get_x("", "app4_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app4_ver_n"); %>】 </div>
+                                    <span style="color:#FF0000;" class=""></span></div>
+
+                                    <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
+                                        <tr>
+                                            <th colspan="4" style="background-color: #E3E3E3;">开关</th>
+                                        </tr>
+                                        <tr id="speedup_enable_tr" >
+                                            <th width="30%">家庭云提速 开关</th>
+                                            <td>
+                                                    <div class="main_itoggle">
+                                                    <div id="app_10_on_of">
+                                                        <input type="checkbox" id="app_10_fake" <% nvram_match_x("", "app_10", "1", "value=1 checked"); %><% nvram_match_x("", "app_10", "0", "value=0"); %>  />
+                                                    </div>
+                                                </div>
+                                                <div style="position: absolute; margin-left: -10000px;">
+                                                    <input type="radio" value="1" name="app_10" id="app_10_1" class="input" value="1" onClick="change_speedup_enable(1);" <% nvram_match_x("", "app_10", "1", "checked"); %> /><#checkbox_Yes#>
+                                                    <input type="radio" value="0" name="app_10" id="app_10_0" class="input" value="0" onClick="change_speedup_enable(1);" <% nvram_match_x("", "app_10", "0", "checked"); %> /><#checkbox_No#>
+                                                </div>
+                                            </td>
+                                            <td colspan="1">
+                                                <input class="btn btn-success" style="width:60px" type="button" name="updatespeedup" value="更新" onclick="button_updatespeedup()" />
+                                            </td>
+                                            <td colspan="1">
+                                                <span style="color:#888;">版本：<% nvram_get_x("","speedup_v"); %></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="4" style="background-color: #E3E3E3;">提速代码设置</th>
+                                        </tr>
+                                        <tr>
+                                            <th width="30%" style="border-top: 0 none;">提速包选择</th>
+                                            <td style="border-top: 0 none;" colspan="2">
+                                                <select name="app_11" class="input">
+                                                    <option value="1" <% nvram_match_x("","app_11", "1","selected"); %>>包1</option>
+                                                    <option value="2" <% nvram_match_x("","app_11", "2","selected"); %>>包2</option>
+                                                    <option value="3" <% nvram_match_x("","app_11", "3","selected"); %>>包3</option>
+                                                    <option value="4" <% nvram_match_x("","app_11", "4","selected"); %>>包4</option>
+                                                    <option value="5" <% nvram_match_x("","app_11", "5","selected"); %>>包5</option>
+                                                </select>
+                                                <div><span style="color:#888;">默认包1，若有更好的提速包，可手动选择</span></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="border: 0 none;">Check代码:</th>
+                                            <td style="border: 0 none;">
+                                                <input type="text" maxlength="1024"  class="input" size="60" name="app_12" placeholder="curl -H 'SessionKey: ....." value="<% nvram_get_x("","app_12"); %>" onKeyPress="return is_string(this,event);" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="border: 0 none;">Start代码:</th>
+                                            <td style="border: 0 none;">
+                                                <input type="text" maxlength="1024"  class="input" size="60" name="app_13" placeholder="curl -H 'SessionKey: ....." value="<% nvram_get_x("","app_13"); %>" onKeyPress="return is_string(this,event);" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="border: 0 none;">Heart代码:</th>
+                                            <td style="border: 0 none;">
+                                                <input type="text" maxlength="1024"  class="input" size="60" name="app_17" placeholder="curl -H 'SessionKey: ....." value="<% nvram_get_x("","app_17"); %>" onKeyPress="return is_string(this,event);" />
+                                                <div><span style="color:#888;">选填代码，Start后没提速可尝试填入</span></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4" style="border-top: 0 none;">
+                                                <br />
+                                                <center><input class="btn btn-primary" style="width: 219px" type="button" value="<#CTL_apply#>" onclick="applyRule()" /></center>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </form>
+
+    <div id="footer"></div>
+</div>
+</body>
+</html>
+

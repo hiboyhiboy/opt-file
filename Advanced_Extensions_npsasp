@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<!--app14_ver=2019-6-6=-->
+<html>
+<head>
+<title><#Web_Title#> - nps</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="icon" href="images/favicon.png">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/main.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/engage.itoggle.css">
+
+<script type="text/javascript" src="/jquery.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/bootstrap/js/engage.itoggle.min.js"></script>
+<script type="text/javascript" src="/state.js"></script>
+<script type="text/javascript" src="/general.js"></script>
+<script type="text/javascript" src="/itoggle.js"></script>
+<script type="text/javascript" src="/popup.js"></script>
+<script type="text/javascript" src="/help.js"></script>
+<script>
+var $j = jQuery.noConflict();
+
+$j(document).ready(function() {
+
+    init_itoggle('app_60',change_nps_enable);
+    init_itoggle('app_58');
+    init_itoggle('app_59');
+
+});
+
+</script>
+<script>
+
+<% login_state_hook(); %>
+
+function initial(){
+    show_banner(1);
+    show_menu(8,<% nvram_get_x("", "nps_L2"); %>,<% nvram_get_x("", "nps_L3"); %>);
+    show_footer();
+    change_nps_enable(1);
+    if (!login_safe())
+        textarea_scripts_enabled(0);
+
+}
+
+function textarea_scripts_enabled(v){
+    inputCtrl(document.form['scripts.app_15.sh'], v);
+    inputCtrl(document.form['scripts.app_16.sh'], v);
+}
+
+function applyRule(){
+//    if(validForm()){
+        showLoading();
+        
+        document.form.action_mode.value = " Apply ";
+        document.form.current_page.value = "/Advanced_Extensions_app14.asp";
+        document.form.next_page.value = "";
+        
+        document.form.submit();
+//    }
+}
+
+function done_validating(action){
+    refreshpage();
+}
+
+function button_npc_wan_port(){
+		var port = document.form.npc_server_addr_o.value;
+		if (port == '')
+			return;
+		var porturl =window.location.protocol + '//' + port;
+		//alert(porturl);
+		window.open(porturl,'npc_wan_port');
+}
+
+function button_nps_wan_port(){
+		var port = document.form.nps_web_port_o.value;
+		if (port == '')
+			var port = '8080';
+		var porturl =window.location.protocol + '//' + window.location.hostname + ":" + port;
+		//alert(porturl);
+		window.open(porturl,'nps_wan_port');
+}
+
+function change_nps_enable(mflag){
+    var m = document.form.app_60.value;
+    var is_nps_enable = (m == "1") ? "重启" : "更新";
+    document.form.updatenps.value = is_nps_enable;
+}
+function button_updatenps(){
+    change_nps_enable(1);
+    var $j = jQuery.noConflict();
+    $j.post('/apply.cgi',
+    {
+        'action_mode': ' updateapp14 ',
+    });
+}
+
+</script>
+</head>
+
+<body onload="initial();" onunLoad="return unload_body();">
+
+<div class="wrapper">
+    <div class="container-fluid" style="padding-right: 0px">
+        <div class="row-fluid">
+            <div class="span3"><center><div id="logo"></div></center></div>
+            <div class="span9" >
+                <div id="TopBanner"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Loading" class="popup_bg"></div>
+
+    <iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>
+
+    <form method="post" name="form" id="ruleForm" action="/start_apply.htm" target="hidden_frame">
+
+    <input type="hidden" name="current_page" value="Advanced_Extensions_app14.asp">
+    <input type="hidden" name="next_page" value="">
+    <input type="hidden" name="next_host" value="">
+    <input type="hidden" name="sid_list" value="APP;LANHostConfig;General;">
+    <input type="hidden" name="group_id" value="">
+    <input type="hidden" name="action_mode" value="">
+    <input type="hidden" name="action_script" value="">
+    <input type="hidden" name="wan_ipaddr" value="<% nvram_get_x("", "wan0_ipaddr"); %>" readonly="1">
+    <input type="hidden" name="wan_netmask" value="<% nvram_get_x("", "wan0_netmask"); %>" readonly="1">
+    <input type="hidden" name="dhcp_start" value="<% nvram_get_x("", "dhcp_start"); %>">
+    <input type="hidden" name="npc_server_addr_o" value="<% nvram_get_x("", "npc_server_addr"); %>">
+    <input type="hidden" name="nps_web_port_o" value="<% nvram_get_x("", "nps_web_port"); %>">
+    <input type="hidden" name="dhcp_end" value="<% nvram_get_x("", "dhcp_end"); %>">
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3">
+                <!--Sidebar content-->
+                <!--=====Beginning of Main Menu=====-->
+                <div class="well sidebar-nav side_nav" style="padding: 0px;">
+                    <ul id="mainMenu" class="clearfix"></ul>
+                    <ul class="clearfix">
+                        <li>
+                            <div id="subMenu" class="accordion"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="span9">
+                <!--Body content-->
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="box well grad_colour_dark_blue">
+                            <h2 class="box_head round_top">nps</h2>
+                            <div class="round_bottom">
+                                <div class="row-fluid">
+                                    <div id="tabMenu" class="submenuBlock"></div>
+                                    <div class="alert alert-info" style="margin: 10px;">欢迎使用 nps ，这是一款轻量级、功能强大的内网穿透代理服务器。支持tcp、udp流量转发，支持内网http代理、内网socks5代理，同时支持snappy压缩、站点保护、加密传输、多路复用、header修改等。支持web图形化管理，集成多用户模式。
+                                    <div>当前 app 文件:【<% nvram_get_x("", "app14_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app14_ver_n"); %>】 </div>
+                                    <div>下载地址: <a href="https://github.com/cnlh/nps/releases" target="blank">https://github.com/cnlh/nps/releases</a></div>
+                                    <div>教程地址: <a href="https://github.com/cnlh/nps" target="blank">https://github.com/cnlh/nps</a> <a href="https://post.smzdm.com/p/a07md2nr/" target="blank1">nps图文教程</a></div>
+                                    <div>服务端一键安装脚本：bash <(curl -L -s https://opt.cn2qq.com/opt-script/nps.sh)</div></div>
+                                    <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
+                                        <tr>
+                                            <th colspan="4" style="background-color: #E3E3E3;">开关</th>
+                                        </tr>
+                                        <tr id="nps_enable_tr" >
+                                            <th width="30%">nps 开关</th>
+                                            <td>
+                                                    <div class="main_itoggle">
+                                                    <div id="app_60_on_of">
+                                                        <input type="checkbox" id="app_60_fake" <% nvram_match_x("", "app_60", "1", "value=1 checked"); %><% nvram_match_x("", "app_60", "0", "value=0"); %>  />
+                                                    </div>
+                                                </div>
+                                                <div style="position: absolute; margin-left: -10000px;">
+                                                    <input type="radio" value="1" name="app_60" id="app_60_1" class="input" value="1" onClick="change_nps_enable(1);" <% nvram_match_x("", "app_60", "1", "checked"); %> /><#checkbox_Yes#>
+                                                    <input type="radio" value="0" name="app_60" id="app_60_0" class="input" value="0" onClick="change_nps_enable(1);" <% nvram_match_x("", "app_60", "0", "checked"); %> /><#checkbox_No#>
+                                                </div>
+                                            </td>
+                                            <td colspan="2">
+                                                <input class="btn btn-success" style="width:150px" type="button" name="updatenps" value="更新" onclick="button_updatenps()" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="border-top: 0 none;">使用指定版本：</th>
+                                            <td style="border-top: 0 none;">
+                                            <div class="input-append">
+                                                <input maxlength="32" class="input" size="15" name="app_57" id="app_57" style="width: 175px;" placeholder="留空时使用最新版本"  value="<% nvram_get_x("","app_57"); %>" onKeyPress="return is_string(this,event);"/>
+                                            </div>
+                                            </td>
+                                            <td style="border-top: 0 none;">
+                                            &nbsp;<span style="color:#888;">[留空]留空时使用最新版本</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="4" style="background-color: #E3E3E3;" >配置 nps 客户端</th>
+                                        </tr>
+                                        <tr>
+                                            <th width="30%" style="border-top: 0 none;"><a class="help_tooltip" href="javascript: void(0)" onmouseover="openTooltip(this, 26, 9);">启用 nps 客户端</a></th>
+                                            <td style="border-top: 0 none;">
+                                                <div class="main_itoggle">
+                                                    <div id="app_58_on_of">
+                                                        <input type="checkbox" id="app_58_fake" <% nvram_match_x("", "app_58", "1", "value=1 checked"); %><% nvram_match_x("", "app_58", "0", "value=0"); %>  />
+                                                    </div>
+                                                </div>
+                                                <div style="position: absolute; margin-left: -10000px;">
+                                                    <input type="radio" value="1" name="app_58" id="app_58_1" class="input" value="1"  <% nvram_match_x("", "app_58", "1", "checked"); %> /><#checkbox_Yes#>
+                                                    <input type="radio" value="0" name="app_58" id="app_58_0" class="input" value="0"  <% nvram_match_x("", "app_58", "0", "checked"); %> /><#checkbox_No#>
+                                                </div>
+                                            </td>
+                                            <td colspan="1" style="border-top: 0 none;">
+                                                <input class="btn btn-success" style="" type="button" value="WebGUI 管理界面" onclick="button_npc_wan_port()" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4" style="border-top: 0 none;">
+                                                <i class="icon-hand-right"></i> <a href="javascript:spoiler_toggle('script15')"><span>点这里自定义 nps 客户端</span></a>
+                                                <div id="script15">
+                                                    <textarea rows="6" wrap="off" spellcheck="false" maxlength="18192" class="span12" name="scripts.app_15.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_15.sh",""); %></textarea>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="4" style="background-color: #E3E3E3;" >配置 nps 服务端</th>
+                                        </tr>
+                                        <tr>
+                                            <th width="30%" style="border-top: 0 none;"><a class="help_tooltip" href="javascript: void(0)" onmouseover="openTooltip(this, 26, 9);">启用 nps 服务端</a></th>
+                                            <td style="border-top: 0 none;">
+                                                <div class="main_itoggle">
+                                                    <div id="app_59_on_of">
+                                                        <input type="checkbox" id="app_59_fake" <% nvram_match_x("", "app_59", "1", "value=1 checked"); %><% nvram_match_x("", "app_59", "0", "value=0"); %>  />
+                                                    </div>
+                                                </div>
+                                                <div style="position: absolute; margin-left: -10000px;">
+                                                    <input type="radio" value="1" name="app_59" id="app_59_1" class="input" value="1"  <% nvram_match_x("", "app_59", "1", "checked"); %> /><#checkbox_Yes#>
+                                                    <input type="radio" value="0" name="app_59" id="app_59_0" class="input" value="0"  <% nvram_match_x("", "app_59", "0", "checked"); %> /><#checkbox_No#>
+                                                </div>
+                                            </td>
+                                            <td colspan="1" style="border-top: 0 none;">
+                                                <input class="btn btn-success" style="" type="button" value="WebGUI 管理界面" onclick="button_nps_wan_port()" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4" style="border-top: 0 none;">
+                                                <i class="icon-hand-right"></i> <a href="javascript:spoiler_toggle('script16')"><span>点这里自定义 nps 服务端</span></a>
+                                                <div id="script16">
+                                                    <textarea rows="12" wrap="off" spellcheck="false" maxlength="18192" class="span12" name="scripts.app_16.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_16.sh",""); %></textarea>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4" style="border-top: 0 none;">
+                                                <br />
+                                                <center><input class="btn btn-primary" style="width: 219px" type="button" value="<#CTL_apply#>" onclick="applyRule()" /></center>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </form>
+
+    <div id="footer"></div>
+</div>
+</body>
+</html>
+
