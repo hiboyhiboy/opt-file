@@ -149,7 +149,7 @@ function button_updatecryfs(){
                                     <div>下载地址: <a href="https://github.com/cryfs/cryfs/releases" target="blank">https://github.com/cryfs/cryfs/releases</a> 教程地址: <a href="https://www.cryfs.org/tutorial/" target="blank">https://www.cryfs.org/tutorial/</a></div>
                                     <div>注意事项: 启动前需加密使用的文件夹要为空；启动前需手动在ssh终端运行命令初始化配置。</div>
                                     <div>opkg update;opkg install cryfs;Sh01_mountopt.sh libmd5_backup;</div>
-                                    <div>cryfs /tmp/AiDisk_00/lockdir_cryfsdata /tmp/AiDisk_00/lockdir</div></div>
+                                    <div>modprobe fuse; cryfs /tmp/AiDisk_00/lockdir_cryfsdata /tmp/AiDisk_00/lockdir</div></div>
                                     <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
                                         <tr>
                                             <th colspan="4" style="background-color: #E3E3E3;">开关</th>

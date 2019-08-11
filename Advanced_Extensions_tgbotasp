@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app12_ver=2018-11-7=-->
+<!--app12_ver=2019-8-11=-->
 <html>
 <head>
 <title><#Web_Title#> - tgbot</title>
@@ -203,6 +203,15 @@ function button_updatetgbot(){
 												<center><input class="btn btn-success" style="width: 219px" type="button" value="发送消息" onclick="applyRule()" /></center>
 											</td>
 										</tr>
+										<tr style="" id="serverchan_notify_tr">
+											<th colspan="4" style="background-color: #E3E3E3;" >Telegram Bot API</th>
+										</tr>
+											<th style="border-top: 0 none;">API的地址:</th>
+											<td style="border-top: 0 none;">
+											<div class="input-append">
+												<input maxlength="512" class="input" size="15" name="app_87" id="app_87" placeholder="https://api.telegram.org" value="<% nvram_get_x("","app_87"); %>" onKeyPress="return is_string(this,event);"/>
+											</div>
+											</td>
 										<tr style="" id="serverchan_notify_tr">
 											<th colspan="4" style="background-color: #E3E3E3;" >通知提醒</th>
 										</tr>
