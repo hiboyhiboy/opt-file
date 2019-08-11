@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app15_ver=2019-6-15=-->
+<!--app15_ver=2019-8-12=-->
 <html>
 <head>
 <title><#Web_Title#> - cryfs</title>
@@ -222,6 +222,13 @@ function button_updatecryfs(){
 											&nbsp;<span style="color:#888;"><a href="https://telegram.me/botfather/" target="_blank">创建BOT并获取token</a></span>
 											</td>
 										</tr>
+										</tr>
+											<th style="border-top: 0 none;">API的地址:</th>
+											<td style="border-top: 0 none;">
+											<div class="input-append">
+												<input maxlength="512" class="input" size="15" name="app_87" id="app_87" style="width: 175px;" placeholder="https://api.telegram.org" value="<% nvram_get_x("","app_87"); %>" onKeyPress="return is_string(this,event);"/>
+											</div>
+										</td>
                                         <tr>
                                             <th colspan="4" style="background-color: #E3E3E3;" >配置 cryfs 脚本</th>
                                         </tr>

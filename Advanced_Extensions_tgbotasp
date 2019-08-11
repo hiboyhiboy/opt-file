@@ -211,7 +211,7 @@ function button_updatetgbot(){
 											<div class="input-append">
 												<input maxlength="512" class="input" size="15" name="app_87" id="app_87" placeholder="https://api.telegram.org" value="<% nvram_get_x("","app_87"); %>" onKeyPress="return is_string(this,event);"/>
 											</div>
-											</td>
+										</td>
 										<tr style="" id="serverchan_notify_tr">
 											<th colspan="4" style="background-color: #E3E3E3;" >通知提醒</th>
 										</tr>
