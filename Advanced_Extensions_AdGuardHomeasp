@@ -149,7 +149,7 @@ function button_AdGuardHome_wan_port(){
                                     <div class="alert alert-info" style="margin: 10px;">欢迎使用 AdGuardHome ，这是一款全网广告拦截与反跟踪软件。在您将其安装完毕后，它将保护您所有家用设备，同时您不再需要安装任何客户端软件。随着物联网与连接设备的兴起，掌控您自己的整个网络环境变得越来越重要。AdGuard 主页：<a href=https://adguard.com/zh_cn/adguard-home/overview.html" target="blank">https://adguard.com/zh_cn/adguard-home/overview.html</a>
                                     <div>项目地址：<a href="https://github.com/AdguardTeam/AdGuardHome" target="blank">https://github.com/AdguardTeam/AdGuardHome</a></div>
                                     <div>备注：建议修改 web 管理页面的 auth_name 和 auth_pass 配置</div>
-                                    <div>当前 app 文件:【<% nvram_get_x("", "app17_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app17_ver"); %>】 </div>
+                                    <div>当前 app 文件:【<% nvram_get_x("", "app17_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app17_ver_n"); %>】 </div>
                                     <span style="color:#FF0000;" class=""></span></div>
 
                                     <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
