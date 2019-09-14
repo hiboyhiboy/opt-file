@@ -158,7 +158,7 @@ function button_clash_wget_yml(){
                             <div class="round_bottom">
                                 <div class="row-fluid">
                                     <div id="tabMenu" class="submenuBlock"></div>
-                                    <div class="alert alert-info" style="margin: 10px;">欢迎使用 clash ，这是一款用Go开发的代理工具，支持ss/v2ray（不支持ssr），支持规则分流（类似于 Surge 的配置）。clash 主页：<a href=https://github.com/Dreamacro/clash" target="blank">https://github.com/Dreamacro/clash</a>
+                                    <div class="alert alert-info" style="margin: 10px;">欢迎使用 clash ，这是一款用Go开发的代理工具，支持ss/v2ray（不支持ssr），支持规则分流（类似于 Surge 的配置）。clash 主页：<a href="https://github.com/Dreamacro/clash" target="blank">https://github.com/Dreamacro/clash</a>
                                     <div>项目地址：<a href="https://koolclash.js.org" target="blank">https://koolclash.js.org</a> 配置模板：<a href="https://github.com/Hackl0us/SS-Rule-Snippet/blob/master/LAZY_RULES/clash.yaml" target="blank">clash.yaml</a></div>
                                     <div>第三方 web 管理页面：<a href="http://clash.razord.top/" target="blank">http://clash.razord.top/</a></div>
                                     <div>备注：建议修改配置的 secret: 来加密 web 管理页面</div>
