@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app18_ver=2019-9-8=-->
+<!--app18_ver=2019-11-7=-->
 <html>
 <head>
 <title><#Web_Title#> - clash</title>
@@ -52,6 +52,7 @@ function initial(){
 
 function textarea_scripts_enabled(v){
 	inputCtrl(document.form['scripts.app_20.sh'], v);
+	inputCtrl(document.form['scripts.app_21.sh'], v);
 }
 
 function applyRule(){
@@ -274,7 +275,15 @@ function button_clash_wget_yml(){
 											<td colspan="4" style="border-top: 0 none;">
 												<i class="icon-hand-right"></i> <a href="javascript:spoiler_toggle('app_20_script')"><span>点这里自定义 clash 配置</span></a>
 												<div id="app_20_script">
-													<textarea rows="12" wrap="off" spellcheck="false" maxlength="314571" class="span12" name="scripts.app_20.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_20.sh",""); %></textarea>
+													<textarea rows="9" wrap="off" spellcheck="false" maxlength="314571" class="span12" name="scripts.app_20.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_20.sh",""); %></textarea>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="4" style="border-top: 0 none;">
+												<i class="icon-hand-right"></i> <a href="javascript:spoiler_toggle('app_21_script')"><span>点这里自定义 clash dns 配置</span></a>
+												<div id="app_21_script">
+													<textarea rows="9" wrap="off" spellcheck="false" maxlength="314571" class="span12" name="scripts.app_21.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_21.sh",""); %></textarea>
 												</div>
 											</td>
 										</tr>
