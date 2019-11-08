@@ -161,7 +161,7 @@ function button_clash_wget_yml(){
                                     <div id="tabMenu" class="submenuBlock"></div>
                                     <div class="alert alert-info" style="margin: 10px;">欢迎使用 clash ，这是一款用Go开发的代理工具，支持ss/v2ray（不支持ssr），支持规则分流（类似于 Surge 的配置）。clash 主页：<a href="https://github.com/Dreamacro/clash" target="blank">https://github.com/Dreamacro/clash</a>
                                     <div>项目地址：<a href="https://koolclash.js.org" target="blank">https://koolclash.js.org</a> 配置模板：<a href="https://github.com/Hackl0us/SS-Rule-Snippet/blob/master/LAZY_RULES/clash.yaml" target="blank">clash.yaml</a></div>
-                                    <div>第三方 web 管理页面：<a href="http://clash.razord.top/" target="blank">http://clash.razord.top/</a></div>
+                                    <div>第三方 web 管理页面：<a href="http://clash.razord.top/" target="blank">http://clash.razord.top/</a> 、<a href="http://yacd.haishan.me/" target="blank">http://yacd.haishan.me/</a></div>
                                     <div>备注：建议修改配置的 secret: 来加密 web 管理页面</div>
                                     <div>当前 app 文件:【<% nvram_get_x("", "app18_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app18_ver_n"); %>】 </div>
                                     <span style="color:#FF0000;" class=""></span></div>
@@ -261,7 +261,7 @@ function button_clash_wget_yml(){
 											<th style="border-top: 0 none;">clash 订阅链接（需手动更新）:<div></div></th>
 											<td style="border-top: 0 none;">
 											<div class="input-append">
-												<input maxlength="512" class="input" size="15" name="app_91" id="app_91" style="width: 175px;" placeholder="[空]"  value="<% nvram_get_x("","app_91"); %>" onKeyPress="return is_string(this,event);"/>
+												<input maxlength="512" class="input" size="15" name="app_91" id="app_91" style="width: 175px;" placeholder=" https://www.123.com/clash.txt"  value="<% nvram_get_x("","app_91"); %>" onKeyPress="return is_string(this,event);"/>
 											</div>
 											</td>
 											<td style="border-top: 0 none;">
