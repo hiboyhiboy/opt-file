@@ -146,7 +146,7 @@ function button_updatetmall(){
                                     <div>③在意图详情最下面下载认证文件，以认证文件名456abc.txt，内容：E5uYpm091G为例填入路由的认证配置[456abc.txt E5uYpm091G]空格隔开文件名和内容。启动路由的 tmall 开关，准备完成提交保存意图。</div>
                                     <div>④到技能组件控制台测试验证的在线测试填入[路由器打开网络]测试一下吧！（此网络为访客网络）成功后开启真机测试，使用语音测试：天猫精灵，路由器打开网络。（[调用词+意图名称]为激活语句，可到天猫精灵APP的组合指令功能添加自定义激活语句）</div>
                                     <div>⑤查看下面的意图触发脚本，把所有意图添加到技能里面吧！参考②重复添加。</div>
-                                    <div>教程：<a href="https://www.right.com.cn/forum/thread-477145-1-1.html" target="blank1">图文教程</a> <a href="https://bbs.hassbian.com/thread-6504-1-1.html" target="blank2">图文教程</a> <a href="https://www.right.com.cn/FORUM/thread-484829-1-1.html" target="blank1">frp图文教程</a></div>
+                                    <div>教程： <a href="https://bbs.hassbian.com/thread-6504-1-1.html" target="blank2">图文教程</a> <a href="https://www.right.com.cn/FORUM/thread-484829-1-1.html" target="blank1">frp图文教程</a></div>
                                     <span style="color:#FF0000;" class=""></span></div>
 
                                     <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">

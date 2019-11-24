@@ -131,7 +131,7 @@ function button_updatespeedup(){
                                     <div id="tabMenu" class="submenuBlock"></div>
                                     <div class="alert alert-info" style="margin: 10px;">欢迎使用 speedup【家庭云提速】 提速电信宽带。
                                     <div><a href="http://home.cloud.189.cn/" target="blank">家庭云APP下载地址: http://home.cloud.189.cn/</a></div>
-                                    <div><a href="http://www.right.com.cn/forum/thread-255021-1-1.html" target="blank">抓取代码教程:【点击查看】</a></div>
+                                    <div><a href="https://post.smzdm.com/p/646363/" target="blank">抓取代码教程:【点击查看】</a></div>
                                     <div>当前 app 文件:【<% nvram_get_x("", "app4_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app4_ver_n"); %>】 </div>
                                     <span style="color:#FF0000;" class=""></span></div>
 
