@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app18_ver=2019-11-7=-->
+<!--app18_ver=2019-12-5=-->
 <html>
 <head>
 <title><#Web_Title#> - clash</title>
@@ -266,6 +266,17 @@ function button_clash_wget_yml(){
 											</td>
 											<td style="border-top: 0 none;">
 												<input class="btn btn-success" style="" type="button" value="更新订阅" onclick="button_clash_wget_yml()" tabindex="24">
+											</td>
+										</tr>
+										<tr>
+											<th style="border-top: 0 none;">关键词匹配服务器[域名]转换[IP]:<div></div></th>
+											<td style="border-top: 0 none;">
+											<div class="input-append">
+												<input maxlength="512" class="input" size="15" name="app_101" id="app_101" style="width: 175px;" placeholder="留空则域名全部不转换IP"  value="<% nvram_get_x("","app_101"); %>" onKeyPress="return is_string(this,event);"/>
+											</div>
+											</td>
+											<td  colspan="2" style="border-top: 0 none;">
+												<span style="color:#888;">填[*]则域名全部转换IP,对server:值有效,支持<a href="https://www.runoob.com/regexp/regexp-syntax.html" target="blank_regexp">正则表达式</a></span>
 											</td>
 										</tr>
 										<tr>
