@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app19_ver=2019-12-14=-->
+<!--app19_ver=2020-01-04=-->
 <html>
 <head>
 <title><#Web_Title#> - chinadns_ng</title>
@@ -167,7 +167,7 @@ function button_updatechinadns_ng(){
                                         <tr id="chinadns_dnss_tr" >
                                             <th style="border: 0 none;">命令选项:</th>
                                             <td style="border: 0 none;" colspan="3">
-                                                <input style="width: 420px;" type="text" maxlength="512"  class="input" size="60" name="app_103" placeholder=" -n -b 0.0.0.0 -c 223.5.5.5 -t 127.0.0.1#55353 -g /opt/app/chinadns_ng/gfwlist.txt " value="<% nvram_get_x("","app_103"); %>" onKeyPress="return is_string(this,event);" />
+                                                <input style="width: 420px;" type="text" maxlength="512"  class="input" size="60" name="app_103" placeholder=" -n -b 0.0.0.0 -c 223.5.5.5 -t 127.0.0.1#55353 --chnlist-first -m /opt/app/chinadns_ng/chnlist.txt -g /opt/app/chinadns_ng/gfwlist.txt " value="<% nvram_get_x("","app_103"); %>" onKeyPress="return is_string(this,event);" />
                                             </td>
                                         </tr>
                                         <tr id="chinadns_port_tr" >
