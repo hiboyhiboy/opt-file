@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app19_ver=2020-01-04=-->
+<!--app19_ver=2020-01-05=-->
 <html>
 <head>
 <title><#Web_Title#> - chinadns_ng</title>
@@ -27,6 +27,7 @@ var $j = jQuery.noConflict();
 $j(document).ready(function() {
 
     init_itoggle('app_102',change_chinadns_ng_enable);
+    init_itoggle('app_106',change_smartdns_enable);
 
 });
 
@@ -38,6 +39,7 @@ function initial(){
     show_menu(8,<% nvram_get_x("", "chinadns_ng_L2"); %>,<% nvram_get_x("", "chinadns_ng_L3"); %>);
     show_footer();
     change_chinadns_ng_enable(1);
+    change_smartdns_enable(1);
 
 }
 
@@ -62,6 +64,13 @@ function change_chinadns_ng_enable(mflag){
 	var is_chinadns_ng_enable = (m == "1") ? "更新规则" : "更新程序";
 	document.form.app_1.value = (m == "1") ? "1" : "0";
 	document.form.updatechinadns_ng.value = is_chinadns_ng_enable;
+}
+function change_smartdns_enable(mflag){
+	var m = document.form.app_106[0].checked;
+	var mm = (m == "0") ? "1" : "0";
+	showhide_div("chinadns_dnss1_tr", mm);
+	showhide_div("chinadns_dnss2_tr", m);
+	showhide_div("row_smartdns_script", m);
 }
 
 function button_updatechinadns_ng(){
@@ -142,7 +151,7 @@ function button_updatechinadns_ng(){
 
                                     <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
                                         <tr>
-                                            <th colspan="4" style="background-color: #E3E3E3;">开关</th>
+                                            <th colspan="4" style="background-color: #E3E3E3;">ChinaDNS-NG</th>
                                         </tr>
                                         <tr id="chinadns_ng_enable_tr" >
                                             <th width="30%">chinadns-ng 开关</th>
@@ -164,10 +173,16 @@ function button_updatechinadns_ng(){
                                                 <span style="color:#888;">版本：<% nvram_get_x("","chinadns_ng_v"); %></span>
                                             </td>
                                         </tr>
-                                        <tr id="chinadns_dnss_tr" >
+                                        <tr id="chinadns_dnss1_tr" style="display:none;">
                                             <th style="border: 0 none;">命令选项:</th>
                                             <td style="border: 0 none;" colspan="3">
                                                 <input style="width: 420px;" type="text" maxlength="512"  class="input" size="60" name="app_103" placeholder=" -n -b 0.0.0.0 -c 223.5.5.5 -t 127.0.0.1#55353 --chnlist-first -m /opt/app/chinadns_ng/chnlist.txt -g /opt/app/chinadns_ng/gfwlist.txt " value="<% nvram_get_x("","app_103"); %>" onKeyPress="return is_string(this,event);" />
+                                            </td>
+                                        </tr>
+                                        <tr id="chinadns_dnss2_tr" style="display:none;">
+                                            <th style="border: 0 none;">命令选项:(当SmartDNS启用时)</th>
+                                            <td style="border: 0 none;" colspan="3">
+                                                <input style="width: 420px;" type="text" maxlength="512"  class="input" size="60" name="app_107" placeholder=" -n -b 0.0.0.0 -c 127.0.0.1#8051 -t 127.0.0.1#8052 --chnlist-first -m /opt/app/chinadns_ng/chnlist.txt -g /opt/app/chinadns_ng/gfwlist.txt " value="<% nvram_get_x("","app_107"); %>" onKeyPress="return is_string(this,event);" />
                                             </td>
                                         </tr>
                                         <tr id="chinadns_port_tr" >
@@ -176,6 +191,39 @@ function button_updatechinadns_ng(){
                                                 <input type="text" maxlength="512"  class="input" size="60" name="app_6" placeholder="8053" value="<% nvram_get_x("","app_6"); %>" onKeyPress="return is_string(this,event);" />
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <th colspan="4" style="background-color: #E3E3E3;">SmartDNS</th>
+                                        </tr>
+                                    </table>
+                                    <div class="alert alert-info" style="margin: 10px;">SmartDNS 是一个运行在本地的DNS服务器，SmartDNS接受本地客户端的DNS查询请求，从多个上游DNS服务器获取DNS查询结果，并将访问速度最快的结果返回给客户端，提高网络访问速度。
+									<div><a href="https://github.com/pymumu/smartdns/" target="blank">项目地址: https://github.com/pymumu/smartdns/</a></div>
+									<span style="color:#FF0000;" class=""></span></div>
+                                    <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
+                                        <tr id="smartdns_enable_tr" >
+                                            <th width="30%" style="border: 0 none;">SmartDNS 开关</th>
+                                            <td style="border: 0 none;">
+                                                    <div class="main_itoggle">
+                                                    <div id="app_106_on_of">
+                                                        <input type="checkbox" id="app_106_fake" <% nvram_match_x("", "app_106", "1", "value=1 checked"); %><% nvram_match_x("", "app_106", "0", "value=0"); %>  />
+                                                    </div>
+                                                </div>
+                                                <div style="position: absolute; margin-left: -10000px;">
+                                                    <input type="radio" value="1" name="app_106" id="app_106_1" class="input" value="1" onClick="change_smartdns_enable(1);" <% nvram_match_x("", "app_106", "1", "checked"); %> /><#checkbox_Yes#>
+                                                    <input type="radio" value="0" name="app_106" id="app_106_0" class="input" value="0" onClick="change_smartdns_enable(1);" <% nvram_match_x("", "app_106", "0", "checked"); %> /><#checkbox_No#>
+                                                </div>
+                                            </td>
+                                            <td colspan="2" style="border: 0 none;">
+                                                <span style="color:#888;">版本：<% nvram_get_x("","smartdns_v"); %></span>
+                                            </td>
+                                        </tr>
+										<tr id="row_smartdns_script" style="display:none;">
+											<td colspan="4" style="border-top: 0 none;">
+												<i class="icon-hand-right"></i> <a href="javascript:spoiler_toggle('app_23_script')"><span>点这里自定义 SmartDNS 配置</span></a>
+												<div id="app_23_script" style="display:none;">
+													<textarea rows="18" wrap="off" spellcheck="false" maxlength="2097152" class="span12" name="scripts.app_23.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_23.sh",""); %></textarea>
+												</div>
+											</td>
+										</tr>
                                         <tr>
                                             <td colspan="4" style="border-top: 0 none;">
                                                 <br />
