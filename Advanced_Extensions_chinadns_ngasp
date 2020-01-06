@@ -40,7 +40,13 @@ function initial(){
     show_footer();
     change_chinadns_ng_enable(1);
     change_smartdns_enable(1);
+	if (!login_safe())
+		textarea_scripts_enabled(0);
 
+}
+
+function textarea_scripts_enabled(v){
+	inputCtrl(document.form['scripts.app_23.sh'], v);
 }
 
 function applyRule(){
@@ -156,7 +162,7 @@ function button_updatechinadns_ng(){
                                         <tr id="chinadns_ng_enable_tr" >
                                             <th width="30%">chinadns-ng 开关</th>
                                             <td>
-                                                    <div class="main_itoggle">
+                                                <div class="main_itoggle">
                                                     <div id="app_102_on_of">
                                                         <input type="checkbox" id="app_102_fake" <% nvram_match_x("", "app_102", "1", "value=1 checked"); %><% nvram_match_x("", "app_102", "0", "value=0"); %>  />
                                                     </div>
@@ -202,7 +208,7 @@ function button_updatechinadns_ng(){
                                         <tr id="smartdns_enable_tr" >
                                             <th width="30%" style="border: 0 none;">SmartDNS 开关</th>
                                             <td style="border: 0 none;">
-                                                    <div class="main_itoggle">
+                                                <div class="main_itoggle">
                                                     <div id="app_106_on_of">
                                                         <input type="checkbox" id="app_106_fake" <% nvram_match_x("", "app_106", "1", "value=1 checked"); %><% nvram_match_x("", "app_106", "0", "value=0"); %>  />
                                                     </div>
