@@ -109,7 +109,6 @@ function button_updatetransocks(){
     <input type="hidden" name="wan_ipaddr" value="<% nvram_get_x("", "wan0_ipaddr"); %>" readonly="1">
     <input type="hidden" name="wan_netmask" value="<% nvram_get_x("", "wan0_netmask"); %>" readonly="1">
     <input type="hidden" name="dhcp_start" value="<% nvram_get_x("", "dhcp_start"); %>">
-    <input type="hidden" name="ss_enable_o" value="<% nvram_get_x("", "ss_enable"); %>">
     <input type="hidden" name="dhcp_end" value="<% nvram_get_x("", "dhcp_end"); %>">
 
     <div class="container-fluid">
@@ -172,6 +171,7 @@ function button_updatetransocks(){
 													<option value="0" <% nvram_match_x("","app_28", "0","selected"); %>>【1】大陆白名单</option>
 													<option value="1" <% nvram_match_x("","app_28", "1","selected"); %>>【2】gfwlist</option>
 													<option value="2" <% nvram_match_x("","app_28", "2","selected"); %>>【3】全局代理</option>
+													<option value="3" <% nvram_match_x("","app_28", "3","selected"); %>>【4】回国模式</option>
 												</select>
 											</td>
 										</tr>

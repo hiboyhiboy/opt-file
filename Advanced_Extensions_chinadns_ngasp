@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app19_ver=2020-01-05=-->
+<!--app19_ver=2020-02-03=-->
 <html>
 <head>
 <title><#Web_Title#> - chinadns_ng</title>
@@ -68,7 +68,6 @@ function done_validating(action){
 function change_chinadns_ng_enable(mflag){
 	var m = document.form.app_102.value;
 	var is_chinadns_ng_enable = (m == "1") ? "更新规则" : "更新程序";
-	document.form.app_1.value = (m == "1") ? "1" : "0";
 	document.form.updatechinadns_ng.value = is_chinadns_ng_enable;
 }
 function change_smartdns_enable(mflag){
@@ -119,9 +118,7 @@ function button_updatechinadns_ng(){
     <input type="hidden" name="wan_ipaddr" value="<% nvram_get_x("", "wan0_ipaddr"); %>" readonly="1">
     <input type="hidden" name="wan_netmask" value="<% nvram_get_x("", "wan0_netmask"); %>" readonly="1">
     <input type="hidden" name="dhcp_start" value="<% nvram_get_x("", "dhcp_start"); %>">
-    <input type="hidden" name="ss_enable_o" value="<% nvram_get_x("", "ss_enable"); %>">
     <input type="hidden" name="dhcp_end" value="<% nvram_get_x("", "dhcp_end"); %>">
-    <input type="hidden" name="app_1" value="<% nvram_get_x("", "app_1"); %>">
 
     <div class="container-fluid">
         <div class="row-fluid">
