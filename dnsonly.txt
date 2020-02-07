@@ -1,0 +1,7 @@
+#用于只做域名解析的网站
+xboxlive.com
+windows.com
+halowaypoint.com
+cloudapp.net
+halocdn.com
+xbox.com
