@@ -1,2 +1,7 @@
 #用于在中国大陆有CDN需要跳过的域名解析
 dlassets.xboxlive.com
+dlassets.xboxlive.com
+dlassets.xboxlive.com
+dlassets.xboxlive.com
+dlassets.xboxlive.com
+dlassets.xboxlive.com
