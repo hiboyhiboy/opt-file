@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app21_ver=2020-02-03=-->
+<!--app21_ver=2020-02-08=-->
 <html>
 <head>
 <title><#Web_Title#> - ss_tproxy</title>
@@ -241,6 +241,7 @@ function change_ss_pdnsd_all(){
 													<option value="4" <% nvram_match_x("","app_111", "4","selected"); %>>更新 chnlist [白名单域名]规则</option>
 													<option value="5" <% nvram_match_x("","app_111", "5","selected"); %>>更新 [全部] 规则</option>
 													<option value="6" <% nvram_match_x("","app_111", "6","selected"); %>>手动更新脚本</option>
+													<option value="7" <% nvram_match_x("","app_111", "7","selected"); %>>重置 ss_tproxy 数据(出错了？重置试试)</option>
 												</select>
 											</td>
 										</tr>
