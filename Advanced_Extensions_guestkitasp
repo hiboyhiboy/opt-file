@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app9_ver=2018-5-1=-->
+<!--app9_ver=2020-02-10=-->
 <html>
 <head>
 <title><#Web_Title#> - guestkit</title>
@@ -157,6 +157,17 @@ function button_updateguestkit(){
                                                 <span style="color:#888;">版本：<% nvram_get_x("","guestkit_v"); %></span>
                                             </td>
                                         </tr>
+										<tr style="" id="serverchan_notify_tr">
+											<th colspan="4" style="background-color: #E3E3E3;" >自定义场景触发脚本</th>
+										</tr>
+										<tr>
+											<td colspan="4" style="border-top: 0 none;">
+												<i class="icon-hand-right"></i> <a href="javascript:spoiler_toggle('app_28')"><span>点这里修改【自定义场景】触发脚本</span></a>
+												<div id="app_28">
+													<textarea rows="18" wrap="off" spellcheck="false" maxlength="18192" class="span12" name="scripts.app_28.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_28.sh",""); %></textarea>
+												</div>
+											</td>
+										</tr>
                                         <tr>
                                             <td colspan="4" style="border-top: 0 none;">
                                                 <br />
