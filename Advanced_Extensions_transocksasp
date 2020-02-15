@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app10_ver=2018-6-17=-->
+<!--app10_ver=2020-02-15=-->
 <html>
 <head>
 <title><#Web_Title#> - transocks</title>
@@ -40,6 +40,7 @@ function initial(){
     show_menu(8,<% nvram_get_x("", "transocks_L2"); %>,<% nvram_get_x("", "transocks_L3"); %>);
     show_footer();
     change_transocks_enable(1);
+    change_kumasocks_enable();
 	if (!login_safe())
 		textarea_scripts_enabled(0);
 
@@ -69,6 +70,11 @@ function change_transocks_enable(mflag){
 	var m = document.form.app_27.value;
 	var is_transocks_enable = (m == "1") ? "重启" : "更新";
 	document.form.updatetransocks.value = is_transocks_enable;
+}
+function change_kumasocks_enable(){
+	var m = document.form.app_116.value;
+	if(m == "1")
+		document.form.app_29.value = "0";
 }
 function button_updatetransocks(){
     change_transocks_enable(1);
@@ -137,15 +143,17 @@ function button_updatetransocks(){
                                     <div id="tabMenu" class="submenuBlock"></div>
                                     <div class="alert alert-info" style="margin: 10px;">欢迎使用 transocks - 一个可以将TCP连接透明地重定向到SOCKS5 / HTTP的透明代理
                                     <div>项目地址：<a href="https://github.com/cybozu-go/transocks" target="blank">https://github.com/cybozu-go/transocks</a></div>
+                                    <div>欢迎使用 kumasocks 一个以 Golang 语言编写的轻量级透明透明的 socks5 转换器代理</div>
+                                    <div>项目地址：<a href="https://github.com/xsm1997/KumaSocks" target="blank">https://github.com/xsm1997/KumaSocks</a></div>
                                     <div>当前 app 文件:【<% nvram_get_x("", "app10_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app10_ver_n"); %>】 </div>
                                     <span style="color:#FF0000;" class=""></span></div>
 
                                     <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
                                         <tr>
-                                            <th colspan="4" style="background-color: #E3E3E3;">开关</th>
+                                            <th colspan="4" style="background-color: #E3E3E3;">transocks  kumasocks 开关</th>
                                         </tr>
                                         <tr id="transocks_enable_tr" >
-                                            <th width="30%">transocks 开关</th>
+                                            <th width="30%">开关</th>
                                             <td>
                                                     <div class="main_itoggle">
                                                     <div id="app_27_on_of">
@@ -164,6 +172,15 @@ function button_updatetransocks(){
                                                 <span style="color:#888;">版本：<% nvram_get_x("","transocks_v"); %></span>
                                             </td>
                                         </tr>
+                                        <tr id="kumasocks_enable_tr" >
+                                            <th width="30%" style="border-top: 0 none;">选择程序</th>
+											<td style="border-top: 0 none;">
+												<select name="app_116" class="input" onChange="change_kumasocks_enable();">
+													<option value="0" <% nvram_match_x("","app_116", "0","selected"); %>>使用 transocks</option>
+													<option value="1" <% nvram_match_x("","app_116", "1","selected"); %>>使用 kumasocks</option>
+												</select>
+											</td>
+                                        </tr>
 										<tr>
 											<th width="30%" style="border-top: 0 none;">工作模式</th>
 											<td style="border-top: 0 none;">
@@ -178,9 +195,9 @@ function button_updatetransocks(){
 										<tr>
 											<th width="30%" style="border-top: 0 none;">透明重定向的代理模式</th>
 											<td style="border-top: 0 none;">
-												<select name="app_29" class="input">
-													<option value="0" <% nvram_match_x("","app_29", "0","selected"); %>>socks5</option>
-													<option value="1" <% nvram_match_x("","app_29", "1","selected"); %>>http</option>
+												<select name="app_29" class="input" onChange="change_kumasocks_enable();">
+													<option value="0" <% nvram_match_x("","app_29", "0","selected"); %>>socks5（transocks、kumasocks）</option>
+													<option value="1" <% nvram_match_x("","app_29", "1","selected"); %>>http（transocks）</option>
 												</select>
 											</td>
 										</tr>
