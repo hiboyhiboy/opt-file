@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app21_ver=2020-02-08=-->
+<!--app21_ver=2020-02-19=-->
 <html>
 <head>
 <title><#Web_Title#> - ss_tproxy</title>
@@ -313,7 +313,7 @@ function change_ss_pdnsd_all(){
 										<tr>
 											<th width="30%" style="border-top: 0 none;">本机流量代理选择</th>
 											<td style="border-top: 0 none;" colspan="2">
-												<select style=" width: 390px; " name="app_113" class="input">
+												<select style=" width: 390px; " name="app_114" class="input">
 													<option value="0" <% nvram_match_x("","app_114", "0","selected"); %>>代理本机流量</option>
 													<option value="1" <% nvram_match_x("","app_114", "1","selected"); %>>跳过代理本机流量</option>
 												</select>
