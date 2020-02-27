@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app18_ver=2020-02-12=-->
+<!--app18_ver=2020-02-27=-->
 <html>
 <head>
 <title><#Web_Title#> - clash</title>
@@ -108,6 +108,10 @@ function button_clash_wget_yml(){
 	applyRule();
 }
 
+function button_clash_save_yml(){
+	document.form.app_86.value = 'clash_save_yml';
+	applyRule();
+}
 </script>
 </head>
 
@@ -254,25 +258,41 @@ function button_clash_wget_yml(){
                                             </td>
                                         </tr>
 										<tr>
-											<th style="border-top: 0 none;">Web管理地址 :<div></div></th>
+											<th style="border-top: 0 none;">Web管理地址 :</th>
 											<td style="border-top: 0 none;">
 											<div class="input-append">
 												<input maxlength="512" class="input" size="15" name="app_94" id="app_94" style="width: 175px;" placeholder="0.0.0.0:9090"  value="<% nvram_get_x("","app_94"); %>" onKeyPress="return is_string(this,event);"/>
 											</div>
 											</td>
 											<td style="border-top: 0 none;">
-												<input class="btn btn-success" style="" type="button" value="Web管理界面" onclick="button_clash_wan_port()" tabindex="24">
+												<input class="btn btn-primary" style="" type="button" value="Web管理界面" onclick="button_clash_wan_port()" tabindex="24">
 											</td>
 										</tr>
 										<tr>
-											<th style="border-top: 0 none;">clash 订阅链接（需手动更新）:<div></div></th>
+											<th style="border-top: 0 none;">Web管理密码 :</th>
+											<td style="border-top: 0 none;">
+											<div class="input-append">
+												<input maxlength="512" class="input" size="15" name="app_119" id="app_119" style="width: 175px;" placeholder="默认空"  value="<% nvram_get_x("","app_119"); %>" onKeyPress="return is_string(this,event);"/>
+											</div>
+											</td>
+											<td style="border-top: 0 none;">
+												<input class="btn btn-warning" style="" type="button" value="保存web节点选择" onclick="button_clash_save_yml()" tabindex="24">
+											</td>
+										</tr>
+										<tr>
+											<th style="border-top: 0 none;">clash 订阅链接:<div></div></th>
 											<td style="border-top: 0 none;">
 											<div class="input-append">
 												<input maxlength="512" class="input" size="15" name="app_91" id="app_91" style="width: 175px;" placeholder=" https://www.123.com/clash.txt"  value="<% nvram_get_x("","app_91"); %>" onKeyPress="return is_string(this,event);"/>
 											</div>
 											</td>
-											<td style="border-top: 0 none;">
+											<td colspan="2" style="border-top: 0 none;">
 												<input class="btn btn-success" style="" type="button" value="更新订阅" onclick="button_clash_wget_yml()" tabindex="24">
+												<select name="app_120" class="input" style="width: 140px;">
+													<option value="0" <% nvram_match_x("","app_120", "0","selected"); %>>停定时更新</option>
+													<option value="1" <% nvram_match_x("","app_120", "1","selected"); %>>开定时更新</option>
+													<option value="2" <% nvram_match_x("","app_120", "2","selected"); %>>停热重载、停更新</option>
+												</select>
 											</td>
 										</tr>
 										<tr id="app_101_tr" style="display:none;">
