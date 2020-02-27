@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app18_ver=2020-02-27=-->
+<!--app18_ver=2020-02-28=-->
 <html>
 <head>
 <title><#Web_Title#> - clash</title>
@@ -110,6 +110,11 @@ function button_clash_wget_yml(){
 
 function button_clash_save_yml(){
 	document.form.app_86.value = 'clash_save_yml';
+	applyRule();
+}
+
+function button_clash_wget_geoip(){
+	document.form.app_86.value = 'clash_wget_geoip';
 	applyRule();
 }
 </script>
@@ -242,6 +247,9 @@ function button_clash_save_yml(){
                                                     <input type="radio" value="0" name="app_92" id="app_92_0" class="input" value="0" onClick="change_clash_follow_bridge(1);" <% nvram_match_x("", "app_92", "0", "checked"); %> /><#checkbox_No#>
                                                 </div>
                                             </td>
+											<td colspan="2" style="border-top: 0 none;">
+												<input class="btn btn-success" style="" type="button" value="更新geoip" onclick="button_clash_wget_geoip()" tabindex="24">
+											</td>
                                         </tr>
                                         <tr id="clash_optput_tr" style="display:none;">
                                             <th  style="border-top: 0 none;">路由自身流量走透明代理？</th>
