@@ -161,8 +161,8 @@ function button_updatenps(){
                                     <div id="tabMenu" class="submenuBlock"></div>
                                     <div class="alert alert-info" style="margin: 10px;">欢迎使用 nps ，这是一款轻量级、功能强大的内网穿透代理服务器。支持tcp、udp流量转发，支持内网http代理、内网socks5代理，同时支持snappy压缩、站点保护、加密传输、多路复用、header修改等。支持web图形化管理，集成多用户模式。
                                     <div>当前 app 文件:【<% nvram_get_x("", "app14_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app14_ver_n"); %>】 </div>
-                                    <div>下载地址: <a href="https://github.com/cnlh/nps/releases" target="blank">https://github.com/cnlh/nps/releases</a></div>
-                                    <div>教程地址: <a href="https://github.com/cnlh/nps" target="blank">https://github.com/cnlh/nps</a> <a href="https://post.smzdm.com/p/a07md2nr/" target="blank1">nps图文教程</a></div>
+                                    <div>下载地址: <a href="https://github.com/ehang-io/nps/releases" target="blank">https://github.com/ehang-io/nps/releases</a></div>
+                                    <div>教程地址: <a href="中文文档" target="blank">https://github.com/ehang-io/nps/blob/master/README_zh.md</a> <a href="https://ehang-io.github.io/nps/" target="blank1">nps图文教程</a></div>
                                     <div>服务端一键安装脚本：bash <(curl -L -s https://opt.cn2qq.com/opt-script/nps.sh)</div></div>
                                     <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
                                         <tr>
