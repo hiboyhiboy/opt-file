@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app18_ver=2020-02-28=-->
+<!--app18_ver=2020-03-20=-->
 <html>
 <head>
 <title><#Web_Title#> - clash</title>
@@ -116,6 +116,32 @@ function button_clash_save_yml(){
 function button_clash_wget_geoip(){
 	document.form.app_86.value = 'clash_wget_geoip';
 	applyRule();
+}
+function heredoc(fn) {
+    return fn.toString().split('\n').slice(1,-1).join('\n') + '\n'
+}
+function button_append_app_20_script_code(){
+	//var $j = jQuery.noConflict();
+	var scripts_code = heredoc(function(){/*
+<% nvram_dump("scripts.app_20.sh",""); %>
+*/});
+	var code = '';
+	code += '<td colspan="4" style="border-top: 0 none;" id="app_20_script_code">';
+	var codeId = document.getElementById("scripts.app_20.sh");
+	if (codeId == '' || codeId == undefined || codeId == null) {
+	document.form.button_append_script_code.value = "点击按钮隐藏 clash 主配置文件（当前显示时保存设置时间随配置大小延长）";
+	code +='<a><span>若文件太大建议直接修改 /etc/storage/app_20.sh</span></a>';
+	code +='<div id="app_20_script">';
+	code +='<textarea rows="18" wrap="off" spellcheck="false" maxlength="314571" class="span12" id="scripts.app_20.sh" name="scripts.app_20.sh" style="font-family:\'Courier New\'; font-size:12px;">' + scripts_code + '</textarea>';
+	code +='</div>';
+	code +='</td>';
+	}else{
+	code +='</td>';
+	document.form.button_append_script_code.value = "点击按钮显示 clash 主配置文件（当前隐藏时忽略 clash 主配置文件，能迅速保存设置）";
+	}
+	$j('#app_20_script_code').replaceWith(code);
+	if (!login_safe())
+		textarea_scripts_enabled(0);
 }
 </script>
 </head>
@@ -334,19 +360,18 @@ function button_clash_wget_geoip(){
 										<tr>
 											<th colspan="4" style="background-color: #E3E3E3;" >配置（由于系统保存时限制单行1024字，若单行超长请格式化 yml 配置后再粘贴，或直接用订阅更新配置）</th>
 										</tr>
+											<td style="border-top: 0 none;" colspan="4">
+												<i class="icon-hand-right"></i><input class="btn btn-primary" style="" type="button" name="button_append_script_code"  value="点击按钮显示 clash 主配置文件（当前隐藏时忽略 clash 主配置文件，能迅速保存设置）" onclick="button_append_app_20_script_code()" tabindex="24">
+											</td>
 										<tr>
-											<td colspan="4" style="border-top: 0 none;">
-												<i class="icon-hand-right"></i> <a href="javascript:spoiler_toggle('app_20_script')"><span>点这里自定义 clash 配置</span></a>
-												<div id="app_20_script">
-													<textarea rows="9" wrap="off" spellcheck="false" maxlength="314571" class="span12" name="scripts.app_20.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_20.sh",""); %></textarea>
-												</div>
+											<td colspan="4" style="border-top: 0 none;" id="app_20_script_code">
 											</td>
 										</tr>
 										<tr id="app_21_script_tr" style="display:none;">
 											<td colspan="4" style="border-top: 0 none;">
 												<i class="icon-hand-right"></i> <a href="javascript:spoiler_toggle('app_21_script')"><span>点这里自定义 clash dns 配置</span></a>
 												<div id="app_21_script">
-													<textarea rows="9" wrap="off" spellcheck="false" maxlength="314571" class="span12" name="scripts.app_21.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_21.sh",""); %></textarea>
+													<textarea rows="9" wrap="off" spellcheck="false" maxlength="2097152" class="span12" name="scripts.app_21.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_21.sh",""); %></textarea>
 												</div>
 											</td>
 										</tr>
