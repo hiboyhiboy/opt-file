@@ -132,7 +132,7 @@ function button_append_app_20_script_code(){
 	document.form.button_append_script_code.value = "点击按钮隐藏 clash 主配置文件（当前显示时保存设置时间随配置大小延长）";
 	code +='<a><span>若文件太大建议直接修改 /etc/storage/app_20.sh</span></a>';
 	code +='<div id="app_20_script">';
-	code +='<textarea rows="18" wrap="off" spellcheck="false" maxlength="314571" class="span12" id="scripts.app_20.sh" name="scripts.app_20.sh" style="font-family:\'Courier New\'; font-size:12px;">' + scripts_code + '</textarea>';
+	code +='<textarea rows="18" wrap="off" spellcheck="false" maxlength="2097152" class="span12" id="scripts.app_20.sh" name="scripts.app_20.sh" style="font-family:\'Courier New\'; font-size:12px;">' + scripts_code + '</textarea>';
 	code +='</div>';
 	code +='</td>';
 	}else{
