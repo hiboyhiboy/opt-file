@@ -138,7 +138,7 @@ function button_verysync_wan_port(){
                                     <div class="alert alert-info" style="margin: 10px;">欢迎使用 verysync 【微力同步】一款高效的数据传输工具。简单易用的多平台文件同步软件，惊人的传输速度是不同于其他产品的最大优势， 微力同步 的智能 P2P 技术加速同步，会将文件分割成若干份仅 KB 的数据同步，而文件都会进行 AES 加密处理。
                                     <div><a href="http://verysync.com" target="blank">项目地址: http://verysync.com</a></div>
                                     <div><a href="https://forum.verysync.com/thread-4-1-1.html" target="blank">配置教程: https://forum.verysync.com/thread-4-1-1.html</a></div>
-                                    <div><a href="https://t.me/joinchat/FiK6YA7QnSbsF_bnNWmKHQ" target="blank">【微力同步Telegram群】</a>、联系方式微信verysync、QQ群591317636</div>
+                                    <div><a href="https://t.me/verysync" target="blank">【微力同步Telegram群】</a>、联系方式微信verysync、QQ群591317636</div>
                                     <div>注意：首次启动需要2分钟，建议设置账户密码和监听配置以保安全，祝大家玩的愉快。</div>
                                     <div>当前 app 文件:【<% nvram_get_x("", "app6_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app6_ver_n"); %>】 </div>
                                     <span style="color:#FF0000;" class=""></span></div>
