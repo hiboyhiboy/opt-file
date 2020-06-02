@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app21_ver=2020-02-19=-->
+<!--app21_ver=2020-06-02=-->
 <html>
 <head>
 <title><#Web_Title#> - ss_tproxy</title>
@@ -496,6 +496,7 @@ function change_ss_pdnsd_all(){
 													<p>使用 b/g 前缀定义访问目标行为模式, 使用英文逗号与目标 IP 分隔</p>
 													<p>b: 绕过, 此前缀的目标IP 不使用 SS</p>
 													<p>g: 全局, 此前缀的目标IP 使用 SS</p>
+													<p>G: 全局所有端口, 此前缀的目标IP [1:65535] 使用 SS</p>
 													<p>IPv6地址：必须以 ~ 符号开头，如 ~b,2333:2333:2333::</p>
 													<p>网址域名：必须以 @ 符号开头，如 @b,abc.net，匹配 abc.net、*.abc.net</p>
 													<p>优先级: 绕过 > 全局</p>
