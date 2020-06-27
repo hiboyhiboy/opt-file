@@ -202,9 +202,9 @@ function button_append_app_20_script_code(){
                                 <div class="row-fluid">
                                     <div id="tabMenu" class="submenuBlock"></div>
                                     <div class="alert alert-info" style="margin: 10px;">欢迎使用 clash ，这是一款用Go开发的代理工具，支持ss/v2ray（不支持ssr），支持规则分流（类似于 Surge 的配置）。clash 主页：<a href="https://github.com/Dreamacro/clash" target="blank">https://github.com/Dreamacro/clash</a>
-                                    <div>项目地址：<a href="https://koolclash.js.org" target="blank">https://koolclash.js.org</a> 配置模板：<a href="https://github.com/Hackl0us/SS-Rule-Snippet/blob/master/LAZY_RULES/clash.yaml" target="blank">clash.yaml</a></div>
+									<div>项目地址：<a href="https://koolclash.js.org" target="blank">https://koolclash.js.org</a> 配置模板：<a href="https://github.com/Dreamacro/clash#config" target="blank">config.yaml</a></div>
                                     <div>第三方 web 管理页面：<a href="http://clash.razord.top/" target="blank">http://clash.razord.top/</a> 、<a href="http://yacd.haishan.me/" target="blank">http://yacd.haishan.me/</a></div>
-                                    <div>备注：建议修改配置的 secret: 来加密 web 管理页面</div>
+									<div>在线规则订阅转换：<a href="https://acl4ssr.netlify.com/" target="blank">https://acl4ssr.netlify.com/</a> 备注：建议修改配置的 secret: 来加密 web 管理页面</div>
                                     <div>当前 app 文件:【<% nvram_get_x("", "app18_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app18_ver_n"); %>】 </div>
                                     <span style="color:#FF0000;" class=""></span></div>
 
@@ -327,6 +327,17 @@ function button_append_app_20_script_code(){
 													<option value="1" <% nvram_match_x("","app_120", "1","selected"); %>>开定时更新</option>
 													<option value="2" <% nvram_match_x("","app_120", "2","selected"); %>>停热重载、停更新</option>
 												</select>
+											</td>
+										</tr>
+										<tr>
+											<th style="border-top: 0 none;">日志输出:<div></div></th>
+											<td style="border-top: 0 none;">
+											<div class="input-append">
+												<input maxlength="512" class="input" size="15" name="app_121" id="app_121" style="width: 175px;" placeholder="error"  value="<% nvram_get_x("","app_121"); %>" onKeyPress="return is_string(this,event);"/>
+											</div>
+											</td>
+											<td colspan="2" style="border-top: 0 none;">
+												<span style="color:#888;"> 默认[error]，可选[silent] [info] [warning] [debug]</a></span>
 											</td>
 										</tr>
 										<tr id="app_101_tr" style="display:none;">
