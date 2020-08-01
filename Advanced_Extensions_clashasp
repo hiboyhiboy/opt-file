@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app18_ver=2020-06-28=-->
+<!--app18_ver=2020-08-01=-->
 <html>
 <head>
 <title><#Web_Title#> - clash</title>
@@ -291,6 +291,17 @@ function button_append_app_20_script_code(){
                                                 </div>
                                             </td>
                                         </tr>
+										<tr id="app_122_tr">
+											<th width="30%" style="border-top: 0 none;">ss_tproxy 分流工作模式</th>
+											<td style="border-top: 0 none;">
+												<select name="app_122" class="input" style="width: 185px;">
+													<option value="0" <% nvram_match_x("","app_122", "0","selected"); %>>clash 内部分流路由规则</option>
+													<option value="1" <% nvram_match_x("","app_122", "1","selected"); %>>gfwlist + clash 内部分流</option>
+													<option value="2" <% nvram_match_x("","app_122", "2","selected"); %>>大陆白名单 + clash 内部分流</option>
+													<option value="3" <% nvram_match_x("","app_122", "3","selected"); %>>回国模式 + clash 内部分流</option>
+												</select>
+											</td>
+										</tr>
 										<tr>
 											<th style="border-top: 0 none;">Web管理地址 :</th>
 											<td style="border-top: 0 none;">
