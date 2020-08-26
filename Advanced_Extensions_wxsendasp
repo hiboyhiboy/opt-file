@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!--app22_ver=2020-08-26=-->
+<html>
+<head>
+<title><#Web_Title#> - 自建微信推送</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="icon" href="images/favicon.png">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/main.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/engage.itoggle.css">
+
+<script type="text/javascript" src="/jquery.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/bootstrap/js/engage.itoggle.min.js"></script>
+<script type="text/javascript" src="/state.js"></script>
+<script type="text/javascript" src="/general.js"></script>
+<script type="text/javascript" src="/itoggle.js"></script>
+<script type="text/javascript" src="/popup.js"></script>
+<script type="text/javascript" src="/help.js"></script>
+<script>
+var $j = jQuery.noConflict();
+
+$j(document).ready(function() {
+
+    init_itoggle('app_123',change_wxsend_enable);
+
+});
+
+</script>
+<script>
+
+function initial(){
+    show_banner(1);
+    show_menu(8,<% nvram_get_x("", "wxsend_L2"); %>,<% nvram_get_x("", "wxsend_L3"); %>);
+    show_footer();
+    change_wxsend_enable(1);
+
+}
+
+function applyRule(){
+//    if(validForm()){
+        showLoading();
+        
+        document.form.action_mode.value = " Apply ";
+        document.form.current_page.value = "/Advanced_Extensions_app22.asp";
+        document.form.next_page.value = "";
+        
+        document.form.submit();
+//    }
+}
+
+function done_validating(action){
+    refreshpage();
+}
+
+function change_wxsend_enable(mflag){
+	var m = document.form.app_123.value;
+	var is_wxsend_enable = (m == "1") ? "清空以往接入设备名称" : "更新";
+	document.form.updatewxsend.value = is_wxsend_enable;
+}
+function button_updatewxsend(){
+    change_wxsend_enable(1);
+	var $j = jQuery.noConflict();
+	$j.post('/apply.cgi',
+	{
+		'action_mode': ' updateapp22 ',
+	});
+}
+
+</script>
+</head>
+
+<body onload="initial();" onunLoad="return unload_body();">
+
+<div class="wrapper">
+    <div class="container-fluid" style="padding-right: 0px">
+        <div class="row-fluid">
+            <div class="span3"><center><div id="logo"></div></center></div>
+            <div class="span9" >
+                <div id="TopBanner"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Loading" class="popup_bg"></div>
+
+    <iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>
+
+    <form method="post" name="form" id="ruleForm" action="/start_apply.htm" target="hidden_frame">
+
+    <input type="hidden" name="current_page" value="Advanced_Extensions_app22.asp">
+    <input type="hidden" name="next_page" value="">
+    <input type="hidden" name="next_host" value="">
+    <input type="hidden" name="sid_list" value="APP;LANHostConfig;General;">
+    <input type="hidden" name="group_id" value="">
+    <input type="hidden" name="action_mode" value="">
+    <input type="hidden" name="action_script" value="">
+    <input type="hidden" name="wan_ipaddr" value="<% nvram_get_x("", "wan0_ipaddr"); %>" readonly="1">
+    <input type="hidden" name="wan_netmask" value="<% nvram_get_x("", "wan0_netmask"); %>" readonly="1">
+    <input type="hidden" name="dhcp_start" value="<% nvram_get_x("", "dhcp_start"); %>">
+    <input type="hidden" name="ss_enable_o" value="<% nvram_get_x("", "ss_enable"); %>">
+    <input type="hidden" name="dhcp_end" value="<% nvram_get_x("", "dhcp_end"); %>">
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3">
+                <!--Sidebar content-->
+                <!--=====Beginning of Main Menu=====-->
+                <div class="well sidebar-nav side_nav" style="padding: 0px;">
+                    <ul id="mainMenu" class="clearfix"></ul>
+                    <ul class="clearfix">
+                        <li>
+                            <div id="subMenu" class="accordion"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="span9">
+                <!--Body content-->
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="box well grad_colour_dark_blue">
+                            <h2 class="box_head round_top">自建微信推送</h2>
+                            <div class="round_bottom">
+                                <div class="row-fluid">
+                                    <div id="tabMenu" class="submenuBlock"></div>
+                                    <div class="alert alert-info" style="margin: 10px;">欢迎使用 自建微信推送 - 这是一个使用自建微信测试号的接口权限推送微信消息的工具，可以发送路由日志消息到手机，也可部署 api 提供外部程序使用消息推送。使用前先进行<a href="https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login" target="blank">(点这里)配置测试号</a>吧！
+                                    <div>项目地址：<a href="https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Template_Message_Interface.html" target="blank">发送模板消息接口文档</a></div>
+                                    <div>当前 app 文件:【<% nvram_get_x("", "app22_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app22_ver_n"); %>】 </div>
+                                    <div>使用方法：①打开图文教程设置测试号信息【<a href="https://opt.cn2qq.com/opt-file/测试号配置.pdf" target="blank">https://opt.cn2qq.com/opt-file/测试号配置.pdf</a>】</div>
+                                    <div>③准备完成，下面【消息内容】填入字符测试一下吧！（每日调用上限：100000次）</div>
+                                    <span style="color:#FF0000;" class=""></span></div>
+
+                                    <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
+                                        <tr>
+                                            <th colspan="4" style="background-color: #E3E3E3;">开关</th>
+                                        </tr>
+                                        <tr id="wxsend_enable_tr" >
+                                            <th width="30%">wxsend 开关</th>
+                                            <td>
+                                                    <div class="main_itoggle">
+                                                    <div id="app_123_on_of">
+                                                        <input type="checkbox" id="app_123_fake" <% nvram_match_x("", "app_123", "1", "value=1 checked"); %><% nvram_match_x("", "app_123", "0", "value=0"); %>  />
+                                                    </div>
+                                                </div>
+                                                <div style="position: absolute; margin-left: -10000px;">
+                                                    <input type="radio" value="1" name="app_123" id="app_123_1" class="input" value="1" onClick="change_wxsend_enable(1);" <% nvram_match_x("", "app_123", "1", "checked"); %> /><#checkbox_Yes#>
+                                                    <input type="radio" value="0" name="app_123" id="app_123_0" class="input" value="0" onClick="change_wxsend_enable(1);" <% nvram_match_x("", "app_123", "0", "checked"); %> /><#checkbox_No#>
+                                                </div>
+                                            </td>
+                                            <td colspan="2">
+                                                <input class="btn btn-success" style="width:150px" type="button" name="updatewxsend" value="更新" onclick="button_updatewxsend()" />
+                                            </td>
+                                        </tr>
+										<tr>
+											<th colspan="4" style="background-color: #E3E3E3;" >测试号信息</th>
+										</tr>
+										<tr>
+											<th style="border-top: 0 none;">appID:</th>
+											<td style="border-top: 0 none;">
+											<div class="input-append">
+												<input maxlength="512" class="input" size="15" name="app_124" id="app_124" placeholder="wx664325dd223" style="width: 175px;" value="<% nvram_get_x("","app_124"); %>" onKeyPress="return is_string(this,event);"/>
+											</div>
+											</td>
+											<td>
+											&nbsp;<span style="color:#888;"><a href="https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login" target="_blank">测试号管理（申请）页面</a></span>
+											</td>
+										</tr>
+										<tr>
+											<th style="border-top: 0 none;">appsecret:</th>
+											<td style="border-top: 0 none;">
+											<div class="input-append">
+												<input maxlength="512" class="input" size="15" name="app_125" id="app_125" placeholder="51745687314624" style="width: 175px;" value="<% nvram_get_x("","app_125"); %>" onKeyPress="return is_string(this,event);"/>
+											</div>
+											</td>
+										</tr>
+										<tr>
+											<th style="border-top: 0 none;">微信号:</th>
+											<td style="border-top: 0 none;">
+											<div class="input-append">
+												<input maxlength="512" class="input" size="15" name="app_126" id="app_126" placeholder="o3Knhvl4ehk4aBLTiIgr7x4CQL2Y" style="width: 175px;" value="<% nvram_get_x("","app_126"); %>" onKeyPress="return is_string(this,event);"/>
+											</div>
+											</td>
+										</tr>
+										<tr>
+											<th style="border-top: 0 none;">模板ID:</th>
+											<td style="border-top: 0 none;">
+											<div class="input-append">
+												<input maxlength="512" class="input" size="15" name="app_127" id="app_127" placeholder="13HLGhTDVTbG" style="width: 175px;" value="<% nvram_get_x("","app_127"); %>" onKeyPress="return is_string(this,event);"/>
+											</div>
+											</td>
+										</tr>
+										<tr>
+											<th colspan="4" style="background-color: #E3E3E3;" >在线发送（每日调用上限：100000次）</th>
+										</tr>
+										<tr>
+											<th style="border-top: 0 none;">消息标题:</th>
+											<td style="border-top: 0 none;">
+											<div class="input-append">
+												<input maxlength="512" class="input" size="15" name="app_130" id="app_130" placeholder="消息标题" style="width: 175px;" value="<% nvram_get_x("","app_130"); %>" onKeyPress="return is_string(this,event);"/>
+											</div>
+											</td>
+										</tr>
+										<tr>
+											<th style="border: 0 none;">消息内容:</th>
+											<td style="border: 0 none;" colspan="3">
+											<textarea rows="3" wrap="off" spellcheck="false" maxlength="65536" class="span12" name="app_131" id="app_131" placeholder="消息内容" value="<% nvram_get_x("","app_131"); %>" onKeyPress="return is_string(this,event);"></textarea>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="4" style="border-top: 0 none;">
+												<center><input class="btn btn-success" style="width: 219px" type="button" value="发送消息" onclick="applyRule()" /></center>
+											</td>
+										</tr>
+										<tr style="" id="serverchan_notify_tr">
+											<th colspan="4" style="background-color: #E3E3E3;" >通知提醒</th>
+										</tr>
+										<tr id="app_49_tr" >
+											<th style="border: 0 none;" width="30%">互联网 IP 变动:</th>
+											<td style="border-top: 0 none;">
+												<select name="app_49" class="input">
+													<option value="0" <% nvram_match_x("","app_49", "0","selected"); %>>关闭</option>
+													<option value="1" <% nvram_match_x("","app_49", "1","selected"); %>>开启</option>
+												  </select>
+											</td>
+										</tr>
+										<tr id="app_50_tr" >
+											<th style="border: 0 none;" width="30%">设备接入提醒:</th>
+											<td style="border-top: 0 none;">
+												<select name="app_50" class="input">
+													<option value="0" <% nvram_match_x("","app_50", "0","selected"); %>>关闭</option>
+													<option value="1" <% nvram_match_x("","app_50", "1","selected"); %>>开启</option>
+												  </select>
+											</td>
+										</tr>
+										<tr id="app_52_tr" >
+											<th style="border: 0 none;" width="30%">设备上、下线提醒:</th>
+											<td style="border-top: 0 none;">
+												<select name="app_52" class="input">
+													<option value="0" <% nvram_match_x("","app_52", "0","selected"); %>>关闭</option>
+													<option value="1" <% nvram_match_x("","app_52", "1","selected"); %>>开启</option>
+												  </select>
+											</td>
+										</tr>
+										<tr id="app_51_tr" >
+											<th style="border: 0 none;" width="30%">固件更新提醒:</th>
+											<td style="border-top: 0 none;">
+												<select name="app_51" class="input">
+													<option value="0" <% nvram_match_x("","app_51", "0","selected"); %>>关闭</option>
+													<option value="1" <% nvram_match_x("","app_51", "1","selected"); %>>开启</option>
+												  </select>
+											</td>
+										</tr>
+										<tr id="serverchan_config">
+											<td colspan="4" style="border-top: 0 none;">
+												<i class="icon-hand-right"></i> <a href="javascript:spoiler_toggle('script11')"><span>点这里自定义 app_30 脚本</span></a>
+												<div id="script11" style="display:none;">
+													<textarea rows="24" wrap="off" spellcheck="false" maxlength="18192" class="span12" name="scripts.app_30.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_30.sh",""); %></textarea>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th colspan="4" style="background-color: #E3E3E3;" >部署 api 提供外部程序使用消息推送（由于需启动 caddy 占用30M+的内存，需高配置路由）</th>
+										</tr>
+										<tr>
+											<th style="border: 0 none;" width="30%"> api 端口:</th>
+											<td style="border-top: 0 none;">
+											<div class="input-append">
+												<input maxlength="512" class="input" size="15" name="app_128" id="app_128" placeholder="0" style="width: 175px;" value="<% nvram_get_x("","app_128"); %>" onKeyPress="return is_number(this,event);"/>
+											</div>
+											</td>
+											<th style="border: 0 none;">&nbsp;设定[0]关闭、[1-65535]启动</th>
+										</tr>
+										<tr>
+											<th style="border: 0 none;">api key:</th>
+											<td style="border-top: 0 none;" colspan="2" >
+											<div class="input-append">
+												<input maxlength="512" class="input" size="15" name="app_129" id="app_129" placeholder="3a6a3ba91644" style="width: 175px;" value="<% nvram_get_x("","app_129"); %>" onKeyPress="return is_string(this,event);"/>
+											</div>
+											&nbsp;API调用实例 <a href="http://<% nvram_get_x("", "lan_ipaddr"); %>:<% nvram_get_x("", "app_128"); %>/<% nvram_get_x("", "app_129"); %>/消息标题/消息内容" target="_blank">http://<% nvram_get_x("", "lan_ipaddr"); %>:<% nvram_get_x("", "app_128"); %>/<% nvram_get_x("", "app_129"); %>/消息标题/消息内容</a>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="4" style="border-top: 0 none;">
+												<i class="icon-hand-right"></i> <a href="javascript:spoiler_toggle('script12')"><span>点这里自定义 Caddyfile cgi 配置</span></a>
+												<div id="script12" style="display:none;">
+													<textarea rows="24" wrap="off" spellcheck="false" maxlength="18192" class="span12" name="scripts.app_31.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_31.sh",""); %></textarea>
+												</div>
+											</td>
+										</tr>
+                                        <tr>
+                                            <td colspan="4" style="border-top: 0 none;">
+                                                <br />
+                                                <center><input class="btn btn-primary" style="width: 219px" type="button" value="<#CTL_apply#>" onclick="applyRule()" /></center>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </form>
+
+    <div id="footer"></div>
+</div>
+</body>
+</html>
