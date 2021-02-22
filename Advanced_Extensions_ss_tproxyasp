@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app21_ver=2020-06-02=-->
+<!--app21_ver=2021-02-21=-->
 <html>
 <head>
 <title><#Web_Title#> - ss_tproxy</title>
@@ -35,6 +35,7 @@ $j(document).ready(function() {
 	init_itoggle('ss_sub1');
 	init_itoggle('ss_sub2');
 	init_itoggle('ss_sub3');
+	init_itoggle('ss_udp_enable');
 
 });
 
@@ -297,8 +298,8 @@ function change_ss_pdnsd_all(){
 												<div style="position: absolute; margin-left: -10000px;">
 													<input type="radio" value="1" name="ss_pdnsd_all" id="ss_pdnsd_all_1" class="input" value="1" onclick="change_ss_pdnsd_all();" <% nvram_match_x("", "ss_pdnsd_all", "1", "checked"); %> /><#checkbox_Yes#>
 													<input type="radio" value="0" name="ss_pdnsd_all" id="ss_pdnsd_all_0" class="input" value="0" onclick="change_ss_pdnsd_all();" <% nvram_match_x("", "ss_pdnsd_all", "0", "checked"); %> /><#checkbox_No#>
-											   </div>
-											   <div><span style="color:#888;">不启用时使用[本地DNS] + [GFW规则]查询DNS</span></div>
+												</div>
+												<div><span style="color:#888;">不启用时使用[本地DNS] + [GFW规则]查询DNS</span></div>
 											</td>
 										</tr>
 										<tr id="ss_pdnsd_cn_all_tr" style="display:none;">
@@ -311,11 +312,25 @@ function change_ss_pdnsd_all(){
 											</td>
 										</tr>
 										<tr>
-											<th width="30%" style="border-top: 0 none;">本机流量代理选择</th>
+											<th style="border-top: 0 none;"><a class="help_tooltip"  href="javascript:void(0);" onmouseover="openTooltip(this, 25,9);">游戏模式（UDP转发）</a></th>
+											<td style="border-top: 0 none;">
+													<div class="main_itoggle">
+													<div id="ss_udp_enable_on_of">
+														<input type="checkbox" id="ss_udp_enable_fake" <% nvram_match_x("", "ss_udp_enable", "1", "value=1 checked"); %><% nvram_match_x("", "ss_udp_enable", "0", "value=0"); %>  />
+													</div>
+												</div>
+												<div style="position: absolute; margin-left: -10000px;">
+													<input type="radio" value="1" name="ss_udp_enable" id="ss_udp_enable_1" class="input" value="1" <% nvram_match_x("", "ss_udp_enable", "1", "checked"); %> /><#checkbox_Yes#>
+													<input type="radio" value="0" name="ss_udp_enable" id="ss_udp_enable_0" class="input" value="0" <% nvram_match_x("", "ss_udp_enable", "0", "checked"); %> /><#checkbox_No#>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th width="30%" style="border-top: 0 none;">路由自身流量透明代理选择</th>
 											<td style="border-top: 0 none;" colspan="2">
 												<select style=" width: 390px; " name="app_114" class="input">
-													<option value="0" <% nvram_match_x("","app_114", "0","selected"); %>>代理本机流量</option>
-													<option value="1" <% nvram_match_x("","app_114", "1","selected"); %>>跳过代理本机流量</option>
+													<option value="0" <% nvram_match_x("","app_114", "0","selected"); %>>代理路由自身流量</option>
+													<option value="1" <% nvram_match_x("","app_114", "1","selected"); %>>跳过代理路由自身流量</option>
 												</select>
 											</td>
 										</tr>

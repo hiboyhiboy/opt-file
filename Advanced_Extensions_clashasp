@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app18_ver=2020-08-01=-->
+<!--app18_ver=2021-02-21=-->
 <html>
 <head>
 <title><#Web_Title#> - clash</title>
@@ -31,7 +31,7 @@ $j(document).ready(function() {
     init_itoggle('app_90');
     init_itoggle('app_92',change_clash_follow_bridge);
     init_itoggle('app_115',change_app_default_config_bridge);
-    init_itoggle('app_93');
+	init_itoggle('ss_udp_enable');
 
 });
 
@@ -74,7 +74,8 @@ function done_validating(action){
 }
 function change_clash_follow_bridge(mflag){
 	var m = document.form.app_92[0].checked;
-	showhide_div("clash_optput_tr", m);
+	showhide_div("ss_udp_enable_tr", m);
+	showhide_div("app_114_tr", m);
 }
 function change_app_default_config_bridge(mflag){
 	var m = document.form.app_115[0].checked;
@@ -277,20 +278,29 @@ function button_append_app_20_script_code(){
 												<input class="btn btn-success" style="" type="button" value="更新geoip" onclick="button_clash_wget_geoip()" tabindex="24">
 											</td>
                                         </tr>
-                                        <tr id="clash_optput_tr" style="display:none;">
-                                            <th  style="border-top: 0 none;">路由自身流量走透明代理？</th>
-                                            <td style="border-top: 0 none;">
-                                                    <div class="main_itoggle">
-                                                    <div id="app_93_on_of">
-                                                        <input type="checkbox" id="app_93_fake" <% nvram_match_x("", "app_93", "1", "value=1 checked"); %><% nvram_match_x("", "app_93", "0", "value=0"); %>  />
-                                                    </div>
-                                                </div>
-                                                <div style="position: absolute; margin-left: -10000px;">
-                                                    <input type="radio" value="1" name="app_93" id="app_93_1" class="input" value="1" <% nvram_match_x("", "app_93", "1", "checked"); %> /><#checkbox_Yes#>
-                                                    <input type="radio" value="0" name="app_93" id="app_93_0" class="input" value="0" <% nvram_match_x("", "app_93", "0", "checked"); %> /><#checkbox_No#>
-                                                </div>
-                                            </td>
-                                        </tr>
+										<tr id="ss_udp_enable_tr" style="display:none;">
+											<th style="border-top: 0 none;"><a class="help_tooltip"  href="javascript:void(0);" onmouseover="openTooltip(this, 25,9);">游戏模式（UDP转发）</a></th>
+											<td style="border-top: 0 none;">
+													<div class="main_itoggle">
+													<div id="ss_udp_enable_on_of">
+														<input type="checkbox" id="ss_udp_enable_fake" <% nvram_match_x("", "ss_udp_enable", "1", "value=1 checked"); %><% nvram_match_x("", "ss_udp_enable", "0", "value=0"); %>  />
+													</div>
+												</div>
+												<div style="position: absolute; margin-left: -10000px;">
+													<input type="radio" value="1" name="ss_udp_enable" id="ss_udp_enable_1" class="input" value="1" <% nvram_match_x("", "ss_udp_enable", "1", "checked"); %> /><#checkbox_Yes#>
+													<input type="radio" value="0" name="ss_udp_enable" id="ss_udp_enable_0" class="input" value="0" <% nvram_match_x("", "ss_udp_enable", "0", "checked"); %> /><#checkbox_No#>
+												</div>
+											</td>
+										</tr>
+										<tr id="app_114_tr" style="display:none;">
+											<th style="border-top: 0 none;">路由自身流量透明代理选择</th>
+											<td style="border-top: 0 none;">
+												<select name="app_114" class="input" style="width: 185px;">
+													<option value="0" <% nvram_match_x("","app_114", "0","selected"); %>>代理路由自身流量</option>
+													<option value="1" <% nvram_match_x("","app_114", "1","selected"); %>>跳过代理路由自身流量</option>
+												</select>
+											</td>
+										</tr>
 										<tr id="app_122_tr">
 											<th width="30%" style="border-top: 0 none;">ss_tproxy 分流工作模式</th>
 											<td style="border-top: 0 none;">

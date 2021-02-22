@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app20_ver=2019-12-22=-->
+<!--app20_ver=2021-02-21=-->
 <html>
 <head>
 <title><#Web_Title#> - ipt2socks</title>
@@ -27,6 +27,7 @@ var $j = jQuery.noConflict();
 $j(document).ready(function() {
 
     init_itoggle('app_104',change_ipt2socks_enable);
+    init_itoggle('ss_udp_enable');
 
 });
 
@@ -204,6 +205,29 @@ function button_updateipt2socks(){
 												<span style="color:#888;"><div>若本地代理ss-local连接远端SS服务器，此处必须填入SS服务器IP、域名</div><div>若有多个服务器需用空格隔开</div></span>
 											</td>
 										</tr>
+                                        <tr>
+                                            <th style="border-top: 0 none;"><a class="help_tooltip"  href="javascript:void(0);" onmouseover="openTooltip(this, 25,9);">游戏模式（UDP转发）</a></th>
+                                            <td style="border-top: 0 none;">
+                                                    <div class="main_itoggle">
+                                                    <div id="ss_udp_enable_on_of">
+                                                        <input type="checkbox" id="ss_udp_enable_fake" <% nvram_match_x("", "ss_udp_enable", "1", "value=1 checked"); %><% nvram_match_x("", "ss_udp_enable", "0", "value=0"); %>  />
+                                                    </div>
+                                                </div>
+                                                <div style="position: absolute; margin-left: -10000px;">
+                                                    <input type="radio" value="1" name="ss_udp_enable" id="ss_udp_enable_1" class="input" value="1" <% nvram_match_x("", "ss_udp_enable", "1", "checked"); %> /><#checkbox_Yes#>
+                                                    <input type="radio" value="0" name="ss_udp_enable" id="ss_udp_enable_0" class="input" value="0" <% nvram_match_x("", "ss_udp_enable", "0", "checked"); %> /><#checkbox_No#>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="border-top: 0 none;">路由自身流量透明代理选择</th>
+                                            <td style="border-top: 0 none;">
+                                                <select name="app_114" class="input">
+                                                    <option value="0" <% nvram_match_x("","app_114", "0","selected"); %>>代理路由自身流量</option>
+                                                    <option value="1" <% nvram_match_x("","app_114", "1","selected"); %>>跳过代理路由自身流量</option>
+                                                </select>
+                                            </td>
+                                        </tr>
                                         <tr id="app_22_script" colspan="4">
                                             <td colspan="4" style="border-top: 0 none;">
                                                 <i class="icon-hand-right"></i> <a href="javascript:spoiler_toggle('script13')"><span>ipt2socks启动前运行脚本</span><div>&nbsp;<span style="color:#888;">查看以下文件修改 配置参数。</span></div></a>
