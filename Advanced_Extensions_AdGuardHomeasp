@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app17_ver=2019-8-3=-->
+<!--app17_ver=2021-3-7=-->
 <html>
 <head>
 <title><#Web_Title#> - AdGuardHome</title>
@@ -27,6 +27,7 @@ var $j = jQuery.noConflict();
 $j(document).ready(function() {
 
     init_itoggle('app_84',change_AdGuardHome_enable);
+    init_itoggle('app_132',change_AdGuardHome_dns);
     document.form.app_86.value = '1';
 
 });
@@ -41,6 +42,7 @@ function initial(){
     show_menu(8,<% nvram_get_x("", "AdGuardHome_L2"); %>,<% nvram_get_x("", "AdGuardHome_L3"); %>);
     show_footer();
     change_AdGuardHome_enable(1);
+    change_AdGuardHome_dns(1);
 	if (!login_safe())
 		textarea_scripts_enabled(0);
 
@@ -70,6 +72,11 @@ function change_AdGuardHome_enable(mflag){
 	var m = document.form.app_84.value;
 	var is_AdGuardHome_enable = (m == "1") ? "重启" : "更新";
 	document.form.updateAdGuardHome.value = is_AdGuardHome_enable;
+}
+function change_AdGuardHome_dns(mflag){
+	var m = document.form.app_132.value;
+	var m = (m == "1") ? "0" : "1";
+	showhide_div("AdGuardHome_85_tr", m);
 }
 function button_updateAdGuardHome(){
     change_AdGuardHome_enable(1);
@@ -145,9 +152,9 @@ function button_AdGuardHome_wan_port(){
                             <div class="round_bottom">
                                 <div class="row-fluid">
                                     <div id="tabMenu" class="submenuBlock"></div>
-                                    <div class="alert alert-info" style="margin: 10px;">欢迎使用 AdGuardHome ，这是一款全网广告拦截与反跟踪软件。在您将其安装完毕后，它将保护您所有家用设备，同时您不再需要安装任何客户端软件。随着物联网与连接设备的兴起，掌控您自己的整个网络环境变得越来越重要。AdGuard 主页：<a href=https://adguard.com/zh_cn/adguard-home/overview.html" target="blank">https://adguard.com/zh_cn/adguard-home/overview.html</a>
+                                    <div class="alert alert-info" style="margin: 10px;">欢迎使用 AdGuardHome ，这是一款全网广告拦截与反跟踪软件。在您将其安装完毕后，它将保护您所有家用设备，同时您不再需要安装任何客户端软件。随着物联网与连接设备的兴起，掌控您自己的整个网络环境变得越来越重要。<a href="https://adguard.com/zh_cn/adguard-home/overview.html" target="blank">AdGuard 主页</a>
                                     <div>项目地址：<a href="https://github.com/AdguardTeam/AdGuardHome" target="blank">https://github.com/AdguardTeam/AdGuardHome</a></div>
-                                    <div>备注：建议修改 web 管理页面的 auth_name 和 auth_pass 配置</div>
+                                    <div>备注：①安装需要 30M+ 的空间 ②<a href="https://github.com/AdguardTeam/AdGuardHome/wiki/Configuration#reset-web-password" target="blank">建议重置网页密码</a></div>
                                     <div>当前 app 文件:【<% nvram_get_x("", "app17_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app17_ver_n"); %>】 </div>
                                     <span style="color:#FF0000;" class=""></span></div>
 
@@ -175,16 +182,30 @@ function button_AdGuardHome_wan_port(){
                                                 <span style="color:#888;">版本：<% nvram_get_x("","AdGuardHome_v"); %></span>
                                             </td>
                                         </tr>
-										<tr>
+                                        <tr id="AdGuardHome_dns_tr" >
+                                            <th style="border-top: 0 none;">成为默认 DNS 服务<div><span style="color:#888;">代替 dnsmasq 侦听 53 端口</span></div></th>
+                                            <td style="border-top: 0 none;">
+                                                    <div class="main_itoggle">
+                                                    <div id="app_132_on_of">
+                                                        <input type="checkbox" id="app_132_fake" <% nvram_match_x("", "app_132", "1", "value=1 checked"); %><% nvram_match_x("", "app_132", "0", "value=0"); %>  />
+                                                    </div>
+                                                </div>
+                                                <div style="position: absolute; margin-left: -10000px;">
+                                                    <input type="radio" value="1" name="app_132" id="app_132_1" class="input" value="1" onClick="change_AdGuardHome_dns(1);" <% nvram_match_x("", "app_132", "1", "checked"); %> /><#checkbox_Yes#>
+                                                    <input type="radio" value="0" name="app_132" id="app_132_0" class="input" value="0" onClick="change_AdGuardHome_dns(1);" <% nvram_match_x("", "app_132", "0", "checked"); %> /><#checkbox_No#>
+                                                </div>
+                                            </td>
+											<td colspan="2" style="border-top: 0 none;">
+												<input class="btn btn-success" style="" type="button" value="Web管理界面" onclick="button_AdGuardHome_wan_port()" tabindex="24">
+											</td>
+                                        </tr>
+										<tr id="AdGuardHome_85_tr" >
 											<th style="border-top: 0 none;">外置 AdGuardHome 服务器:<div>（外部性能更好的机器）</div></th>
-											<td style="border-top: 0 none;">
+											<td colspan="3" style="border-top: 0 none;">
 											<div class="input-append">
 												<input maxlength="512" class="input" size="15" name="app_85" id="app_85" style="width: 175px;" placeholder="[空]"  value="<% nvram_get_x("","app_85"); %>" onKeyPress="return is_string(this,event);"/>
 												<div><span style="color:#888;">默认[空]，填写外置服务地址，本机不启动程序。例： 192.168.123.123:5353</span></div>
 											</div>
-											</td>
-											<td style="border-top: 0 none;">
-												<input class="btn btn-success" style="" type="button" value="Web管理界面" onclick="button_AdGuardHome_wan_port()" tabindex="24">
 											</td>
 										</tr>
 										<tr>
