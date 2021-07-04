@@ -92,7 +92,7 @@ function button_filemanager_wan_port(){
         var port = document.form.app_14.value;
         if (port == '')
             var port = '888';
-        var porturl =window.location.protocol + '//' + window.location.hostname + ":" + port;
+        var porturl ='http://' + window.location.hostname + ":" + port;
         //alert(porturl);
         window.open(porturl,'filemanager_wan_port');
 }

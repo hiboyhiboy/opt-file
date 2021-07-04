@@ -89,7 +89,7 @@ function button_updateAdGuardHome(){
 
 function button_AdGuardHome_wan_port(){
 		var port = '3000';
-		var porturl =window.location.protocol + '//' + window.location.hostname + ":" + port;
+		var porturl ='http://' + window.location.hostname + ":" + port;
 		//alert(porturl);
 		window.open(porturl,'AdGuardHome_wan_port');
 }

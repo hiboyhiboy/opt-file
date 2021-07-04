@@ -99,7 +99,7 @@ function button_updateclash(){
 
 function button_clash_wan_port(){
 		var port = '9090';
-		var porturl =window.location.protocol + '//' + window.location.hostname + ":" + port + "/ui";
+		var porturl ='http://' + window.location.hostname + ":" + port + "/ui";
 		//alert(porturl);
 		window.open(porturl,'clash_wan_port');
 }

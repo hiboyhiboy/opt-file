@@ -74,7 +74,7 @@ function button_verysync_wan_port(){
         var port = document.form.app_21.value;
         if (port == '')
             var port = '8886';
-        var porturl =window.location.protocol + '//' + window.location.hostname + ":" + port;
+        var porturl ='http://' + window.location.hostname + ":" + port;
         //alert(porturl);
         window.open(porturl,'verysync_wan_port');
 }

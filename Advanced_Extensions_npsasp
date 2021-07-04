@@ -72,7 +72,7 @@ function button_npc_wan_port(){
 		var port = document.form.npc_server_addr_o.value;
 		if (port == '')
 			return;
-		var porturl =window.location.protocol + '//' + port;
+		var porturl ='http://' + port;
 		//alert(porturl);
 		window.open(porturl,'npc_wan_port');
 }
@@ -81,7 +81,7 @@ function button_nps_wan_port(){
 		var port = document.form.nps_web_port_o.value;
 		if (port == '')
 			var port = '8080';
-		var porturl =window.location.protocol + '//' + window.location.hostname + ":" + port;
+		var porturl ='http://' + window.location.hostname + ":" + port;
 		//alert(porturl);
 		window.open(porturl,'nps_wan_port');
 }
