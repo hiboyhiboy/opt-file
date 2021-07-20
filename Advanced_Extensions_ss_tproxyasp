@@ -397,7 +397,7 @@ function change_ss_pdnsd_all(){
 													<input type="radio" value="1" name="ss_sub1" id="ss_sub1_1" class="input" value="1" <% nvram_match_x("", "ss_sub1", "1", "checked"); %> /><#checkbox_Yes#>
 													<input type="radio" value="0" name="ss_sub1" id="ss_sub1_0" class="input" value="0" <% nvram_match_x("", "ss_sub1", "0", "checked"); %> /><#checkbox_No#>
 												</div>
-												<div><span style="color:#888;">规则: https://coding.net/u/bigandy/p/DogcomBooster/git/raw/master/list.txt</span></div>
+												<div><span style="color:#888;">规则: https://opt.cn2qq.com/opt-file/list.txt</span></div>
 											</td>
 										</tr>
 										<tr id="ss_gfwlist4_tr" style="display:none;">
@@ -412,7 +412,7 @@ function change_ss_pdnsd_all(){
 													<input type="radio" value="1" name="ss_sub2" id="ss_sub2_1" class="input" value="1" <% nvram_match_x("", "ss_sub2", "1", "checked"); %> /><#checkbox_Yes#>
 													<input type="radio" value="0" name="ss_sub2" id="ss_sub2_0" class="input" value="0" <% nvram_match_x("", "ss_sub2", "0", "checked"); %> /><#checkbox_No#>
 												</div>
-												<div><span style="color:#888;">规则: https://coding.net/u/bigandy/p/DogcomBooster/git/raw/master/dnsonly.txt</span></div>
+												<div><span style="color:#888;">规则: https://opt.cn2qq.com/opt-file/dnsonly.txt</span></div>
 											</td>
 										</tr>
 										<tr id="ss_gfwlist3_tr" style="display:none;">
@@ -427,7 +427,7 @@ function change_ss_pdnsd_all(){
 													<input type="radio" value="1" name="ss_sub3" id="ss_sub3_1" class="input" value="1" <% nvram_match_x("", "ss_sub3", "1", "checked"); %> /><#checkbox_Yes#>
 													<input type="radio" value="0" name="ss_sub3" id="ss_sub3_0" class="input" value="0" <% nvram_match_x("", "ss_sub3", "0", "checked"); %> /><#checkbox_No#>
 												</div>
-												<div><span style="color:#888;">规则: https://coding.net/u/bigandy/p/DogcomBooster/git/raw/master/passby.txt</span></div>
+												<div><span style="color:#888;">规则: https://opt.cn2qq.com/opt-file/passby.txt</span></div>
 											</td>
 										</tr>
 										<tr id="ss_GFW_download_link_tr">
