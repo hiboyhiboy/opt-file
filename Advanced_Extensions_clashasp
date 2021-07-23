@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app18_ver=2021-07-18=-->
+<!--app18_ver=2021-07-22=-->
 <html>
 <head>
 <title><#Web_Title#> - clash</title>
@@ -218,7 +218,7 @@ function button_append_app_20_script_code(){
 							<div class="round_bottom">
 								<div class="row-fluid">
 									<div id="tabMenu" class="submenuBlock"></div>
-									<div class="alert alert-info" style="margin: 10px;">欢迎使用 clash ，这是一款用Go开发的代理工具，支持ss/v2ray/ssr等协议，支持规则分流（类似于 Surge 的配置）。clash 主页：<a href="https://github.com/Dreamacro/clash" target="blank">https://github.com/Dreamacro/clash</a>
+									<div class="alert alert-info" style="margin: 10px;">欢迎使用 clash ，这是一款用Go开发的代理工具，支持ss/v2ray/ssr等协议，支持规则分流（类似于 Surge 的配置）。clash 主页：<a href="https://github.com/Dreamacro/clash" target="blank">https://github.com/Dreamacro/clash</a> <a href="https://github.com/ClashDotNetFramework/experimental-clash" target="blank_ex"> experimental (支持Vless + XTLS)</a>
 									<div>项目地址：<a href="https://koolclash.js.org" target="blank">https://koolclash.js.org</a> 配置模板：<a href="https://github.com/Dreamacro/clash/wiki/configuration" target="blank">config.yaml</a></div>
 									<div>第三方 web 管理页面：<a href="http://clash.razord.top/" target="blank">http://clash.razord.top/</a> 、<a href="http://yacd.haishan.me/" target="blank">http://yacd.haishan.me/</a></div>
 									<div>在线规则订阅转换：<a href="https://acl4ssr.netlify.com/" target="blank">https://acl4ssr.netlify.com/</a> 备注：建议修改配置的 secret: 来加密 web 管理页面</div>
@@ -261,6 +261,13 @@ function button_append_app_20_script_code(){
 													<input type="radio" value="1" name="app_89" id="app_89_1" class="input" value="1" <% nvram_match_x("", "app_89", "1", "checked"); %> /><#checkbox_Yes#>
 													<input type="radio" value="0" name="app_89" id="app_89_0" class="input" value="0" <% nvram_match_x("", "app_89", "0", "checked"); %> /><#checkbox_No#>
 												</div>
+											</td>
+											<td colspan="2" id="app_78" style="border-top: 0 none;">
+												<select name="app_78">
+													<option value="0" <% nvram_match_x("","app_78", "0","selected"); %>>不更换版本</option>
+													<option value="premium" <% nvram_match_x("","app_78", "premium","selected"); %>>更换 premium (闭源版)</option>
+													<option value="experimental" <% nvram_match_x("","app_78", "experimental","selected"); %>>更换 experimental (支持Vless + XTLS)</option>
+												</select>
 											</td>
 										</tr>
 										<tr id="clash_socks_enable_tr" >
@@ -347,7 +354,7 @@ function button_append_app_20_script_code(){
 											</div>
 											</td>
 											<td style="border-top: 0 none;">
-												<input class="btn btn-warning" style="" type="button" value="保存web节点选择" onclick="button_clash_save_yml()" tabindex="24">
+												<input class="btn btn-warning" style="" type="button" value="热重载配置" onclick="button_clash_save_yml()" tabindex="24">
 											</td>
 										</tr>
 										<tr>
