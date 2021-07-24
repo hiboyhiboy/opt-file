@@ -34,6 +34,8 @@ $j(document).ready(function() {
 </script>
 <script>
 
+<% login_state_hook(); %>
+
 function initial(){
     show_banner(1);
     show_menu(8,<% nvram_get_x("", "chinadns_ng_L2"); %>,<% nvram_get_x("", "chinadns_ng_L3"); %>);
