@@ -79,10 +79,21 @@ function change_hysteria_enable(mflag){
 }
 function button_updatehysteria(){
 	change_hysteria_enable(1);
+	parent.showLoading();
 	var $j = jQuery.noConflict();
-	$j.post('/apply.cgi',
-	{
-		'action_mode': ' updateapp24 ',
+	$j.ajax({
+		type: "post",
+		url: "/apply.cgi",
+		data: {
+			'action_script': "script/_app24 updateapp24 "
+		},
+		dataType: "json",
+		error: function() {
+			setTimeout("document.form.submit();",2000);
+		},
+		success: function() {
+			setTimeout("document.form.submit();",2000);
+		}
 	});
 }
 </script>
@@ -223,7 +234,7 @@ function button_updatehysteria(){
 											<td colspan="4" style="border-top: 0 none;">
 												<i class="icon-hand-right"></i> <a href="javascript:spoiler_toggle('app_34_script')"><span>点这里自定义 hysteria 节点 配置</span></a>
 												<div id="app_34_script">
-													<textarea rows="10" wrap="off" spellcheck="false" maxlength="2097152" class="span12" name="scripts.app_34.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_34.sh",""); %></textarea>
+													<textarea rows="12" wrap="off" spellcheck="false" maxlength="2097152" class="span12" name="scripts.app_34.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_34.sh",""); %></textarea>
 												</div>
 											</td>
 										</tr>
