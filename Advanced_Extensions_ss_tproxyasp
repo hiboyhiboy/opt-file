@@ -130,7 +130,7 @@ function change_ss_DNS_Redirect(){
 function change_ss_pdnsd_all(){
 	var m = document.form.ss_pdnsd_all[0].checked;
 	var is_ss_pdnsd_all = (m == "1") ? 1 : 0;
-	showhide_div("ss_pdnsd_cn_all_tr", is_ss_pdnsd_all);
+	//showhide_div("ss_pdnsd_cn_all_tr", is_ss_pdnsd_all);
 }
 </script>
 </head>
@@ -302,12 +302,12 @@ function change_ss_pdnsd_all(){
 												<div><span style="color:#888;">不启用时使用[本地DNS] + [GFW规则]查询DNS</span></div>
 											</td>
 										</tr>
-										<tr id="ss_pdnsd_cn_all_tr" style="display:none;">
+										<tr id="ss_pdnsd_cn_all_tr">
 											<th width="30%" style="border-top: 0 none;">China 域名加速</th>
 											<td style="border-top: 0 none;" colspan="2">
 												<select style=" width: 390px; " name="app_113" class="input">
-													<option value="0" <% nvram_match_x("","app_113", "0","selected"); %>>使用 8053 端口查询全部 DNS 时进行 China 域名加速</option>
-													<option value="1" <% nvram_match_x("","app_113", "1","selected"); %>>不进行 China 域名加速</option>
+													<option value="0" <% nvram_match_x("","app_113", "0","selected"); %>>开启 China 域名加速查询 DNS</option>
+													<option value="1" <% nvram_match_x("","app_113", "1","selected"); %>>停止 China 域名加速查询 DNS</option>
 												</select>
 											</td>
 										</tr>
