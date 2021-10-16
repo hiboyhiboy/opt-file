@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app18_ver=2021-09-28=-->
+<!--app18_ver=2021-10-15=-->
 <html>
 <head>
 <title><#Web_Title#> - clash</title>
@@ -50,6 +50,7 @@ function initial(){
 	change_clash_follow_bridge(1);
 	change_app_default_config_bridge(1);
 	change_app_93_bridge(1);
+	inputCtrl(document.form['scripts_app_20_sh'], 0);
 	if (!login_safe())
 		textarea_scripts_enabled(0);
 
@@ -138,25 +139,15 @@ function heredoc(fn) {
 	return fn.toString().split('\n').slice(1,-1).join('\n') + '\n'
 }
 function button_append_app_20_script_code(){
-	//var $j = jQuery.noConflict();
-	var scripts_code = heredoc(function(){/*
-<% nvram_dump("scripts.app_20.sh",""); %>
-*/});
-	var code = '';
-	code += '<td colspan="4" style="border-top: 0 none;" id="app_20_script_code">';
-	var codeId = document.getElementById("scripts.app_20.sh");
-	if (codeId == '' || codeId == undefined || codeId == null) {
+	if (document.querySelector("#app_20_script_code").style.display == 'none') {
 	document.form.button_append_script_code.value = "点击按钮隐藏 clash 主配置文件（当前显示时保存设置时间随配置大小延长）";
-	code +='<a><span>若文件太大建议直接修改 /etc/storage/app_20.sh</span></a>';
-	code +='<div id="app_20_script">';
-	code +='<textarea rows="18" wrap="off" spellcheck="false" maxlength="2097152" class="span12" id="scripts.app_20.sh" name="scripts.app_20.sh" style="font-family:\'Courier New\'; font-size:12px;">' + scripts_code + '</textarea>';
-	code +='</div>';
-	code +='</td>';
+	showhide_div("app_20_script_code", 1);
+	inputCtrl(document.form['scripts_app_20_sh'], 1);
 	}else{
-	code +='</td>';
 	document.form.button_append_script_code.value = "点击按钮显示 clash 主配置文件（当前隐藏时忽略 clash 主配置文件，能迅速保存设置）";
+	showhide_div("app_20_script_code", 0);
+	inputCtrl(document.form['scripts_app_20_sh'], 0);
 	}
-	$j('#app_20_script_code').replaceWith(code);
 	if (!login_safe())
 		textarea_scripts_enabled(0);
 }
@@ -450,7 +441,11 @@ function button_append_app_20_script_code(){
 												<i class="icon-hand-right"></i><input class="btn btn-primary" style="" type="button" name="button_append_script_code" value="点击按钮显示 clash 主配置文件（当前隐藏时忽略 clash 主配置文件，能迅速保存设置）" onclick="button_append_app_20_script_code()" tabindex="24">
 											</td>
 										<tr>
-											<td colspan="4" style="border-top: 0 none;" id="app_20_script_code">
+											<td colspan="4" style="border-top: 0 none;display:none;" id="app_20_script_code" name="app_20_script_code">
+											<a><span>若文件太大建议直接修改 /etc/storage/app_20.sh</span></a>
+												<div>
+													<textarea rows="18" wrap="off" spellcheck="false" maxlength="2097152" class="span12" id="scripts_app_20_sh" name="scripts_app_20_sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_20.sh",""); %></textarea>
+												</div>
 											</td>
 										</tr>
 										<tr id="app_21_script_tr" style="display:none;">
