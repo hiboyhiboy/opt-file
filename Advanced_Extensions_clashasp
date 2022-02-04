@@ -353,8 +353,8 @@ function button_append_app_20_script_code(){
 													<option value="clash" <% nvram_match_x("","app_79", "clash","selected"); %>>更换 clash 面板</option>
 													<option value="yacd" <% nvram_match_x("","app_79", "yacd","selected"); %>>更换 yacd 面板</option>
 													<option value="meta" <% nvram_match_x("","app_79", "meta","selected"); %>>更换 Meta 面板</option>
-													<option value="clash_1" <% nvram_match_x("","app_79", "clash_1","selected"); %>>使用 clash 面板(首次下载时)</option>
-													<option value="yacd_1" <% nvram_match_x("","app_79", "yacd_1","selected"); %>>使用 yacd 面板(首次下载时)(默认)</option>
+													<option value="clash_1" <% nvram_match_x("","app_79", "clash_1","selected"); %>>使用 clash 面板(首次下载时)(默认)</option>
+													<option value="yacd_1" <% nvram_match_x("","app_79", "yacd_1","selected"); %>>使用 yacd 面板(首次下载时)</option>
 													<option value="meta_1" <% nvram_match_x("","app_79", "meta_1","selected"); %>>使用 Meta 面板(首次下载时)</option>
 												</select>
 											</td>
