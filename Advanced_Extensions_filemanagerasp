@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app5_ver=2018-12-10=-->
+<!--app5_ver=2022-04-03=-->
 <html>
 <head>
 <title><#Web_Title#> - 在线文件管理系统</title>
@@ -27,7 +27,6 @@ var $j = jQuery.noConflict();
 $j(document).ready(function() {
 
     init_itoggle('app_15',change_filemanager_enable);
-    init_itoggle('app_54',change_caddy_enable);
 
 });
 
@@ -41,7 +40,7 @@ function initial(){
     show_menu(8,<% nvram_get_x("", "filemanager_L2"); %>,<% nvram_get_x("", "filemanager_L3"); %>);
     show_footer();
     change_filemanager_enable(1);
-    change_caddy_enable(1);
+    change_caddy_enable();
 	if (!login_safe())
 		textarea_scripts_enabled(0);
 
@@ -73,12 +72,23 @@ function change_filemanager_enable(mflag){
 	var is_filemanager_enable = (m == "1") ? "重启" : "更新";
 	document.form.updatefilemanager.value = is_filemanager_enable;
 }
-function change_caddy_enable(mflag){
+function change_caddy_enable(){
 	var m = document.form.app_54.value;
-	var is_caddy_enable = (m == "1") ? 0 : 1;
-	showhide_div("app_5_script", is_caddy_enable);
-	var mm = document.form.app_54[0].checked;
-	showhide_div("app_11_script", mm);
+	if (m ==2){
+		showhide_div("app_5_script", 0);
+		showhide_div("app_11_script", 0);
+		document.querySelector("#app_14").readOnly = false;
+	}
+	if (m ==1){
+		showhide_div("app_5_script", 0);
+		showhide_div("app_11_script", 1);
+		document.querySelector("#app_14").readOnly = true;
+	}
+	if (m ==0){
+		showhide_div("app_5_script", 1);
+		showhide_div("app_11_script", 0);
+		document.querySelector("#app_14").readOnly = true;
+	}
 }
 function button_updatefilemanager(){
     change_filemanager_enable(1);
@@ -153,10 +163,9 @@ function button_filemanager_wan_port(){
                             <div class="round_bottom">
                                 <div class="row-fluid">
                                     <div id="tabMenu" class="submenuBlock"></div>
-                                    <div class="alert alert-info" style="margin: 10px;">欢迎使用 File Manager 【在线文件管理系统】基于GO的轻量级文件管理系统。指定的目录中提供文件管理界面，可用于上传，删除，预览，重命名和编辑文件。它允许创建多个用户，每个用户可以拥有自己的目录。它可以用作独立的应用程序或中间件。
+                                    <div class="alert alert-info" style="margin: 10px;">欢迎使用 File Browser 【在线文件管理系统】基于GO的轻量级文件管理系统。指定的目录中提供文件管理界面，可用于上传，删除，预览，重命名和编辑文件。它允许创建多个用户，每个用户可以拥有自己的目录。它可以用作独立的应用程序或中间件。
                                     <div><a href="https://github.com/filebrowser/filebrowser" target="blank">项目地址: https://github.com/filebrowser/filebrowser</a></div>
-                                    <div><a href="https://filebrowser.xyz/" target="blank">配置教程: https://filebrowser.xyz/</a></div>
-                                    <div><a href="https://filebrowser.xyz/installation/caddy" target="blank">caddy配置教程: https://filebrowser.xyz/installation/caddy</a></div>
+                                    <div><a href="https://filebrowser.org/" target="blank">配置教程: https://filebrowser.org/</a></div>
                                     <div>备注：请用最新的浏览器。它适用于Chrome（移动设备），Firefox，Safari（Mac和移动设备）。</div>
                                     <div>当前 app 文件:【<% nvram_get_x("", "app5_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app5_ver_n"); %>】 </div>
                                     <span style="color:#FF0000;" class=""></span></div>
@@ -166,7 +175,7 @@ function button_filemanager_wan_port(){
                                             <th colspan="4" style="background-color: #E3E3E3;">开关</th>
                                         </tr>
                                         <tr id="filemanager_enable_tr" >
-                                            <th width="30%">File Manager 开关</th>
+                                            <th width="30%">File Browser 开关</th>
                                             <td>
                                                     <div class="main_itoggle">
                                                     <div id="app_15_on_of">
@@ -185,18 +194,14 @@ function button_filemanager_wan_port(){
                                                 <span style="color:#888;">版本：<% nvram_get_x("","filemanager_v"); %></span>
                                             </td>
                                         </tr>
-                                        <tr id="caddy_enable_tr" >
-                                            <th width="30%" style="border-top: 0 none;">caddy 插件方式启动</th>
+                                        <tr>
+                                            <th width="30%" style="border-top: 0 none;">启动版本:</th>
                                             <td style="border-top: 0 none;" colspan="2">
-                                                    <div class="main_itoggle">
-                                                    <div id="app_54_on_of">
-                                                        <input type="checkbox" id="app_54_fake" <% nvram_match_x("", "app_54", "1", "value=1 checked"); %><% nvram_match_x("", "app_54", "0", "value=0"); %>  />
-                                                    </div>
-                                                </div>
-                                                <div style="position: absolute; margin-left: -10000px;">
-                                                    <input type="radio" value="1" name="app_54" id="app_54_1" class="input" value="1" onClick="change_caddy_enable(1);" <% nvram_match_x("", "app_54", "1", "checked"); %> /><#checkbox_Yes#>
-                                                    <input type="radio" value="0" name="app_54" id="app_54_0" class="input" value="0" onClick="change_caddy_enable(1);" <% nvram_match_x("", "app_54", "0", "checked"); %> /><#checkbox_No#>
-                                                </div>
+                                                <select name="app_54" class="input" onChange="change_caddy_enable();">
+                                                    <option value="2" <% nvram_match_x("","app_54", "2","selected"); %>>filebrowser_v2</option>
+                                                    <option value="0" <% nvram_match_x("","app_54", "0","selected"); %>>filemanager_v1</option>
+                                                    <option value="1" <% nvram_match_x("","app_54", "1","selected"); %>>filemanager_v1_caddy</option>
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr>
@@ -211,7 +216,7 @@ function button_filemanager_wan_port(){
                                         <tr>
                                             <th style="border: 0 none;">端口:</th>
                                             <td style="border: 0 none;">
-                                                <input type="text" readonly="readonly" maxlength="8"  class="input" size="60" name="app_14" placeholder="888" value="<% nvram_get_x("","app_14"); %>" onKeyPress="return is_string(this,event);" />
+                                                <input type="text" readonly="readonly" maxlength="8"  class="input" size="60" name="app_14" id="app_14" placeholder="888" value="<% nvram_get_x("","app_14"); %>" onKeyPress="return is_string(this,event);" />
                                             </td>
                                         </tr>
                                         <tr>
