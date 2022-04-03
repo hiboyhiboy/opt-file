@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app5_ver=2022-04-03=-->
+<!--app5_ver=2022-04-04=-->
 <html>
 <head>
 <title><#Web_Title#> - 在线文件管理系统</title>
@@ -75,16 +75,19 @@ function change_filemanager_enable(mflag){
 function change_caddy_enable(){
 	var m = document.form.app_54.value;
 	if (m ==2){
+		showhide_div("app_80_tr", 1);
 		showhide_div("app_5_script", 0);
 		showhide_div("app_11_script", 0);
 		document.querySelector("#app_14").readOnly = false;
 	}
 	if (m ==1){
+		showhide_div("app_80_tr", 0);
 		showhide_div("app_5_script", 0);
 		showhide_div("app_11_script", 1);
 		document.querySelector("#app_14").readOnly = true;
 	}
 	if (m ==0){
+		showhide_div("app_80_tr", 0);
 		showhide_div("app_5_script", 1);
 		showhide_div("app_11_script", 0);
 		document.querySelector("#app_14").readOnly = true;
@@ -170,7 +173,7 @@ function button_filemanager_wan_port(){
                                     <div>当前 app 文件:【<% nvram_get_x("", "app5_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app5_ver_n"); %>】 </div>
                                     <span style="color:#FF0000;" class=""></span></div>
 
-                                    <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
+                                    <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table" style="margin-bottom: 0px;">
                                         <tr>
                                             <th colspan="4" style="background-color: #E3E3E3;">开关</th>
                                         </tr>
@@ -215,10 +218,20 @@ function button_filemanager_wan_port(){
                                         </tr>
                                         <tr>
                                             <th style="border: 0 none;">端口:</th>
-                                            <td style="border: 0 none;">
-                                                <input type="text" readonly="readonly" maxlength="8"  class="input" size="60" name="app_14" id="app_14" placeholder="888" value="<% nvram_get_x("","app_14"); %>" onKeyPress="return is_string(this,event);" />
+                                            <td style="border: 0 none;" colspan="2">
+                                                <input type="text" readonly="readonly" maxlength="5"  class="input" size="5" name="app_14" id="app_14" placeholder="888" value="<% nvram_get_x("","app_14"); %>" onKeyPress="return is_number(this,event);" />
                                             </td>
                                         </tr>
+                                    </table>
+                                    <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table" style="margin-bottom: 0px;">
+                                        <tr id="app_80_tr">
+                                            <th width="25%" style="border: 0 none;">启动参数:</th>
+                                            <td style="border: 0 none;" colspan="4">
+                                                <input type="text" maxlength="128" style="width: 470px;" class="input" size="60" name="app_80" id="app_80" placeholder="filebrowser -a 0.0.0.0 --disable-preview-resize --disable-type-detection-by-header" value="<% nvram_get_x("","app_80"); %>" onKeyPress="return is_string(this,event);" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
                                         <tr>
                                             <th style="border: 0 none;">WebGUI :</th>
                                             </td>
