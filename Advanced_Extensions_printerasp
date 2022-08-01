@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!--app4_ver=2022-08-01=-->
+<html>
+<head>
+<title><#Web_Title#> - 连接打印机</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="icon" href="images/favicon.png">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/main.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/engage.itoggle.css">
+
+<script type="text/javascript" src="/jquery.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/bootstrap/js/engage.itoggle.min.js"></script>
+<script type="text/javascript" src="/state.js"></script>
+<script type="text/javascript" src="/general.js"></script>
+<script type="text/javascript" src="/itoggle.js"></script>
+<script type="text/javascript" src="/popup.js"></script>
+<script type="text/javascript" src="/help.js"></script>
+<script>
+var $j = jQuery.noConflict();
+
+$j(document).ready(function() {
+
+	init_itoggle('app_10',change_printer_enable);
+
+});
+
+</script>
+<script>
+
+function initial(){
+	show_banner(1);
+	show_menu(8,<% nvram_get_x("", "printer_L2"); %>,<% nvram_get_x("", "printer_L3"); %>);
+	show_footer();
+	change_printer_enable(1);
+
+}
+
+function applyRule(){
+//	if(validForm()){
+	showLoading();
+	
+	document.form.action_mode.value = " Apply ";
+	document.form.current_page.value = "/Advanced_Extensions_app04.asp";
+	document.form.next_page.value = "";
+	
+	document.form.submit();
+//	}
+}
+
+function done_validating(action){
+	refreshpage();
+}
+
+function change_printer_enable(mflag){
+	var m = document.form.app_10.value;
+	var is_printer_enable = (m == "1") ? "重启" : "更新";
+	document.form.updateprinter.value = is_printer_enable;
+}
+function button_updateprinter(){
+	change_printer_enable(1);
+	var $j = jQuery.noConflict();
+	$j.post('/apply.cgi',
+	{
+	'action_mode': ' updateapp4 ',
+	});
+}
+
+</script>
+</head>
+
+<body onload="initial();" onunLoad="return unload_body();">
+
+<div class="wrapper">
+	<div class="container-fluid" style="padding-right: 0px">
+	<div class="row-fluid">
+	<div class="span3"><center><div id="logo"></div></center></div>
+	<div class="span9" >
+	<div id="TopBanner"></div>
+	</div>
+	</div>
+	</div>
+
+	<div id="Loading" class="popup_bg"></div>
+
+	<iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>
+
+	<form method="post" name="form" id="ruleForm" action="/start_apply.htm" target="hidden_frame">
+
+	<input type="hidden" name="current_page" value="Advanced_Extensions_app04.asp">
+	<input type="hidden" name="next_page" value="">
+	<input type="hidden" name="next_host" value="">
+	<input type="hidden" name="sid_list" value="APP;LANHostConfig;General;">
+	<input type="hidden" name="group_id" value="">
+	<input type="hidden" name="action_mode" value="">
+	<input type="hidden" name="action_script" value="">
+	<input type="hidden" name="wan_ipaddr" value="<% nvram_get_x("", "wan0_ipaddr"); %>" readonly="1">
+	<input type="hidden" name="wan_netmask" value="<% nvram_get_x("", "wan0_netmask"); %>" readonly="1">
+	<input type="hidden" name="dhcp_start" value="<% nvram_get_x("", "dhcp_start"); %>">
+	<input type="hidden" name="dhcp_end" value="<% nvram_get_x("", "dhcp_end"); %>">
+
+	<div class="container-fluid">
+	<div class="row-fluid">
+	<div class="span3">
+	<!--Sidebar content-->
+	<!--=====Beginning of Main Menu=====-->
+	<div class="well sidebar-nav side_nav" style="padding: 0px;">
+	<ul id="mainMenu" class="clearfix"></ul>
+	<ul class="clearfix">
+	<li>
+	<div id="subMenu" class="accordion"></div>
+	</li>
+	</ul>
+	</div>
+	</div>
+
+	<div class="span9">
+	<!--Body content-->
+	<div class="row-fluid">
+	<div class="span12">
+	<div class="box well grad_colour_dark_blue">
+	<h2 class="box_head round_top">连接打印机</h2>
+	<div class="round_bottom">
+	<div class="row-fluid">
+	<div id="tabMenu" class="submenuBlock"></div>
+	<div class="alert alert-info" style="margin: 10px;">连接 HP LaserJet 1xxx/2xxx 打印机，自动安装驱动固件。
+	<div><a href="https://bitbucket.org/padavan/rt-n56u/wiki/RU/%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B0%20HP%20LaserJet%201xxx" target="blank">某些打印机需要在操作前下载固件</a></div>
+	<div><a href="https://bitbucket.org/padavan/rt-n56u/wiki/browse/files/hplj/" target="blank">对于流行的 HP 型号固件:①【点击查看】</a> 、 <a href="http://oleg.wl500g.info/hplj/" target="blank">②【点击查看】</a></div>
+	<div>当前 app 文件:【<% nvram_get_x("", "app4_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app4_ver_n"); %>】 </div>
+	<span style="color:#FF0000;" class=""></span></div>
+
+	<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
+	<tr>
+	<th colspan="4" style="background-color: #E3E3E3;">开关</th>
+	</tr>
+	<tr id="printer_enable_tr" >
+	<th width="30%">连接打印机 开关</th>
+	<td>
+	<div class="main_itoggle">
+	<div id="app_10_on_of">
+	<input type="checkbox" id="app_10_fake" <% nvram_match_x("", "app_10", "1", "value=1 checked"); %><% nvram_match_x("", "app_10", "0", "value=0"); %>  />
+	</div>
+	</div>
+	<div style="position: absolute; margin-left: -10000px;">
+	<input type="radio" value="1" name="app_10" id="app_10_1" class="input" value="1" onClick="change_printer_enable(1);" <% nvram_match_x("", "app_10", "1", "checked"); %> /><#checkbox_Yes#>
+	<input type="radio" value="0" name="app_10" id="app_10_0" class="input" value="0" onClick="change_printer_enable(1);" <% nvram_match_x("", "app_10", "0", "checked"); %> /><#checkbox_No#>
+	</div>
+	</td>
+	<td colspan="2">
+	<input class="btn btn-success" style="width:60px" type="button" name="updateprinter" value="更新" onclick="button_updateprinter()" />
+	</td>
+	</tr>
+	<tr>
+	<th colspan="4" style="background-color: #E3E3E3;">打印机固件设置</th>
+	</tr>
+	<tr>
+	<th width="30%">固件包选择</th>
+	<td colspan="3">
+	<select name="app_11" class="input">
+	<option value="auto" <% nvram_match_x("","app_11", "auto","selected"); %>>自动匹配</option>
+	<option value="sihp1000.dl" <% nvram_match_x("","app_11", "sihp1000.dl","selected"); %>>sihp1000.dl</option>
+	<option value="sihp1005.dl" <% nvram_match_x("","app_11", "sihp1005.dl","selected"); %>>sihp1005.dl</option>
+	<option value="sihp1018.dl" <% nvram_match_x("","app_11", "sihp1018.dl","selected"); %>>sihp1018.dl</option>
+	<option value="sihp1020.dl" <% nvram_match_x("","app_11", "sihp1020.dl","selected"); %>>sihp1020.dl</option>
+	<option value="sihp1022.dl" <% nvram_match_x("","app_11", "sihp1022.dl","selected"); %>>sihp1022.dl</option>
+	<option value="sihp1022n.dl" <% nvram_match_x("","app_11", "sihp1022n.dl","selected"); %>>sihp1022n.dl</option>
+	<option value="sihpP1005.dl" <% nvram_match_x("","app_11", "sihpP1005.dl","selected"); %>>sihpP1005.dl</option>
+	<option value="sihpP1006.dl" <% nvram_match_x("","app_11", "sihpP1006.dl","selected"); %>>sihpP1006.dl</option>
+	<option value="sihpP1007.dl" <% nvram_match_x("","app_11", "sihpP1007.dl","selected"); %>>sihpP1007.dl</option>
+	<option value="sihpP1008.dl" <% nvram_match_x("","app_11", "sihpP1008.dl","selected"); %>>sihpP1008.dl</option>
+	<option value="sihpP1505.dl" <% nvram_match_x("","app_11", "sihpP1505.dl","selected"); %>>sihpP1505.dl</option>
+	<option value="sihp1000.dl" <% nvram_match_x("","app_11", "sihp1000.dl","selected"); %>>sihp1000.dl</option>
+	<option value="custom" <% nvram_match_x("","app_11", "custom","selected"); %>>自定义</option>
+	</select>
+	<div><span style="color:#888;"><% nvram_get_x("","printer_md5"); %></span></div>
+	</td>
+	</tr>
+	<tr>
+	<th>自定义固件:</th>
+	<td colspan="3">
+	<input type="text" maxlength="1024"  class="input" size="60" name="app_12" placeholder="http://... or /opt/sihp1020.dl" value="<% nvram_get_x("","app_12"); %>" onKeyPress="return is_string(this,event);" />
+	<div><span style="color:#888;">固件包选择【自定义】时生效</span></div>
+	<div><span style="color:#888;">可填入[ http://... ]下载地址或文件路径[ /opt/sihp1020.dl ]地址</span></div>
+	</td>
+	</tr>
+	<tr>
+	<th width="30%">固件包储存位置</th>
+	<td colspan="3">
+	<select name="app_13" class="input">
+	<option value="1" <% nvram_match_x("","app_13", "1","selected"); %>>opt 储存 /opt/app/printer/</option>
+	<option value="2" <% nvram_match_x("","app_13", "2","selected"); %>>内部存储 /etc/storage/printer/</option>
+	</select>
+	<div><span style="color:#888;">由于内部存储可用空间小，若出错换 opt 储存使用</span></div>
+	</td>
+	</tr>
+	<tr>
+	<td colspan="4" style="border-top: 0 none;">
+	<br />
+	<center><input class="btn btn-primary" style="width: 219px" type="button" value="<#CTL_apply#>" onclick="applyRule()" /></center>
+	</td>
+	</tr>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+
+	</form>
+
+	<div id="footer"></div>
+</div>
+</body>
+</html>
+
