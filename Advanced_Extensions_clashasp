@@ -374,7 +374,7 @@ function button_append_app_20_script_code(){
 											<th style="border-top: 0 none;">clash 订阅链接:<div></div></th>
 											<td style="border-top: 0 none;">
 											<div class="input-append">
-												<input maxlength="512" class="input" size="15" name="app_91" id="app_91" style="width: 175px;" placeholder=" https://www.123.com/clash.txt" value="<% nvram_get_x("","app_91"); %>" onKeyPress="return is_string(this,event);"/>
+												<input maxlength="5120" class="input" size="15" name="app_91" id="app_91" style="width: 175px;" placeholder=" https://www.123.com/clash.txt" value="<% nvram_get_x("","app_91"); %>" onKeyPress="return is_string(this,event);"/>
 											</div>
 											</td>
 											<td colspan="2" style="border-top: 0 none;">
