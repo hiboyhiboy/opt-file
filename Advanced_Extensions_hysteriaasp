@@ -154,7 +154,7 @@ function button_updatehysteria(){
 								<div class="row-fluid">
 									<div id="tabMenu" class="submenuBlock"></div>
 									<div class="alert alert-info" style="margin: 10px;">欢迎使用 hysteria ，这是一个专为恶劣网络环境进行优化的网络工具（双边加速）。
-									<div>项目地址：<a href="https://github.com/HyNetwork/hysteria" target="blank">https://github.com/HyNetwork/hysteria</a></div>
+									<div>项目地址：<a href="https://github.com/apernet/hysteria" target="blank">https://github.com/apernet/hysteria</a></div>
 									<div>当前 app 文件:【<% nvram_get_x("", "app24_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app24_ver_n"); %>】 </div>
 									<span style="color:#FF0000;" class=""></span></div>
 
