@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app21_ver=2021-02-21=-->
+<!--app21_ver=2023-01-01=-->
 <html>
 <head>
 <title><#Web_Title#> - ss_tproxy</title>
@@ -35,7 +35,8 @@ $j(document).ready(function() {
 	init_itoggle('ss_sub1');
 	init_itoggle('ss_sub2');
 	init_itoggle('ss_sub3');
-	init_itoggle('ss_udp_enable');
+	init_itoggle('ss_udp_enable',change_ss_udp_enable);
+	init_itoggle('app_81');
 
 });
 
@@ -51,6 +52,7 @@ function initial(){
 	change_ss_DNS_Redirect();
 	change_dns_start_dnsproxy();
 	change_ss_pdnsd_all();
+	change_ss_udp_enable();
 	change_ss_3p_enable();
 	change_ss_tproxy_enable(1);
 	if (!login_safe())
@@ -131,6 +133,12 @@ function change_ss_pdnsd_all(){
 	var m = document.form.ss_pdnsd_all[0].checked;
 	var is_ss_pdnsd_all = (m == "1") ? 1 : 0;
 	//showhide_div("ss_pdnsd_cn_all_tr", is_ss_pdnsd_all);
+}
+
+function change_ss_udp_enable(){
+	var m = document.form.ss_udp_enable[0].checked;
+	var is_app_81 = (m == "1") ? 1 : 0;
+	showhide_div("app_81_tr", is_app_81);
 }
 </script>
 </head>
@@ -320,9 +328,24 @@ function change_ss_pdnsd_all(){
 													</div>
 												</div>
 												<div style="position: absolute; margin-left: -10000px;">
-													<input type="radio" value="1" name="ss_udp_enable" id="ss_udp_enable_1" class="input" value="1" <% nvram_match_x("", "ss_udp_enable", "1", "checked"); %> /><#checkbox_Yes#>
-													<input type="radio" value="0" name="ss_udp_enable" id="ss_udp_enable_0" class="input" value="0" <% nvram_match_x("", "ss_udp_enable", "0", "checked"); %> /><#checkbox_No#>
+													<input type="radio" value="1" name="ss_udp_enable" id="ss_udp_enable_1" class="input" value="1" onclick="change_ss_udp_enable();" <% nvram_match_x("", "ss_udp_enable", "1", "checked"); %> /><#checkbox_Yes#>
+													<input type="radio" value="0" name="ss_udp_enable" id="ss_udp_enable_0" class="input" value="0" onclick="change_ss_udp_enable();" <% nvram_match_x("", "ss_udp_enable", "0", "checked"); %> /><#checkbox_No#>
 												</div>
+											</td>
+										</tr>
+										<tr id="app_81_tr">>
+											<th style="border-top: 0 none;">UDP全局转发</th>
+											<td style="border-top: 0 none;" colspan="2">
+													<div class="main_itoggle">
+													<div id="app_81_on_of">
+														<input type="checkbox" id="app_81_fake" <% nvram_match_x("", "app_81", "1", "value=1 checked"); %><% nvram_match_x("", "app_81", "0", "value=0"); %>  />
+													</div>
+												</div>
+												<div style="position: absolute; margin-left: -10000px;">
+													<input type="radio" value="1" name="app_81" id="app_81_1" class="input" value="1" <% nvram_match_x("", "app_81", "1", "checked"); %> /><#checkbox_Yes#>
+													<input type="radio" value="0" name="app_81" id="app_81_0" class="input" value="0" <% nvram_match_x("", "app_81", "0", "checked"); %> /><#checkbox_No#>
+												</div>
+												<div><span style="color:#888;">不启用时跟随tcp分流，启用时防止WebRTC泄露</span></div>
 											</td>
 										</tr>
 										<tr>
