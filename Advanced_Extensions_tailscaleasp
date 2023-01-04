@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--app11_ver=2023-01-03=-->
+<html>
+<head>
+<title><#Web_Title#> - tailscale</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="icon" href="images/favicon.png">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/main.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/engage.itoggle.css">
+
+<script type="text/javascript" src="/jquery.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/bootstrap/js/engage.itoggle.min.js"></script>
+<script type="text/javascript" src="/state.js"></script>
+<script type="text/javascript" src="/general.js"></script>
+<script type="text/javascript" src="/itoggle.js"></script>
+<script type="text/javascript" src="/popup.js"></script>
+<script type="text/javascript" src="/help.js"></script>
+<script>
+var $j = jQuery.noConflict();
+
+$j(document).ready(function() {
+
+
+});
+
+</script>
+<script>
+
+<% login_state_hook(); %>
+
+function initial(){
+	show_banner(1);
+	show_menu(8,<% nvram_get_x("", "tailscale_L2"); %>,<% nvram_get_x("", "tailscale_L3"); %>);
+	show_footer();
+	change_tailscale_enable(1);
+
+}
+
+function applyRule(){
+//	if(validForm()){
+		showLoading();
+		
+		document.form.action_mode.value = " Apply ";
+		document.form.current_page.value = "/Advanced_Extensions_app11.asp";
+		document.form.next_page.value = "";
+		
+		document.form.submit();
+//	}
+}
+
+function done_validating(action){
+	refreshpage();
+}
+function change_tailscale_enable(mflag){
+	var m = document.form.app_82.value;
+	var is_tailscale_enable = (m == "1" || m == "2") ? "重启" : "更新";
+	document.form.updatetailscale.value = is_tailscale_enable;
+}
+function button_updatetailscale(){
+	change_tailscale_enable(1);
+	var $j = jQuery.noConflict();
+	$j.post('/apply.cgi',
+	{
+		'action_mode': ' updateapp11 ',
+	});
+}
+
+function button_tailscale_wan_port(){
+		var port = '8989';
+		var porturl ='http://' + window.location.hostname + ":" + port;
+		//alert(porturl);
+		window.open(porturl,'tailscale_wan_port');
+}
+function button_tailscale_wan2_port(){
+		var porturl ='https://login.tailscale.com/admin/machines';
+		window.open(porturl,'tailscale_wan2_port');
+}
+</script>
+</head>
+
+<body onload="initial();" onunLoad="return unload_body();">
+
+<div class="wrapper">
+	<div class="container-fluid" style="padding-right: 0px">
+		<div class="row-fluid">
+			<div class="span3"><center><div id="logo"></div></center></div>
+			<div class="span9" >
+				<div id="TopBanner"></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="Loading" class="popup_bg"></div>
+
+	<iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>
+
+	<form method="post" name="form" id="ruleForm" action="/start_apply.htm" target="hidden_frame">
+
+	<input type="hidden" name="current_page" value="Advanced_Extensions_app11.asp">
+	<input type="hidden" name="next_page" value="">
+	<input type="hidden" name="next_host" value="">
+	<input type="hidden" name="sid_list" value="APP;LANHostConfig;General;">
+	<input type="hidden" name="group_id" value="">
+	<input type="hidden" name="action_mode" value="">
+	<input type="hidden" name="action_script" value="">
+	<input type="hidden" name="wan_ipaddr" value="<% nvram_get_x("", "wan0_ipaddr"); %>" readonly="1">
+	<input type="hidden" name="wan_netmask" value="<% nvram_get_x("", "wan0_netmask"); %>" readonly="1">
+	<input type="hidden" name="dhcp_start" value="<% nvram_get_x("", "dhcp_start"); %>">
+	<input type="hidden" name="dhcp_end" value="<% nvram_get_x("", "dhcp_end"); %>">
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span3">
+				<!--Sidebar content-->
+				<!--=====Beginning of Main Menu=====-->
+				<div class="well sidebar-nav side_nav" style="padding: 0px;">
+					<ul id="mainMenu" class="clearfix"></ul>
+					<ul class="clearfix">
+						<li>
+							<div id="subMenu" class="accordion"></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="span9">
+				<!--Body content-->
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="box well grad_colour_dark_blue">
+							<h2 class="box_head round_top">tailscale</h2>
+							<div class="round_bottom">
+								<div class="row-fluid">
+									<div id="tabMenu" class="submenuBlock"></div>
+									<div class="alert alert-info" style="margin: 10px;">Tailscale  让您可以轻松管理对私有资源的访问，快速通过 SSH 连接到您网络上的设备，网络变得简单。
+									<div>项目地址：<a href="https://github.com/tailscale/tailscale" target="blank">https://github.com/tailscale/tailscale</a></div>
+									<div>当前 app 文件:【<% nvram_get_x("", "app11_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app11_ver_n"); %>】 </div>
+									<span style="color:#FF0000;" class=""></span></div>
+
+									<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
+										<tr>
+											<th colspan="4" style="background-color: #E3E3E3;">开关</th>
+										</tr>
+										<tr id="app_82_tr">
+											<th width="30%" style="border-top: 0 none;">Tailscale 开关</th>
+											<td style="border-top: 0 none;">
+												<select name="app_82" class="input" onChange="change_tailscale_enable();" style="width: 185px;">
+													<option value="0" <% nvram_match_x("","app_82", "0","selected"); %>>【关闭】</option>
+													<option value="1" <% nvram_match_x("","app_82", "1","selected"); %>>【开启】Tailscale</option>
+													<option value="2" <% nvram_match_x("","app_82", "2","selected"); %>>【开启】Tailscale & 登录本机管理界面</option>
+													<option value="3" <% nvram_match_x("","app_82", "3","selected"); %>>【重置】Tailscale 恢复初始化</option>
+												</select>
+											</td>
+											<td colspan="1">
+												<input class="btn btn-success" type="button" name="updatetailscale" value="更新" onclick="button_updatetailscale()" />
+											</td>
+											<td colspan="1">
+												<span style="color:#888;">版本：<% nvram_get_x("","tailscale_v"); %></span>
+											</td>
+										</tr>
+										<tr>
+											<th colspan="4" style="background-color: #E3E3E3;">登录本机管理界面</th>
+										</tr>
+										<tr>
+											<td colspan="2" style="border-top: 0 none;">
+												<input class="btn btn-primary" style="" type="button" value="设置本机管理界面" onclick="button_tailscale_wan_port()" tabindex="24"><div><span style="color:#888;">(5分钟自动关闭)</span></div>
+											</td>
+											<td colspan="2" style="border-top: 0 none;">
+												<input class="btn btn-primary" style="" type="button" value=" 全网管理界面" onclick="button_tailscale_wan2_port()" tabindex="24"><div><span style="color:#888;">https://login.tailscale.com/admin/machines</span></div>
+											</td>
+
+
+										</tr>
+										<tr>
+											<td colspan="4" style="border-top: 0 none;">
+												<br />
+												<center><input class="btn btn-primary" style="width: 219px" type="button" value="<#CTL_apply#>" onclick="applyRule()" /></center>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</form>
+
+	<div id="footer"></div>
+</div>
+</body>
+</html>
+
