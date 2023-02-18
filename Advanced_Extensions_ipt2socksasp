@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app20_ver=2021-02-21=-->
+<!--app20_ver=2023-02-16=-->
 <html>
 <head>
 <title><#Web_Title#> - ipt2socks</title>
@@ -173,6 +173,13 @@ function button_updateipt2socks(){
 													<option value="1" <% nvram_match_x("","app_28", "1","selected"); %>>【2】gfwlist</option>
 													<option value="2" <% nvram_match_x("","app_28", "2","selected"); %>>【3】全局代理</option>
 													<option value="3" <% nvram_match_x("","app_28", "3","selected"); %>>【4】回国模式</option>
+												</select>
+											</td>
+											<td colspan="2" style="border-top: 0 none;">
+												<select name="ss_ip46">
+													<option value="0" <% nvram_match_x("","ss_ip46", "0","selected"); %>>启用 ipv4 透明代理</option>
+													<option value="1" <% nvram_match_x("","ss_ip46", "1","selected"); %>>启用 ipv6 透明代理</option>
+													<option value="2" <% nvram_match_x("","ss_ip46", "2","selected"); %>>启用 ipv4 + ipv6 透明代理</option>
 												</select>
 											</td>
 										</tr>
