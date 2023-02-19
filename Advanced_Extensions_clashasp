@@ -210,7 +210,7 @@ function button_append_app_20_script_code(){
 								<div class="row-fluid">
 									<div id="tabMenu" class="submenuBlock"></div>
 									<div class="alert alert-info" style="margin: 10px;">欢迎使用 clash ，这是一款用Go开发的代理工具，支持ss/v2ray/ssr等协议，支持规则分流（类似于 Surge 的配置）。clash 主页：<a href="https://github.com/Dreamacro/clash" target="blank">https://github.com/Dreamacro/clash</a>
-									<div>项目地址： <a href="https://github.com/Dreamacro/clash/releases/tag/premium" target="blank">premium</a>  <a href="https://github.com/MetaCubeX/Clash.Meta" target="blank">Clash.Meta</a>  <a href="https://github.com/ClashDotNetFramework/experimental-clash" target="blank_ex"> experimental (支持Vless + XTLS)</a> 配置模板：<a href="https://github.com/Dreamacro/clash/wiki/configuration" target="blank">config.yaml</a></div>
+									<div>项目地址：【<a href="https://github.com/Dreamacro/clash/releases/tag/premium" target="blank"> premium </a>教程：<a href="https://github.com/Dreamacro/clash/wiki/configuration" target="blank"> config.yaml </a>】【<a href="https://github.com/MetaCubeX/Clash.Meta" target="blank"> Clash.Meta </a>教程：<a href="https://github.com/MetaCubeX/Clash.Meta/blob/Alpha/docs/config.yaml" target="blank"> config.yaml </a>】【<a href="https://github.com/ClashDotNetFramework/experimental-clash" target="blank_ex"> experimental </a>】</div>
 									<div>第三方 web 管理页面：<a href="http://clash.razord.top/" target="blank">http://clash.razord.top/</a> 、<a href="http://yacd.haishan.me/" target="blank">http://yacd.haishan.me/</a></div>
 									<div>在线规则订阅转换：<a href="https://acl4ssr.netlify.com/" target="blank">https://acl4ssr.netlify.com/</a> 备注：建议修改配置的 secret: 来加密 web 管理页面</div>
 									<div>当前 app 文件:【<% nvram_get_x("", "app18_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app18_ver_n"); %>】 </div>
