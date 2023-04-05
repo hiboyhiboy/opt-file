@@ -140,16 +140,49 @@ function heredoc(fn) {
 }
 function button_append_app_20_script_code(){
 	if (document.querySelector("#app_20_script_code").style.display == 'none') {
-	document.form.button_append_script_code.value = "点击按钮隐藏 clash 主配置文件（当前显示时保存设置时间随配置大小延长）";
+	document.form.button_append_script_code.value = "点击按钮隐藏 clash 主配置文件（右边[保存]按钮能迅速保存设置）";
+	showhide_div("app_20_script_save", 1);
 	showhide_div("app_20_script_code", 1);
 	inputCtrl(document.form['scripts.app_20.sh'], 1);
 	}else{
 	document.form.button_append_script_code.value = "点击按钮显示 clash 主配置文件（当前隐藏时忽略 clash 主配置文件，能迅速保存设置）";
+	showhide_div("app_20_script_save", 0);
 	showhide_div("app_20_script_code", 0);
 	inputCtrl(document.form['scripts.app_20.sh'], 0);
 	}
 	if (!login_safe())
 		textarea_scripts_enabled(0);
+}
+
+function set_frm_action_apply(){
+	document.form.file_st.value = "";
+	document.form.action = "/start_apply.htm";
+	document.form.enctype = "application/x-www-form-urlencoded";
+	document.form.action_mode.value = " Apply ";
+}
+
+function set_frm_action_upload(at){
+	document.form.action = at;
+	document.form.enctype = "multipart/form-data";
+	document.form.action_mode.value = "";
+}
+
+function uploadapp_20(){
+	document.form.file_st.value = "";
+	set_frm_action_upload("upapp_20.cgi");
+	document.form.submit();
+	set_frm_action_apply();
+}
+
+function uploadapp_20_sh(){
+	set_frm_action_upload("upapp_20_sh.cgi");
+	document.form.submit();
+	set_frm_action_apply();
+}
+
+function saveapp_20_sh(){
+	set_frm_action_apply();
+	location.href='config.yaml';
 }
 </script>
 </head>
@@ -170,7 +203,7 @@ function button_append_app_20_script_code(){
 
 	<iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>
 
-	<form method="post" name="form" id="ruleForm" action="/start_apply.htm" target="hidden_frame">
+	<form method="post" name="form" id="ruleForm" action="/start_apply.htm" target="hidden_frame" enctype="application/x-www-form-urlencoded">
 
 	<input type="hidden" name="current_page" value="Advanced_Extensions_app18.asp">
 	<input type="hidden" name="next_page" value="">
@@ -441,15 +474,32 @@ function button_append_app_20_script_code(){
 										<tr>
 											<th colspan="4" style="background-color: #E3E3E3;" >配置（由于系统保存时限制单行1024字，若单行超长请格式化 yml 配置后再粘贴，或直接用订阅更新配置）</th>
 										</tr>
-											<td style="border-top: 0 none;" colspan="4">
+										<tr>
+											<td style="border-top: 0 none;" colspan="3">
 												<i class="icon-hand-right"></i><input class="btn btn-primary" style="" type="button" name="button_append_script_code" value="点击按钮显示 clash 主配置文件（当前隐藏时忽略 clash 主配置文件，能迅速保存设置）" onclick="button_append_app_20_script_code()" tabindex="24">
 											</td>
+											<td style="border-top: 0 none;display:none;" id="app_20_script_save" name="app_20_script_save">
+												<input name="upload_st" class="btn btn-info" onclick="uploadapp_20();" type="button" value="💾<#CTL_onlysave#>"/>
+											</td>
+										</tr>
 										<tr>
 											<td colspan="4" style="border-top: 0 none;display:none;" id="app_20_script_code" name="app_20_script_code">
-											<a><span>若文件太大建议直接修改 /etc/storage/app_20.sh</span></a>
+											<a><span>/etc/storage/app_20.sh</span></a>
 												<div>
-													<textarea rows="18" wrap="off" spellcheck="false" maxlength="2097152" class="span12" id="scripts.app_20.sh" name="scripts.app_20.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_20.sh",""); %></textarea>
+													<textarea rows="18" wrap="off" spellcheck="false" maxlength="2097152" class="span12" id="scripts.app_20.sh" name="scripts.app_20.sh" style="font-family:'Courier New'; font-size:12px;" disabled><% nvram_dump("scripts.app_20.sh",""); %></textarea>
 												</div>
+											</td>
+										</tr>
+										<tr>
+											<th style="border-top: 0 none;"><a class="help_tooltip" href="javascript:void(0);" onmouseover="openTooltip(this,19,4)"><#Storage_upload_itemname#> : config.yaml</a></th>
+											<td style="border-top: 0 none;">
+												<input name="file_st" type="file" size="36" />
+											</td>
+											<td style="border-top: 0 none; padding-top: 0px;">
+												<input class="btn btn-info" onclick="uploadapp_20_sh();" type="button" value="📜<#CTL_upload#>"/>
+											</td>
+											<td style="border-top: 0 none; padding-top: 0px;">
+												<input class="btn btn-info" onclick="saveapp_20_sh();" type="button" value="📋<#Setting_save_itemname#>"/>
 											</td>
 										</tr>
 										<tr id="app_21_script_tr" style="display:none;">
