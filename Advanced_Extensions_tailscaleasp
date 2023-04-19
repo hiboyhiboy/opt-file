@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app11_ver=2023-01-03=-->
+<!--app11_ver=2023-04-19=-->
 <html>
 <head>
 <title><#Web_Title#> - tailscale</title>
@@ -38,7 +38,7 @@ function initial(){
 	show_banner(1);
 	show_menu(8,<% nvram_get_x("", "tailscale_L2"); %>,<% nvram_get_x("", "tailscale_L3"); %>);
 	show_footer();
-	change_tailscale_enable(1);
+	change_tailscale_enable();
 
 }
 
@@ -57,13 +57,15 @@ function applyRule(){
 function done_validating(action){
 	refreshpage();
 }
-function change_tailscale_enable(mflag){
+function change_tailscale_enable(){
 	var m = document.form.app_82.value;
-	var is_tailscale_enable = (m == "1" || m == "2") ? "重启" : "更新";
+	var is_tailscale_enable = (m == "1" || m == "2" || m == "4") ? "重启" : "更新";
 	document.form.updatetailscale.value = is_tailscale_enable;
+	var is_tailscale_cmd = (m == "4") ? 1 : 0;
+	showhide_div("tailscale_cmd_tr", is_tailscale_cmd);
 }
 function button_updatetailscale(){
-	change_tailscale_enable(1);
+	change_tailscale_enable();
 	var $j = jQuery.noConflict();
 	$j.post('/apply.cgi',
 	{
@@ -154,6 +156,7 @@ function button_tailscale_wan2_port(){
 													<option value="0" <% nvram_match_x("","app_82", "0","selected"); %>>【关闭】</option>
 													<option value="1" <% nvram_match_x("","app_82", "1","selected"); %>>【开启】Tailscale</option>
 													<option value="2" <% nvram_match_x("","app_82", "2","selected"); %>>【开启】Tailscale & 登录本机管理界面</option>
+													<option value="4" <% nvram_match_x("","app_82", "4","selected"); %>>【开启】Tailscale 自定义参数</option>
 													<option value="3" <% nvram_match_x("","app_82", "3","selected"); %>>【重置】Tailscale 恢复初始化</option>
 												</select>
 											</td>
@@ -162,6 +165,13 @@ function button_tailscale_wan2_port(){
 											</td>
 											<td colspan="1">
 												<span style="color:#888;">版本：<% nvram_get_x("","tailscale_v"); %></span>
+											</td>
+										</tr>
+										<tr id="tailscale_cmd_tr">
+											<th width="30%" style="border-top: 0 none;">自定义参数启动
+											<div><a href="https://tailscale.com/kb/1241/tailscale-up/" target="blank">命令参数说明</a></div></th>
+											<td colspan="3" style="border-top: 0 none;">
+												<input type="text" style="width: 446px;" maxlength="1024" class="input" size="15" name="app_44" value="<% nvram_get_x("","app_44"); %>" placeholder="tailscale up" onKeyPress="return is_string(this,event);"/>
 											</td>
 										</tr>
 										<tr>
@@ -174,8 +184,6 @@ function button_tailscale_wan2_port(){
 											<td colspan="2" style="border-top: 0 none;">
 												<input class="btn btn-primary" style="" type="button" value=" 全网管理界面" onclick="button_tailscale_wan2_port()" tabindex="24"><div><span style="color:#888;">https://login.tailscale.com/admin/machines</span></div>
 											</td>
-
-
 										</tr>
 										<tr>
 											<td colspan="4" style="border-top: 0 none;">
