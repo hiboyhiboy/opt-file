@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app18_ver=2022-04-09=-->
+<!--app18_ver=2022-04-25=-->
 <html>
 <head>
 <title><#Web_Title#> - clash</title>
@@ -250,7 +250,7 @@ function saveapp_20_sh(){
 											<th colspan="4" style="background-color: #E3E3E3;">开关</th>
 										</tr>
 										<tr id="clash_enable_tr" >
-											<th width="35%">clash 开关</th>
+											<th width="32%">clash 开关</th>
 											<td>
 													<div class="main_itoggle">
 													<div id="app_88_on_of">
@@ -262,10 +262,10 @@ function saveapp_20_sh(){
 													<input type="radio" value="0" name="app_88" id="app_88_0" class="input" value="0" onClick="change_clash_enable(1);" <% nvram_match_x("", "app_88", "0", "checked"); %> /><#checkbox_No#>
 												</div>
 											</td>
-											<td colspan="1">
+											<td>
 												<input class="btn btn-success" type="button" name="updateclash" value="更新" onclick="button_updateclash()" />
 											</td>
-											<td colspan="1">
+											<td>
 												<span style="color:#888;">版本：<% nvram_get_x("","clash_v"); %></span>
 											</td>
 										</tr>
@@ -324,13 +324,6 @@ function saveapp_20_sh(){
 													<input type="radio" value="0" name="app_92" id="app_92_0" class="input" value="0" onClick="change_clash_follow_bridge(1);" <% nvram_match_x("", "app_92", "0", "checked"); %> /><#checkbox_No#>
 												</div>
 											</td>
-											<td colspan="2" style="border-top: 0 none;">
-												<select name="ss_ip46">
-													<option value="0" <% nvram_match_x("","ss_ip46", "0","selected"); %>>启用 ipv4 透明代理</option>
-													<option value="1" <% nvram_match_x("","ss_ip46", "1","selected"); %>>启用 ipv6 透明代理</option>
-													<option value="2" <% nvram_match_x("","ss_ip46", "2","selected"); %>>启用 ipv4 + ipv6 透明代理</option>
-												</select>
-											</td>
 										</tr>
 										<tr id="ss_udp_enable_tr" style="display:none;">
 											<th style="border-top: 0 none;"><a class="help_tooltip" href="javascript:void(0);" onmouseover="openTooltip(this, 25,9);">游戏模式（UDP转发）</a></th>
@@ -346,6 +339,8 @@ function saveapp_20_sh(){
 												</div>
 											</td>
 										</tr>
+									</table>
+									<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
 										<tr id="app_114_tr" style="display:none;">
 											<th style="border-top: 0 none;">路由自身流量透明代理选择</th>
 											<td style="border-top: 0 none;">
@@ -354,20 +349,9 @@ function saveapp_20_sh(){
 													<option value="1" <% nvram_match_x("","app_114", "1","selected"); %>>跳过代理路由自身流量</option>
 												</select>
 											</td>
-											<td colspan="2" id="app_78" style="border-top: 0 none;">
-												<select name="app_78">
-													<option value="0" <% nvram_match_x("","app_78", "0","selected"); %>>不更换版本</option>
-													<option value="premium" <% nvram_match_x("","app_78", "premium","selected"); %>>更换 premium (闭源版)</option>
-													<option value="experimental" <% nvram_match_x("","app_78", "experimental","selected"); %>>更换 experimental (支持Vless + XTLS)</option>
-													<option value="meta" <% nvram_match_x("","app_78", "meta","selected"); %>>更换 Clash.Meta</option>
-													<option value="premium_1" <% nvram_match_x("","app_78", "premium_1","selected"); %>>使用 premium (闭源版)(首次下载时)(默认)</option>
-													<option value="experimental_1" <% nvram_match_x("","app_78", "experimental_1","selected"); %>>使用 experimental (支持Vless + XTLS)(首次下载时)</option>
-													<option value="meta_1" <% nvram_match_x("","app_78", "meta_1","selected"); %>>使用 Clash.Meta(首次下载时)</option>
-												</select>
-											</td>
 										</tr>
 										<tr id="app_122_tr">
-											<th width="30%" style="border-top: 0 none;">ss_tproxy 分流工作模式</th>
+											<th style="border-top: 0 none;">ss_tproxy 分流工作模式</th>
 											<td style="border-top: 0 none;">
 												<select name="app_122" class="input" style="width: 185px;">
 													<option value="0" <% nvram_match_x("","app_122", "0","selected"); %>>clash 内部分流路由规则</option>
@@ -376,8 +360,15 @@ function saveapp_20_sh(){
 													<option value="3" <% nvram_match_x("","app_122", "3","selected"); %>>回国模式 + clash 内部分流</option>
 												</select>
 											</td>
-											<td colspan="2" style="border-top: 0 none;">
+											<td style="border-top: 0 none;">
 												<input class="btn btn-success" style="" type="button" value="更新geoip" onclick="button_clash_wget_geoip()" tabindex="24">
+											</td>
+											<td style="border-top: 0 none;">
+												<select name="ss_ip46">
+													<option value="0" <% nvram_match_x("","ss_ip46", "0","selected"); %>>启用 ipv4 透明代理</option>
+													<option value="1" <% nvram_match_x("","ss_ip46", "1","selected"); %>>启用 ipv6 透明代理</option>
+													<option value="2" <% nvram_match_x("","ss_ip46", "2","selected"); %>>启用 ipv4 + ipv6 透明代理</option>
+												</select>
 											</td>
 										</tr>
 										<tr>
@@ -391,7 +382,7 @@ function saveapp_20_sh(){
 												<input class="btn btn-primary" style="" type="button" value="Web管理界面" onclick="button_clash_wan_port()" tabindex="24">
 											</td>
 											<td id="app_79" style="border-top: 0 none;">
-												<select name="app_79" style="width: 110px;">
+												<select name="app_79">
 													<option value="0" <% nvram_match_x("","app_79", "0","selected"); %>>不更换面板</option>
 													<option value="clash" <% nvram_match_x("","app_79", "clash","selected"); %>>更换 clash 面板</option>
 													<option value="yacd" <% nvram_match_x("","app_79", "yacd","selected"); %>>更换 yacd 面板</option>
@@ -412,6 +403,17 @@ function saveapp_20_sh(){
 											<td style="border-top: 0 none;">
 												<input class="btn btn-warning" style="" type="button" value="热重载配置" onclick="button_clash_save_yml()" tabindex="24">
 											</td>
+											<td id="app_78" style="border-top: 0 none;">
+												<select name="app_78">
+													<option value="0" <% nvram_match_x("","app_78", "0","selected"); %>>不更换版本</option>
+													<option value="premium" <% nvram_match_x("","app_78", "premium","selected"); %>>更换 premium (闭源版)</option>
+													<option value="experimental" <% nvram_match_x("","app_78", "experimental","selected"); %>>更换 experimental (支持Vless + XTLS)</option>
+													<option value="meta" <% nvram_match_x("","app_78", "meta","selected"); %>>更换 Clash.Meta</option>
+													<option value="premium_1" <% nvram_match_x("","app_78", "premium_1","selected"); %>>使用 premium (闭源版)(首次下载时)(默认)</option>
+													<option value="experimental_1" <% nvram_match_x("","app_78", "experimental_1","selected"); %>>使用 experimental (支持Vless + XTLS)(首次下载时)</option>
+													<option value="meta_1" <% nvram_match_x("","app_78", "meta_1","selected"); %>>使用 Clash.Meta(首次下载时)</option>
+												</select>
+											</td>
 										</tr>
 										<tr>
 											<th style="border-top: 0 none;">clash 订阅链接:<div></div></th>
@@ -420,9 +422,11 @@ function saveapp_20_sh(){
 												<input maxlength="5120" class="input" size="15" name="app_91" id="app_91" style="width: 175px;" placeholder=" https://www.123.com/clash.txt" value="<% nvram_get_x("","app_91"); %>" onKeyPress="return is_string(this,event);"/>
 											</div>
 											</td>
-											<td colspan="2" style="border-top: 0 none;">
+											<td style="border-top: 0 none;">
 												<input class="btn btn-success" style="" type="button" value="更新订阅" onclick="button_clash_wget_yml()" tabindex="24">
-												<select name="app_120" class="input" style="width: 140px;">
+											</td>
+											<td style="border-top: 0 none;">
+												<select name="app_120" class="input">
 													<option value="0" <% nvram_match_x("","app_120", "0","selected"); %>>停止每6小时定时更新</option>
 													<option value="1" <% nvram_match_x("","app_120", "1","selected"); %>>开启每6小时定时更新</option>
 													<option value="2" <% nvram_match_x("","app_120", "2","selected"); %>>停止热重载、停止更新</option>
@@ -440,8 +444,10 @@ function saveapp_20_sh(){
 												<span style="color:#888;"> 默认[error]，可选[silent] [info] [warning] [debug]</a></span>
 											</td>
 										</tr>
+									</table>
+									<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
 										<tr id="app_default_config_tr" >
-											<th style="border-top: 0 none;">不改写配置直接启动？</th>
+											<th width="32%" style="border-top: 0 none;">不改写配置直接启动？</th>
 											<td style="border-top: 0 none;">
 													<div class="main_itoggle">
 													<div id="app_115_on_of">
@@ -454,9 +460,11 @@ function saveapp_20_sh(){
 												</div>
 											</td>
 											<td colspan="2" style="border-top: 0 none;">
-												<span style="color:#888;">有可能端口不匹配导致功能失效</span>
+												<span style="color:#888;">有可能端口不匹配导致功能失效，需配置 redir-port: 7892</span>
 											</td>
 										</tr>
+									</table>
+									<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
 										<tr>
 											<td colspan="4" style="border-top: 0 none;">
 												<br />
