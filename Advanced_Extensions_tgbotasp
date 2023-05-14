@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app12_ver=2019-8-11=-->
+<!--app12_ver=2023-05-14=-->
 <html>
 <head>
 <title><#Web_Title#> - tgbot</title>
@@ -219,7 +219,9 @@ function button_updatetgbot(){
 											<td style="border-top: 0 none;">
 												<select name="app_49" class="input">
 													<option value="0" <% nvram_match_x("","app_49", "0","selected"); %>>关闭</option>
-													<option value="1" <% nvram_match_x("","app_49", "1","selected"); %>>开启</option>
+													<option value="1" <% nvram_match_x("","app_49", "1","selected"); %>>开启 IPv4</option>
+													<option value="2" <% nvram_match_x("","app_49", "2","selected"); %>>开启 IPv6</option>
+													<option value="3" <% nvram_match_x("","app_49", "3","selected"); %>>开启 IPv4 & IPv6</option>
 												  </select>
 											</td>
 										</tr>

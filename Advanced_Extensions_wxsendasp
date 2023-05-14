@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app22_ver=2020-08-26=-->
+<!--app22_ver=2023-05-14=-->
 <html>
 <head>
 <title><#Web_Title#> - 自建微信推送</title>
@@ -196,20 +196,20 @@ function button_updatewxsend(){
 											</td>
 										</tr>
 										<tr>
-											<th colspan="4" style="background-color: #E3E3E3;" >在线发送（每日调用上限：100000次）</th>
-										</tr>
-										<tr>
-											<th style="border-top: 0 none;">消息标题:</th>
+											<th style="border-top: 0 none;">消息标记:</th>
 											<td style="border-top: 0 none;">
 											<div class="input-append">
-												<input maxlength="512" class="input" size="15" name="app_130" id="app_130" placeholder="消息标题" style="width: 175px;" value="<% nvram_get_x("","app_130"); %>" onKeyPress="return is_string(this,event);"/>
+												<input maxlength="512" class="input" size="15" name="app_130" id="app_130" placeholder="<% nvram_get_x("","computer_name"); %>" style="width: 175px;" value="<% nvram_get_x("","app_130"); %>" onKeyPress="return is_string(this,event);"/>
 											</div>
 											</td>
 										</tr>
 										<tr>
+											<th colspan="4" style="background-color: #E3E3E3;" >在线发送（每日调用上限：100000次）</th>
+										</tr>
+										<tr>
 											<th style="border: 0 none;">消息内容:</th>
 											<td style="border: 0 none;" colspan="3">
-											<textarea rows="3" wrap="off" spellcheck="false" maxlength="65536" class="span12" name="app_131" id="app_131" placeholder="消息内容" value="<% nvram_get_x("","app_131"); %>" onKeyPress="return is_string(this,event);"></textarea>
+											<textarea rows="3" wrap="off" spellcheck="false" maxlength="65536" class="span12" name="app_131" id="app_131" placeholder="消息内容 | 或换行分割消息：单个字段内容不超过 20 个字,最多 6 段字符" value="<% nvram_get_x("","app_131"); %>" onKeyPress="return is_string(this,event);"></textarea>
 											</td>
 										</tr>
 										<tr>
@@ -225,7 +225,9 @@ function button_updatewxsend(){
 											<td style="border-top: 0 none;">
 												<select name="app_49" class="input">
 													<option value="0" <% nvram_match_x("","app_49", "0","selected"); %>>关闭</option>
-													<option value="1" <% nvram_match_x("","app_49", "1","selected"); %>>开启</option>
+													<option value="1" <% nvram_match_x("","app_49", "1","selected"); %>>开启 IPv4</option>
+													<option value="2" <% nvram_match_x("","app_49", "2","selected"); %>>开启 IPv6</option>
+													<option value="3" <% nvram_match_x("","app_49", "3","selected"); %>>开启 IPv4 & IPv6</option>
 												  </select>
 											</td>
 										</tr>
@@ -282,7 +284,7 @@ function button_updatewxsend(){
 											<div class="input-append">
 												<input maxlength="512" class="input" size="15" name="app_129" id="app_129" placeholder="3a6a3ba91644" style="width: 175px;" value="<% nvram_get_x("","app_129"); %>" onKeyPress="return is_string(this,event);"/>
 											</div>
-											&nbsp;API调用实例 <a href="http://<% nvram_get_x("", "lan_ipaddr"); %>:<% nvram_get_x("", "app_128"); %>/<% nvram_get_x("", "app_129"); %>/消息标题/消息内容" target="_blank">http://<% nvram_get_x("", "lan_ipaddr"); %>:<% nvram_get_x("", "app_128"); %>/<% nvram_get_x("", "app_129"); %>/消息标题/消息内容</a>
+											&nbsp;API调用实例 <a href="http://<% nvram_get_x("", "lan_ipaddr"); %>:<% nvram_get_x("", "app_128"); %>/<% nvram_get_x("", "app_129"); %>/消息标记/消息内容/消息内容2/消息内容3/消息内容4/消息内容5/消息内容6" target="_blank">http://<% nvram_get_x("", "lan_ipaddr"); %>:<% nvram_get_x("", "app_128"); %>/<% nvram_get_x("", "app_129"); %>/消息标记/消息内容/消息内容2/消息内容3/消息内容4/消息内容5/消息内容6</a>
 											</td>
 										</tr>
 										<tr>
