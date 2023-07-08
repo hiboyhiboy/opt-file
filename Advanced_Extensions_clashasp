@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app18_ver=2022-04-25=-->
+<!--app18_ver=2022-07-08=-->
 <html>
 <head>
 <title><#Web_Title#> - clash</title>
@@ -112,7 +112,7 @@ function button_updateclash(){
 }
 
 function button_clash_wan_port(){
-		var port = '9090';
+		var port = document.querySelector("#app_94").value.split(":")[1];
 		var porturl ='http://' + window.location.hostname + ":" + port + "/ui";
 		//alert(porturl);
 		window.open(porturl,'clash_wan_port');
