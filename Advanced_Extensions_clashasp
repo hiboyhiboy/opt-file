@@ -375,7 +375,7 @@ function saveapp_20_sh(){
 											<th style="border-top: 0 none;">Web管理地址 :</th>
 											<td style="border-top: 0 none;">
 											<div class="input-append">
-												<input maxlength="512" class="input" size="15" name="app_94" id="app_94" style="width: 175px;" placeholder="0.0.0.0:9090" value="<% nvram_get_x("","app_94"); %>" onKeyPress="return is_string(this,event);"/>
+												<input maxlength="512" class="input" size="15" name="app_94" id="app_94" style="width: 175px;" placeholder="192.168.123.1:19090" value="<% nvram_get_x("","app_94"); %>" onKeyPress="return is_string(this,event);"/>
 											</div>
 											</td>
 											<td style="border-top: 0 none;">
@@ -397,7 +397,7 @@ function saveapp_20_sh(){
 											<th style="border-top: 0 none;">Web管理密码 :</th>
 											<td style="border-top: 0 none;">
 											<div class="input-append">
-												<input maxlength="512" class="input" size="15" name="app_119" id="app_119" style="width: 175px;" placeholder="默认空" value="<% nvram_get_x("","app_119"); %>" onKeyPress="return is_string(this,event);"/>
+												<input maxlength="512" class="input" size="15" name="app_119" id="app_119" style="width: 175px;" placeholder="不能留空" value="<% nvram_get_x("","app_119"); %>" onKeyPress="return is_string(this,event);"/>
 											</div>
 											</td>
 											<td style="border-top: 0 none;">
