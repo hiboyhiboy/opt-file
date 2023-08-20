@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app5_ver=2022-04-04=-->
+<!--app5_ver=2022-08-20=-->
 <html>
 <head>
 <title><#Web_Title#> - 在线文件管理系统</title>
@@ -79,12 +79,6 @@ function change_caddy_enable(){
 		showhide_div("app_5_script", 0);
 		showhide_div("app_11_script", 0);
 		document.querySelector("#app_14").readOnly = false;
-	}
-	if (m ==1){
-		showhide_div("app_80_tr", 0);
-		showhide_div("app_5_script", 0);
-		showhide_div("app_11_script", 1);
-		document.querySelector("#app_14").readOnly = true;
 	}
 	if (m ==0){
 		showhide_div("app_80_tr", 0);
@@ -203,7 +197,6 @@ function button_filemanager_wan_port(){
                                                 <select name="app_54" class="input" onChange="change_caddy_enable();">
                                                     <option value="2" <% nvram_match_x("","app_54", "2","selected"); %>>filebrowser_v2</option>
                                                     <option value="0" <% nvram_match_x("","app_54", "0","selected"); %>>filemanager_v1</option>
-                                                    <option value="1" <% nvram_match_x("","app_54", "1","selected"); %>>filemanager_v1_caddy</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -244,14 +237,6 @@ function button_filemanager_wan_port(){
                                                 <i class="icon-hand-right"></i> <a href="javascript:spoiler_toggle('script13')"><span>filemanager配置文件</span><div>&nbsp;<span style="color:#888;">查看以下文件修改 配置参数。</span></div></a>
                                                 <div id="script13" >
                                                     <textarea rows="10" wrap="off" spellcheck="false" maxlength="18192" class="span12" name="scripts.app_5.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_5.sh",""); %></textarea>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr id="app_11_script" colspan="4">
-                                            <td colspan="4" style="border-top: 0 none;">
-                                                <i class="icon-hand-right"></i> <a href="javascript:spoiler_toggle('script11')"><span>caddy配置文件</span><div>&nbsp;<span style="color:#888;">查看以下文件修改 配置参数。</span></div></a>
-                                                <div id="script11" >
-                                                    <textarea rows="10" wrap="off" spellcheck="false" maxlength="18192" class="span12" name="scripts.app_11.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_11.sh",""); %></textarea>
                                                 </div>
                                             </td>
                                         </tr>
