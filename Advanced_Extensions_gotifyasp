@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<!--app27_ver=2023-08-23=-->
+<html>
+<head>
+<title><#Web_Title#> - gotify推送</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="icon" href="images/favicon.png">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/main.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/engage.itoggle.css">
+
+<script type="text/javascript" src="/jquery.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/bootstrap/js/engage.itoggle.min.js"></script>
+<script type="text/javascript" src="/state.js"></script>
+<script type="text/javascript" src="/general.js"></script>
+<script type="text/javascript" src="/itoggle.js"></script>
+<script type="text/javascript" src="/popup.js"></script>
+<script type="text/javascript" src="/help.js"></script>
+<script>
+var $j = jQuery.noConflict();
+
+$j(document).ready(function() {
+
+    init_itoggle('app_140',change_gotify_enable);
+
+});
+
+</script>
+<script>
+
+function initial(){
+    show_banner(1);
+    show_menu(8,<% nvram_get_x("", "gotify_L2"); %>,<% nvram_get_x("", "gotify_L3"); %>);
+    show_footer();
+    change_gotify_enable(1);
+
+}
+
+function applyRule(){
+//    if(validForm()){
+        showLoading();
+        
+        document.form.action_mode.value = " Apply ";
+        document.form.current_page.value = "/Advanced_Extensions_app27.asp";
+        document.form.next_page.value = "";
+        
+        document.form.submit();
+//    }
+}
+
+function done_validating(action){
+    refreshpage();
+}
+
+function change_gotify_enable(mflag){
+	var m = document.form.app_140.value;
+	var is_gotify_enable = (m == "1") ? "清空以往接入设备名称" : "更新";
+	document.form.updategotify.value = is_gotify_enable;
+}
+function button_updategotify(){
+    change_gotify_enable(1);
+	var $j = jQuery.noConflict();
+	$j.post('/apply.cgi',
+	{
+		'action_mode': ' updateapp27 ',
+	});
+}
+
+</script>
+</head>
+
+<body onload="initial();" onunLoad="return unload_body();">
+
+<div class="wrapper">
+    <div class="container-fluid" style="padding-right: 0px">
+        <div class="row-fluid">
+            <div class="span3"><center><div id="logo"></div></center></div>
+            <div class="span9" >
+                <div id="TopBanner"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Loading" class="popup_bg"></div>
+
+    <iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>
+
+    <form method="post" name="form" id="ruleForm" action="/start_apply.htm" target="hidden_frame">
+
+    <input type="hidden" name="current_page" value="Advanced_Extensions_app27.asp">
+    <input type="hidden" name="next_page" value="">
+    <input type="hidden" name="next_host" value="">
+    <input type="hidden" name="sid_list" value="APP;LANHostConfig;General;">
+    <input type="hidden" name="group_id" value="">
+    <input type="hidden" name="action_mode" value="">
+    <input type="hidden" name="action_script" value="">
+    <input type="hidden" name="wan_ipaddr" value="<% nvram_get_x("", "wan0_ipaddr"); %>" readonly="1">
+    <input type="hidden" name="wan_netmask" value="<% nvram_get_x("", "wan0_netmask"); %>" readonly="1">
+    <input type="hidden" name="dhcp_start" value="<% nvram_get_x("", "dhcp_start"); %>">
+    <input type="hidden" name="ss_enable_o" value="<% nvram_get_x("", "ss_enable"); %>">
+    <input type="hidden" name="dhcp_end" value="<% nvram_get_x("", "dhcp_end"); %>">
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3">
+                <!--Sidebar content-->
+                <!--=====Beginning of Main Menu=====-->
+                <div class="well sidebar-nav side_nav" style="padding: 0px;">
+                    <ul id="mainMenu" class="clearfix"></ul>
+                    <ul class="clearfix">
+                        <li>
+                            <div id="subMenu" class="accordion"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="span9">
+                <!--Body content-->
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="box well grad_colour_dark_blue">
+                            <h2 class="box_head round_top">gotify推送</h2>
+                            <div class="round_bottom">
+                                <div class="row-fluid">
+                                    <div id="tabMenu" class="submenuBlock"></div>
+                                    <div class="alert alert-info" style="margin: 10px;">欢迎使用 gotify推送 - 这是一个自建消息服务，基于 websocket 协议并支持多种设备类型接入的消息推送系统，可以在 Android 新消息上显示推送通知。默认管理用户密码：[admin]。
+                                    <div>项目地址：<a href="https://github.com/gotify/server" target="blank">https://github.com/gotify/server</a></div>
+                                    <div>当前 app 文件:【<% nvram_get_x("", "app27_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app27_ver_n"); %>】 </div>
+                                    <div>Android 接收端 APP 下载地址：<a href="https://github.com/gotify/android/releases" target="blank">https://github.com/gotify/android/releases</a></div>
+                                    <div>项目文档：<a href="https://gotify.net/docs/" target="blank">https://gotify.net/docs/</a> 使用前创建一个推送节点并填入 Token 即可。</div>
+                                    <span style="color:#FF0000;" class=""></span></div>
+
+                                    <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
+                                        <tr>
+                                            <th colspan="4" style="background-color: #E3E3E3;">开关</th>
+                                        </tr>
+                                        <tr id="gotify_enable_tr" >
+                                            <th width="30%">gotify 开关</th>
+                                            <td>
+                                                    <div class="main_itoggle">
+                                                    <div id="app_140_on_of">
+                                                        <input type="checkbox" id="app_140_fake" <% nvram_match_x("", "app_140", "1", "value=1 checked"); %><% nvram_match_x("", "app_140", "0", "value=0"); %>  />
+                                                    </div>
+                                                </div>
+                                                <div style="position: absolute; margin-left: -10000px;">
+                                                    <input type="radio" value="1" name="app_140" id="app_140_1" class="input" value="1" onClick="change_gotify_enable(1);" <% nvram_match_x("", "app_140", "1", "checked"); %> /><#checkbox_Yes#>
+                                                    <input type="radio" value="0" name="app_140" id="app_140_0" class="input" value="0" onClick="change_gotify_enable(1);" <% nvram_match_x("", "app_140", "0", "checked"); %> /><#checkbox_No#>
+                                                </div>
+                                            </td>
+                                            <td colspan="2">
+                                                <input class="btn btn-success" style="width:150px" type="button" name="updategotify" value="更新" onclick="button_updategotify()" />
+                                            </td>
+                                        </tr>
+										<tr>
+											<th colspan="4" style="background-color: #E3E3E3;" >gotify 配置</th>
+										</tr>
+										<tr>
+											<th style="border-top: 0 none;">推送节点Token:</th>
+											<td style="border-top: 0 none;">
+											<div class="input-append">
+												<input maxlength="512" class="input" size="15" name="app_141" id="app_141" placeholder="ApplicationsToken" style="width: 175px;" value="<% nvram_get_x("","app_141"); %>" onKeyPress="return is_string(this,event);"/>
+											</div>
+											</td>
+											<td style="border-top: 0 none;">
+											&nbsp;<span style="color:#888;"><a href="http://<% nvram_get_x("","lan_ipaddr"); %>:8385/#/applications" target="_blank_app">创建推送节点页面</a></span>
+											</td>
+										</tr>
+										<tr>
+											<th style="border-top: 0 none;">gotify的服务URL:</th>
+											<td style="border-top: 0 none;">
+											<div class="input-append">
+												<input maxlength="512" class="input" size="15" name="app_142" id="app_142" placeholder="http://<% nvram_get_x("","lan_ipaddr"); %>:8385" style="width: 175px;" value="<% nvram_get_x("","app_142"); %>" onKeyPress="return is_string(this,event);"/>
+											</div>
+											</td>
+											<td style="border-top: 0 none;">
+											&nbsp;<span style="color:#888;"><a href="http://<% nvram_get_x("","lan_ipaddr"); %>:8385/" target="_blank_user">gotify管理用户页面</a></span>
+											</td>
+										</tr>
+										<tr>
+											<th style="border-top: 0 none;">消息标记:</th>
+											<td style="border-top: 0 none;">
+											<div class="input-append">
+												<input maxlength="512" class="input" size="15" name="app_143" id="app_143" placeholder="<% nvram_get_x("","computer_name"); %>" style="width: 175px;" value="<% nvram_get_x("","app_143"); %>" onKeyPress="return is_string(this,event);"/>
+											</div>
+											</td>
+											<td style="border-top: 0 none;">
+											&nbsp;<span style="color:#888;"><a href="https://gotify.net/docs/more-pushmsg" target="_blank_user">推送消息示例</a></span>
+											</td>
+										</tr>
+										<tr>
+											<th colspan="4" style="background-color: #E3E3E3;" >推送消息</th>
+										</tr>
+										<tr>
+											<th style="border: 0 none;">消息内容:</th>
+											<td style="border: 0 none;" colspan="3">
+											<textarea rows="3" wrap="off" spellcheck="false" maxlength="65536" class="span12" name="app_144" id="app_144" placeholder="消息内容支持 markdown 格式" value="<% nvram_get_x("","app_144"); %>" onKeyPress="return is_string(this,event);"></textarea>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="4" style="border-top: 0 none;">
+												<center><input class="btn btn-success" style="width: 219px" type="button" value="发送消息" onclick="applyRule()" /></center>
+											</td>
+										</tr>
+										<tr style="" id="serverchan_notify_tr">
+											<th colspan="4" style="background-color: #E3E3E3;" >通知提醒</th>
+										</tr>
+										<tr id="app_49_tr" >
+											<th style="border: 0 none;" width="30%">互联网 IP 变动:</th>
+											<td style="border-top: 0 none;">
+												<select name="app_49" class="input">
+													<option value="0" <% nvram_match_x("","app_49", "0","selected"); %>>关闭</option>
+													<option value="1" <% nvram_match_x("","app_49", "1","selected"); %>>开启 IPv4</option>
+													<option value="2" <% nvram_match_x("","app_49", "2","selected"); %>>开启 IPv6</option>
+													<option value="3" <% nvram_match_x("","app_49", "3","selected"); %>>开启 IPv4 & IPv6</option>
+												  </select>
+											</td>
+										</tr>
+										<tr id="app_50_tr" >
+											<th style="border: 0 none;" width="30%">设备接入提醒:</th>
+											<td style="border-top: 0 none;">
+												<select name="app_50" class="input">
+													<option value="0" <% nvram_match_x("","app_50", "0","selected"); %>>关闭</option>
+													<option value="1" <% nvram_match_x("","app_50", "1","selected"); %>>开启</option>
+												  </select>
+											</td>
+										</tr>
+										<tr id="app_52_tr" >
+											<th style="border: 0 none;" width="30%">设备上、下线提醒:</th>
+											<td style="border-top: 0 none;">
+												<select name="app_52" class="input">
+													<option value="0" <% nvram_match_x("","app_52", "0","selected"); %>>关闭</option>
+													<option value="1" <% nvram_match_x("","app_52", "1","selected"); %>>开启</option>
+												  </select>
+											</td>
+										</tr>
+										<tr id="app_51_tr" >
+											<th style="border: 0 none;" width="30%">固件更新提醒:</th>
+											<td style="border-top: 0 none;">
+												<select name="app_51" class="input">
+													<option value="0" <% nvram_match_x("","app_51", "0","selected"); %>>关闭</option>
+													<option value="1" <% nvram_match_x("","app_51", "1","selected"); %>>开启</option>
+												  </select>
+											</td>
+										</tr>
+										<tr id="serverchan_config">
+											<td colspan="4" style="border-top: 0 none;">
+												<i class="icon-hand-right"></i> <a href="javascript:spoiler_toggle('script11')"><span>点这里自定义 app_36 脚本</span></a>
+												<div id="script11" style="display:none;">
+													<textarea rows="24" wrap="off" spellcheck="false" maxlength="18192" class="span12" name="scripts.app_36.sh" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("scripts.app_36.sh",""); %></textarea>
+												</div>
+											</td>
+										</tr>
+                                        <tr>
+                                            <td colspan="4" style="border-top: 0 none;">
+                                                <br />
+                                                <center><input class="btn btn-primary" style="width: 219px" type="button" value="<#CTL_apply#>" onclick="applyRule()" /></center>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </form>
+
+    <div id="footer"></div>
+</div>
+</body>
+</html>
