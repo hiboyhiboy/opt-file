@@ -217,7 +217,7 @@ function button_updatewxsend(){
 												<center><input class="btn btn-success" style="width: 219px" type="button" value="发送消息" onclick="applyRule()" /></center>
 											</td>
 										</tr>
-										<tr style="" id="serverchan_notify_tr">
+										<tr>
 											<th colspan="4" style="background-color: #E3E3E3;" >通知提醒</th>
 										</tr>
 										<tr id="app_49_tr" >
@@ -258,7 +258,7 @@ function button_updatewxsend(){
 												  </select>
 											</td>
 										</tr>
-										<tr id="serverchan_config">
+										<tr>
 											<td colspan="4" style="border-top: 0 none;">
 												<i class="icon-hand-right"></i> <a href="javascript:spoiler_toggle('script11')"><span>点这里自定义 app_30 脚本</span></a>
 												<div id="script11" style="display:none;">
