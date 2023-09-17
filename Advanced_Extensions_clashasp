@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--app18_ver=2022-07-08=-->
+<!--app18_ver=2022-09-17=-->
 <html>
 <head>
 <title><#Web_Title#> - clash</title>
@@ -383,13 +383,14 @@ function saveapp_20_sh(){
 											</td>
 											<td id="app_79" style="border-top: 0 none;">
 												<select name="app_79">
-													<option value="0" <% nvram_match_x("","app_79", "0","selected"); %>>不更换面板</option>
 													<option value="clash" <% nvram_match_x("","app_79", "clash","selected"); %>>更换 clash 面板</option>
 													<option value="yacd" <% nvram_match_x("","app_79", "yacd","selected"); %>>更换 yacd 面板</option>
 													<option value="meta" <% nvram_match_x("","app_79", "meta","selected"); %>>更换 Meta 面板</option>
+													<option value="xd" <% nvram_match_x("","app_79", "xd","selected"); %>>更换 XD 面板</option>
 													<option value="clash_1" <% nvram_match_x("","app_79", "clash_1","selected"); %>>使用 clash 面板(首次下载时)(默认)</option>
 													<option value="yacd_1" <% nvram_match_x("","app_79", "yacd_1","selected"); %>>使用 yacd 面板(首次下载时)</option>
 													<option value="meta_1" <% nvram_match_x("","app_79", "meta_1","selected"); %>>使用 Meta 面板(首次下载时)</option>
+													<option value="xd_1" <% nvram_match_x("","app_79", "xd_1","selected"); %>>使用 XD 面板(首次下载时)</option>
 												</select>
 											</td>
 										</tr>
@@ -405,7 +406,6 @@ function saveapp_20_sh(){
 											</td>
 											<td id="app_78" style="border-top: 0 none;">
 												<select name="app_78">
-													<option value="0" <% nvram_match_x("","app_78", "0","selected"); %>>不更换版本</option>
 													<option value="premium" <% nvram_match_x("","app_78", "premium","selected"); %>>更换 premium (闭源版)</option>
 													<option value="experimental" <% nvram_match_x("","app_78", "experimental","selected"); %>>更换 experimental (支持Vless + XTLS)</option>
 													<option value="meta" <% nvram_match_x("","app_78", "meta","selected"); %>>更换 Clash.Meta</option>
