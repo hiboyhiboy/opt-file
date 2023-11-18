@@ -41,6 +41,7 @@
 3dmgame.com
 4399.com
 51.la
+51.net
 5173.com
 5173cdn.com
 51cto.com
@@ -137,6 +138,7 @@ atomicstryker.net
 augix.me
 autonavi.com
 awesome-hd.me
+axhub.im
 axshare.com
 axure.org
 axureux.com
@@ -172,6 +174,7 @@ beianbeian.com
 beisen.com
 beitaichufang.com
 bejson.com
+bendibao.com
 bible.com
 biliapi.com
 biliapi.net
@@ -198,6 +201,7 @@ btyingshi.com
 bumimi.com
 bybbs.org
 bytecdntp.com
+ca001.com
 cachemoment.com
 cailianpress.com
 caiyunapp.com
@@ -264,7 +268,6 @@ coolapk.com
 coolpad.com
 cootekservice.com
 cowtransfer.com
-craft.do
 csair.com
 csdn.net
 css-js.com
@@ -272,12 +275,14 @@ css.net
 css.network
 ct10000.com
 ctrip.com
+cupfox.app
 d7vg.com
 damengxiang.me
 dandanplay.com
 dangdang.com
 daocloud.io
 datagrand.com
+dbankcdn.com
 ddos.cc
 ddrk.me
 deepin.com
@@ -333,6 +338,7 @@ dytt8.net
 easou.com
 eastmoney.com
 ecitic.com
+edifier.com
 eebbk.com
 eeboard.com
 eggjs.org
@@ -354,9 +360,11 @@ feishucdn.com
 feng.com
 fengkongcloud.com
 fengniao.com
+ffalcon.com
 figma.cool
 figmachina.com
 figmacn.com
+fiio.com
 fir.im
 firefox.com
 fjgdwl.com
@@ -563,6 +571,7 @@ kuaidi100.com
 kuaishou.com
 kuaizhan.com
 kugou.com
+kujiale.com
 kunlunaq.com
 kunlunar.com
 kunlunca.com
@@ -583,6 +592,7 @@ kunlunso.com
 kunlunta.com
 kunlunvi.com
 kunlunwe.com
+kyoceraconnect.com
 lackar.com
 lagou.com
 lanhuapp.com
@@ -609,7 +619,6 @@ liepin.com
 lifan.ooo
 likefont.com
 lilithgames.com
-linkedin.com
 linuxidc.com
 livechina.com
 liyin.date
@@ -625,6 +634,7 @@ loli.net
 lolinet.com
 longzhu.com
 lucifr.com
+ludashi.com
 luogu.org
 luojilab.com
 luoo.net
@@ -670,8 +680,6 @@ mi-img.com
 mi.com
 miaopai.com
 microbit.org
-microsoft.com
-microsoftpersonalcontent.com
 midifan.com
 mikanani.me
 minapp.com
@@ -695,6 +703,7 @@ momentcdn.com
 momoyu.cc
 moonvy.com
 morethan.tv
+motiff.com
 mozilla.org
 mp4ba.cc
 msftconnecttest.com
@@ -737,7 +746,6 @@ nvidia.com
 nyato.com
 obsapp.com
 oekaki.so
-office.com
 office.net
 office365.com
 okii.com
@@ -828,6 +836,7 @@ qqurl.com
 qqzzz.net
 quanmingjiexi.com
 qunar.com
+qweather.com
 qyer.com
 qyerstatic.com
 rapoo.com
@@ -922,9 +931,7 @@ steamstatic.com
 subhd.tv
 sui.com
 suning.com
-supabase.io
 surface.wiki
-svga.io
 sznews.com
 t.tt
 taichi.graphics
@@ -938,7 +945,9 @@ taobaocdn.com
 tapdb.net
 tapimg.com
 taptap.com
+tbcache.com
 tcdn.qq.com
+tcl.com
 teambition.com
 teamviewer.com
 tencent-cloud.com
@@ -995,7 +1004,6 @@ undraw.co
 uning.com
 upai.com
 upaiyun.com
-update.microsoft.com
 upyun.com
 ustclug.org
 uuu.moe
@@ -1049,7 +1057,6 @@ wht.im
 wiley.com
 windows.com
 windowsupdate.com
-windowsupdate.microsoft.com
 wisenjoy.com
 wodemo.com
 wolai.com
