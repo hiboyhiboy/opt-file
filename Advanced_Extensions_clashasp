@@ -406,12 +406,10 @@ function saveapp_20_sh(){
 											</td>
 											<td id="app_78" style="border-top: 0 none;">
 												<select name="app_78">
-													<option value="premium" <% nvram_match_x("","app_78", "premium","selected"); %>>更换 premium (闭源版)</option>
-													<option value="experimental" <% nvram_match_x("","app_78", "experimental","selected"); %>>更换 experimental (支持Vless + XTLS)</option>
 													<option value="meta" <% nvram_match_x("","app_78", "meta","selected"); %>>更换 Clash.Meta</option>
-													<option value="premium_1" <% nvram_match_x("","app_78", "premium_1","selected"); %>>使用 premium (闭源版)(首次下载时)(默认)</option>
-													<option value="experimental_1" <% nvram_match_x("","app_78", "experimental_1","selected"); %>>使用 experimental (支持Vless + XTLS)(首次下载时)</option>
-													<option value="meta_1" <% nvram_match_x("","app_78", "meta_1","selected"); %>>使用 Clash.Meta(首次下载时)</option>
+													<option value="premium" <% nvram_match_x("","app_78", "premium","selected"); %>>更换 premium (停更)</option>
+													<option value="meta_1" <% nvram_match_x("","app_78", "meta_1","selected"); %>>使用 Clash.Meta(首次下载时)(默认)</option>
+													<option value="premium_1" <% nvram_match_x("","app_78", "premium_1","selected"); %>>使用 premium (停更)(首次下载时)</option>
 												</select>
 											</td>
 										</tr>
