@@ -333,7 +333,7 @@ function change_ss_udp_enable(){
 												</div>
 											</td>
 										</tr>
-										<tr id="app_81_tr">>
+										<tr id="app_81_tr">
 											<th style="border-top: 0 none;">UDP全局转发</th>
 											<td style="border-top: 0 none;" colspan="2">
 													<div class="main_itoggle">

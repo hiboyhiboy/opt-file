@@ -91,6 +91,7 @@ akarin.me
 akarin.top
 aldwx.com
 aliapp.org
+alibaba-inc.com
 alibaba.com
 alibabacloud.com
 alibabausercontent.com
@@ -106,6 +107,7 @@ aliued.com
 aliyun.com
 aliyuncs.com
 aliyundrive.com
+aliyunpds.com
 allhistory.com
 alltuu.com
 amap.com
@@ -375,6 +377,7 @@ flow.ci
 flyertea.com
 fontke.com
 foundertype.com
+foxirj.com
 frdic.com
 freebuf.com
 freeziti.com
@@ -722,6 +725,7 @@ myip.la
 myqcloud.com
 myzaker.com
 mzstatic.com
+naixue.com
 nanyangpt.com
 nature.com
 ncore.cc
@@ -761,6 +765,7 @@ ops.moe
 oracle.com
 oray.com
 oray.net
+orayimg.com
 oschina.io
 oschina.net
 ourbits.club
@@ -768,13 +773,11 @@ ourdvs.com
 ourdvsss.com
 oursketch.com
 outlook.com
+pag.art
 paipai.com
 panda.tv
 panduoduo.net
 passthepopcorn.me
-paypal.com
-paypal.me
-paypalobjects.com
 pc6.com
 pcbeta.com
 pdcicons.ml
@@ -835,6 +838,7 @@ qqmail.com
 qqurl.com
 qqzzz.net
 quanmingjiexi.com
+qudong.com
 qunar.com
 qweather.com
 qyer.com
@@ -842,6 +846,7 @@ qyerstatic.com
 rapoo.com
 rarbg.to
 raychase.net
+realme.com
 redacted.ch
 renren.com
 renrenche.com
@@ -884,6 +889,7 @@ shikezhi.com
 shimo.im
 shiyanlou.com
 shssp.org
+shxibank.com
 shyywz.com
 sigmaaldrich.com
 sigujiexi.com
@@ -914,6 +920,7 @@ solidot.org
 songshuhui.net
 soso.com
 soufun.com
+sourcegcdn.com
 speedtest.net
 springer.com
 springerlink.com
@@ -938,6 +945,8 @@ taichi.graphics
 taihe.com
 takungpao.com
 talkingdata.com
+tangdou.com
+tangdouddn.com
 tanx.com
 taobao.com
 taobao.org
@@ -977,6 +986,7 @@ totheglory.im
 toushibao.com
 toutiao.com
 toutiao.io
+toutiaoimg.com
 tower.im
 trontv.com
 truevue.org
@@ -1058,6 +1068,7 @@ wiley.com
 windows.com
 windowsupdate.com
 wisenjoy.com
+wjx.top
 wodemo.com
 wolai.com
 woozooo.com
@@ -1073,6 +1084,8 @@ xf9168.com
 xiachufang.com
 xiami.com
 xiami.net
+xiaoe-tech.com
+xiaoe-tools.com
 xiaohongshu.com
 xiaoka.tv
 xiaomark.com
@@ -1133,6 +1146,7 @@ yuque.com
 yuwantech.com
 yxt.com
 yy.com
+z-bank.com
 zaih.com
 zanata.org
 zanmeishi.com
@@ -1155,6 +1169,7 @@ zhiziyun.com
 zhongguose.com
 zhuihd.com
 zhujike.com
+zijieapi.com
 zimuzu.tv
 zku.net
 znyj365.com

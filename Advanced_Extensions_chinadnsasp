@@ -134,7 +134,6 @@ function button_updatechinadns(){
 									<div>启动ChinaDNS后自动设置dnsmasq只向ChinaDNS查询解析。</div>
 									<div>SS用ChinaDNS查询时，则需要设置SS【DNS 服务模式选择 dnsmasq】、本地代理端口:8053</div>
 									<div><a href="https://github.com/shadowsocks/ChinaDNS/" target="blank">项目地址: https://github.com/shadowsocks/ChinaDNS/</a></div>
-									<div>当前 app 文件:【<% nvram_get_x("", "app1_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app1_ver_n"); %>】 </div>
 									<span style="color:#FF0000;" class=""></span></div>
 
                                     <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">

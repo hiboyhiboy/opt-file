@@ -227,7 +227,6 @@ function button_filemanager_wan_port(){
                                     <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
                                         <tr>
                                             <th style="border: 0 none;">WebGUI :</th>
-                                            </td>
                                             <td style="border: 0 none;">
                                                 &nbsp;<i class="icon-hand-right"></i> <input class="btn btn-success" style="" type="button" value="WebGUI 管理界面" onclick="button_filemanager_wan_port()" />
                                             </td>

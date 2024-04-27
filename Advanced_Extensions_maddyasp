@@ -46,6 +46,8 @@ function initial(){
 
 function textarea_scripts_enabled(v){
     inputCtrl(document.form['scripts.app_37.sh'], v);
+    inputCtrl(document.form['httpssl.server.crt'], v);
+    inputCtrl(document.form['httpssl.server.key'], v);
 }
 
 function applyRule(){

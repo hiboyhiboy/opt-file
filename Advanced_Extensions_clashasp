@@ -239,7 +239,7 @@ function saveapp_20_sh(){
 								<div class="row-fluid">
 									<div id="tabMenu" class="submenuBlock"></div>
 									<div class="alert alert-info" style="margin: 10px;">欢迎使用 clash ，这是一款用Go开发的代理工具，支持ss/v2ray/ssr等协议，支持规则分流（类似于 Surge 的配置）。clash 主页：<a href="https://github.com/Dreamacro/clash" target="blank">https://github.com/Dreamacro/clash</a>
-									<div>项目地址：【<a href="https://github.com/Dreamacro/clash/releases/tag/premium" target="blank"> premium </a>教程：<a href="https://github.com/Dreamacro/clash/wiki/configuration" target="blank"> config.yaml </a>】【<a href="https://github.com/MetaCubeX/Clash.Meta" target="blank"> Clash.Meta </a>教程：<a href="https://github.com/MetaCubeX/Clash.Meta/blob/Alpha/docs/config.yaml" target="blank"> config.yaml </a>】【<a href="https://github.com/ClashDotNetFramework/experimental-clash" target="blank_ex"> experimental </a>】</div>
+									<div>项目地址：【<a href="https://github.com/Dreamacro/clash/releases/tag/premium" target="blank"> premium </a>教程：<a href="https://github.com/Dreamacro/clash/wiki/configuration" target="blank"> config.yaml </a>】【<a href="https://github.com/MetaCubeX/mihomo" target="blank"> mihomo.Meta </a>教程：<a href="https://github.com/MetaCubeX/mihomo/blob/Alpha/docs/config.yaml" target="blank"> config.yaml </a>】【<a href="https://github.com/ClashDotNetFramework/experimental-clash" target="blank_ex"> experimental </a>】</div>
 									<div>第三方 web 管理页面：<a href="http://clash.razord.top/" target="blank">http://clash.razord.top/</a> 、<a href="http://yacd.haishan.me/" target="blank">http://yacd.haishan.me/</a></div>
 									<div>在线规则订阅转换：<a href="https://acl4ssr.netlify.com/" target="blank">https://acl4ssr.netlify.com/</a> 备注：建议修改配置的 secret: 来加密 web 管理页面</div>
 									<div>当前 app 文件:【<% nvram_get_x("", "app18_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app18_ver_n"); %>】 </div>
@@ -406,9 +406,9 @@ function saveapp_20_sh(){
 											</td>
 											<td id="app_78" style="border-top: 0 none;">
 												<select name="app_78">
-													<option value="meta" <% nvram_match_x("","app_78", "meta","selected"); %>>更换 Clash.Meta</option>
+													<option value="meta" <% nvram_match_x("","app_78", "meta","selected"); %>>更换 mihomo.Meta</option>
 													<option value="premium" <% nvram_match_x("","app_78", "premium","selected"); %>>更换 premium (停更)</option>
-													<option value="meta_1" <% nvram_match_x("","app_78", "meta_1","selected"); %>>使用 Clash.Meta(首次下载时)(默认)</option>
+													<option value="meta_1" <% nvram_match_x("","app_78", "meta_1","selected"); %>>使用 mihomo.Meta(首次下载时)(默认)</option>
 													<option value="premium_1" <% nvram_match_x("","app_78", "premium_1","selected"); %>>使用 premium (停更)(首次下载时)</option>
 												</select>
 											</td>
