@@ -111,17 +111,6 @@ function change_dns_start_dnsproxy(){
 	showhide_div("ss_pdnsd_wo_redir_tr", is_dns_start_dnsproxy);
 }
 
-function change_ss_dnsproxy_x(){
-	if(document.form.ss_dnsproxy_x_tmp.value == 2){
-		alert("由于已经开启 ChinaDNS 、ChinaDNS-NG 、 SmartDNS 服务，只允许使用 dnsmasq ，若需更换请关闭上述 DNS 服务后刷新页面。");
-	}
-	if(document.form.app_1.value != 0 && document.form.app_6.value == 8053){
-		document.form.ss_dnsproxy_x.value = 2;
-		document.form.ss_dnsproxy_x_tmp.value = 2;
-	}else{
-		document.form.ss_dnsproxy_x_tmp.value = 1;
-	}
-}
 
 function change_ss_DNS_Redirect(){
 	var m = document.form.ss_DNS_Redirect[0].checked;
@@ -173,9 +162,6 @@ function change_ss_udp_enable(){
 	<input type="hidden" name="dhcp_start" value="<% nvram_get_x("", "dhcp_start"); %>">
 	<input type="hidden" name="ss_enable_o" value="<% nvram_get_x("", "ss_enable"); %>">
 	<input type="hidden" name="dhcp_end" value="<% nvram_get_x("", "dhcp_end"); %>">
-	<input type="hidden" name="app_1" value="<% nvram_get_x("", "app_1"); %>" />
-	<input type="hidden" name="app_6" value="<% nvram_get_x("", "app_6"); %>" />
-	<input type="hidden" name="ss_dnsproxy_x_tmp" value="" />
 
 	<div class="container-fluid">
 		<div class="row-fluid">
@@ -287,7 +273,7 @@ function change_ss_udp_enable(){
 										<tr id="ss_pdnsd_wo_redir_tr" style="display:none;">
 											<th width="30%" style="border-top: 0 none;"><a class="help_tooltip" href="javascript:void(0);" onmouseover="openTooltip(this,25,6);">DNS 代理服务模式选择</a></th>
 											<td style="border-top: 0 none;" colspan="1">
-												<select name="ss_dnsproxy_x" class="input" onchange="change_ss_dnsproxy_x();">
+												<select name="ss_dnsproxy_x" class="input" >
 													<option value="0" <% nvram_match_x("","ss_dnsproxy_x", "0","selected"); %>>dnsproxy</option>
 													<option value="1" <% nvram_match_x("","ss_dnsproxy_x", "1","selected"); %>>pdnsd</option>
 													<option value="2" <% nvram_match_x("","ss_dnsproxy_x", "2","selected"); %>>dnsmasq</option>
