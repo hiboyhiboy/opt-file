@@ -27,8 +27,6 @@ var $j = jQuery.noConflict();
 $j(document).ready(function() {
 
     init_itoggle('app_106',change_smartdns_enable);
-    init_itoggle('app_3');
-    init_itoggle('app_2');
 
 });
 
