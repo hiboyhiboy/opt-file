@@ -184,7 +184,6 @@ function button_verysync_wan_port(){
                                         </tr>
                                         <tr>
                                             <th style="border: 0 none;">WebGUI :</th>
-                                            </td>
                                             <td style="border: 0 none;">
                                                 &nbsp;<i class="icon-hand-right"></i> <input class="btn btn-success" style="" type="button" value="WebGUI 管理界面" onclick="button_verysync_wan_port()" />
                                             </td>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!--app29_ver=2024-04-13=-->
+<!--app30_ver=2024-05-30=-->
 <html>
 <head>
-<title><#Web_Title#> - v2raya</title>
+<title><#Web_Title#> - arozos</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
@@ -26,7 +26,7 @@ var $j = jQuery.noConflict();
 
 $j(document).ready(function() {
 
-    init_itoggle('app_146',change_v2raya_enable);
+    init_itoggle('app_148',change_arozos_enable);
 });
 
 </script>
@@ -36,9 +36,9 @@ $j(document).ready(function() {
 
 function initial(){
     show_banner(1);
-    show_menu(8,<% nvram_get_x("", "v2raya_L2"); %>,<% nvram_get_x("", "v2raya_L3"); %>);
+    show_menu(8,<% nvram_get_x("", "arozos_L2"); %>,<% nvram_get_x("", "arozos_L3"); %>);
     show_footer();
-    change_v2raya_enable(1);
+    change_arozos_enable(1);
     if (!login_safe())
         textarea_scripts_enabled(0);
 
@@ -50,7 +50,7 @@ function applyRule(){
         showLoading();
         
         document.form.action_mode.value = " Apply ";
-        document.form.current_page.value = "/Advanced_Extensions_app29.asp";
+        document.form.current_page.value = "/Advanced_Extensions_app30.asp";
         document.form.next_page.value = "";
         
         document.form.submit();
@@ -61,30 +61,30 @@ function done_validating(action){
     refreshpage();
 }
 
-function change_v2raya_enable(mflag){
-    var m = document.form.app_146.value;
-    var is_v2raya_enable = (m == "1") ? "重启" : "更新";
-    document.form.updatev2raya.value = is_v2raya_enable;
+function change_arozos_enable(mflag){
+    var m = document.form.app_148.value;
+    var is_arozos_enable = (m == "1") ? "重启" : "更新";
+    document.form.updatearozos.value = is_arozos_enable;
 }
-function button_updatev2raya(){
-    change_v2raya_enable(1);
+function button_updatearozos(){
+    change_arozos_enable(1);
     var $j = jQuery.noConflict();
     $j.post('/apply.cgi',
     {
-        'action_mode': ' updateapp29 ',
+        'action_mode': ' updateapp30 ',
     });
 }
 
-function button_v2raya_wan_port(){
-    var port = document.querySelector("#app_147").value;
+function button_arozos_wan_port(){
+    var port = document.querySelector("#app_3").value;
     if(port==""){
-        port = "0.0.0.0:2017";
+        port = "-port 8680";
     }
     port = String(port + " ");
-    port = port.split(":")[1].split(" ")[0];
+    port = port.split("port")[1].split(" ")[1];
     var porturl ='http://' + window.location.hostname + ":" + port;
     //alert(porturl);
-    window.open(porturl,'v2raya_wan_port');
+    window.open(porturl,'arozos_wan_port');
 }
 </script>
 </head>
@@ -107,7 +107,7 @@ function button_v2raya_wan_port(){
 
     <form method="post" name="form" id="ruleForm" action="/start_apply.htm" target="hidden_frame">
 
-    <input type="hidden" name="current_page" value="Advanced_Extensions_app29.asp">
+    <input type="hidden" name="current_page" value="Advanced_Extensions_app30.asp">
     <input type="hidden" name="next_page" value="">
     <input type="hidden" name="next_host" value="">
     <input type="hidden" name="sid_list" value="APP;LANHostConfig;General;Storage;">
@@ -139,63 +139,49 @@ function button_v2raya_wan_port(){
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="box well grad_colour_dark_blue">
-                            <h2 class="box_head round_top">v2raya</h2>
+                            <h2 class="box_head round_top">arozos</h2>
                             <div class="round_bottom">
                                 <div class="row-fluid">
                                     <div id="tabMenu" class="submenuBlock"></div>
-                                    <div class="alert alert-info" style="margin: 10px;">欢迎使用 v2rayA ，这是一个易用而强大的 V2Ray Web GUI 客户端。
-                                    <div>当前 app 文件:【<% nvram_get_x("", "app29_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app29_ver_n"); %>】 </div>
-                                    <div>项目文档: <a href="https://v2raya.org" target="blank">https://v2raya.org</a>&nbsp;&nbsp;&nbsp; 项目地址: <a href="https://github.com/v2rayA/v2rayA" target="blank">https://github.com/v2rayA/v2rayA</a></div></div>
+                                    <div class="alert alert-info" style="margin: 10px;">欢迎使用 ArozOS ，这是一个适用于低功耗平台的 Web 桌面操作系统，现在用 Go！
+                                    <div>当前 app 文件:【<% nvram_get_x("", "app30_ver"); %>】，最新 app 文件:【<% nvram_get_x("", "app30_ver_n"); %>】 </div>
+                                    <div>项目文档: <a href="https://arozos.com/" target="blank">https://arozos.com/</a>&nbsp;&nbsp;&nbsp; 项目地址: <a href="https://github.com/tobychui/arozos" target="blank">https://github.com/tobychui/arozos</a></div>
+                                    <div>备注：需空闲 512MB 内存和 1.5GB 存储空间，若要 WAN 访问服务需设置手动端口转发</div></div>
                                     <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
                                         <tr>
                                             <th colspan="4" style="background-color: #E3E3E3;">开关</th>
                                         </tr>
-                                        <tr id="v2raya_enable_tr" >
-                                            <th width="40%">v2rayA 开关</th>
+                                        <tr id="arozos_enable_tr" >
+                                            <th width="20%">ArozOS 开关</th>
                                             <td>
                                                     <div class="main_itoggle">
-                                                    <div id="app_146_on_of">
-                                                        <input type="checkbox" id="app_146_fake" <% nvram_match_x("", "app_146", "1", "value=1 checked"); %><% nvram_match_x("", "app_146", "0", "value=0"); %>  />
+                                                    <div id="app_148_on_of">
+                                                        <input type="checkbox" id="app_148_fake" <% nvram_match_x("", "app_148", "1", "value=1 checked"); %><% nvram_match_x("", "app_148", "0", "value=0"); %>  />
                                                     </div>
                                                 </div>
                                                 <div style="position: absolute; margin-left: -10000px;">
-                                                    <input type="radio" value="1" name="app_146" id="app_146_1" class="input" value="1" onClick="change_v2raya_enable(1);" <% nvram_match_x("", "app_146", "1", "checked"); %> /><#checkbox_Yes#>
-                                                    <input type="radio" value="0" name="app_146" id="app_146_0" class="input" value="0" onClick="change_v2raya_enable(1);" <% nvram_match_x("", "app_146", "0", "checked"); %> /><#checkbox_No#>
+                                                    <input type="radio" value="1" name="app_148" id="app_148_1" class="input" value="1" onClick="change_arozos_enable(1);" <% nvram_match_x("", "app_148", "1", "checked"); %> /><#checkbox_Yes#>
+                                                    <input type="radio" value="0" name="app_148" id="app_148_0" class="input" value="0" onClick="change_arozos_enable(1);" <% nvram_match_x("", "app_148", "0", "checked"); %> /><#checkbox_No#>
                                                 </div>
                                             </td>
                                             <td colspan="2">
-                                                <input class="btn btn-success" type="button" name="updatev2raya" value="更新" onclick="button_updatev2raya()" />
-                                                <span style="color:#888;">版本：<% nvram_get_x("","v2raya_v"); %></span>
+                                                <input class="btn btn-success" type="button" name="updatearozos" value="更新" onclick="button_updatearozos()" />
+                                                <span style="color:#888;">版本：<% nvram_get_x("","arozos_v"); %></span>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th colspan="4" style="background-color: #E3E3E3;" >配置 v2rayA</th>
+                                            <th colspan="4" style="background-color: #E3E3E3;" >配置 ArozOS</th>
                                         </tr>
-                                        <tr id="app_147_tr">
+                                        <tr id="app_3_tr">
                                             <th style="border: 0 none;">启动参数:</th>
                                             <td style="border: 0 none;" colspan="3">
-                                                <input type="text" maxlength="1024" class="input" size="60" name="app_147" id="app_147" placeholder="-a 0.0.0.0:2017 " value="<% nvram_get_x("","app_147"); %>" onKeyPress="return is_string(this,event);" />
+                                                <input type="text" maxlength="1024" class="input" size="60" name="app_3" id="app_3" placeholder="-port 8680 -max_upload_size 8192 -bufffile_size 25 -buffpool_size 25 -enable_buffpool=true -enable_pwman=false -iobuf 25 -tmp_time 60 -upload_buf 25" value="<% nvram_get_x("","app_3"); %>" onKeyPress="return is_string(this,event);" style="width: 360px;" />
                                             </td>
                                         </tr>
                                         <tr>
                                             <th style="border: 0 none;">WebGUI :</th>
                                             <td style="border: 0 none;" colspan="3">
-                                                &nbsp;<i class="icon-hand-right"></i> <input class="btn btn-success" style="" type="button" value="WebGUI 管理界面" onclick="button_v2raya_wan_port()" />
-                                            </td>
-                                        </tr>
-                                        <tr id="v2ray_path_tr" >
-                                            <th style="border: 0 none;">主程序路径:</th>
-                                            <td style="border: 0 none;">
-                                                <input type="text" maxlength="512"  class="input" size="60" name="v2ray_path" placeholder="/opt/bin/v2ray" value="<% nvram_get_x("","v2ray_path"); %>" onKeyPress="return is_string(this,event);" />
-                                            </td>
-                                            <td id="app_74" colspan="2" style="border-top: 0 none;">
-                                                <select name="app_74">
-                                                    <option value="0" <% nvram_match_x("","app_74", "0","selected"); %>>不检测版本</option>
-                                                    <option value="5" <% nvram_match_x("","app_74", "5","selected"); %>>更换V2ray-core v5</option>
-                                                    <option value="2" <% nvram_match_x("","app_74", "2","selected"); %>>更换Xray-core</option>
-                                                    <option value="6" <% nvram_match_x("","app_74", "6","selected"); %>>使用V2ray-core v5</option>
-                                                    <option value="4" <% nvram_match_x("","app_74", "4","selected"); %>>使用Xray-core(默认)</option>
-                                                </select>
+                                                &nbsp;<i class="icon-hand-right"></i> <input class="btn btn-success" style="" type="button" value="WebGUI 管理界面" onclick="button_arozos_wan_port()" />
                                             </td>
                                         </tr>
                                         <tr>
