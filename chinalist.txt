@@ -2,6 +2,8 @@
 0daydown.com
 0o0.ooo
 10010.com
+10086.com
+10086cloud.com
 114la.com
 114yygh.com
 115.com
@@ -19,6 +21,7 @@
 17font.com
 17k.com
 199it.com
+1ptba.com
 1qimg.com
 1qmsg.com
 1tpic.com
@@ -36,6 +39,7 @@
 360buyimg.com
 360doc.com
 360in.com
+360safe.com
 36kr.com
 39.net
 3dmgame.com
@@ -47,6 +51,7 @@
 51cto.com
 51job.com
 51ym.me
+52audio.com
 52yuwan.com
 56.com
 58.com
@@ -62,6 +67,7 @@
 91118.com
 91mjw.com
 99.com
+a9vg.com
 aaplimg.com
 abchina.com
 accuweather.com
@@ -81,6 +87,7 @@ aipai.com
 air-matters.com
 air-matters.io
 airbnb.com
+aito.auto
 aiwebcom.com
 aixifan.com
 aizhan.com
@@ -97,9 +104,11 @@ alibabacloud.com
 alibabausercontent.com
 alicdn.com
 alicloudccp.com
+alidns.com
 alikunlun.com
 alikunlun.net
 alimama.com
+alipan.com
 alipay.com
 alipayobjects.com
 alisports.com
@@ -119,6 +128,8 @@ anquan.org
 ant.design
 antfin-inc.com
 antfin.com
+antgroup.com
+antpcdn.com
 anw.red
 anyway.fm
 anzhi.com
@@ -182,6 +193,7 @@ biliapi.com
 biliapi.net
 bilibili.com
 bilibili.tv
+bilicomic.com
 biligame.com
 biligame.net
 bilivideo.com
@@ -202,6 +214,7 @@ btsync.org
 btyingshi.com
 bumimi.com
 bybbs.org
+byd.com
 bytecdntp.com
 ca001.com
 cachemoment.com
@@ -211,11 +224,12 @@ camera360.com
 ccb.com
 ccgslb.com
 ccgslb.net
+cckefu.net
+cckefu3.com
 cctv.com
 cctvpic.com
 cdn-apple.com
 cdn.hockeyapp.net
-cdn.jsdelivr.net
 cdnbee.com
 cdndm.com
 cdndm5.com
@@ -270,6 +284,7 @@ coolapk.com
 coolpad.com
 cootekservice.com
 cowtransfer.com
+cqvip.com
 csair.com
 csdn.net
 css-js.com
@@ -281,6 +296,7 @@ cupfox.app
 d7vg.com
 damengxiang.me
 dandanplay.com
+dangbei.com
 dangdang.com
 daocloud.io
 datagrand.com
@@ -290,6 +306,7 @@ ddrk.me
 deepin.com
 deepin.org
 deepinos.org
+deepseek.com
 deliwenku.com
 dfcfw.com
 dgtle.com
@@ -308,9 +325,11 @@ dm5.com
 dmzj.com
 dns.com
 dnspao.com
+doc88.com
 docer.com
 docin.com
 docschina.org
+doh.pub
 dopa.com
 douban.*
 douban.com
@@ -318,6 +337,9 @@ douban.fm
 doubanio.com
 doubleclick.net
 douyin.com
+douyincdn.com
+douyinliving.com
+douyinvod.com
 douyu.com
 douyutv.com
 doyoo.net
@@ -352,6 +374,7 @@ empornium.me
 enkj.com
 epicgames.com
 epubw.com
+erp321.com
 etao.com
 eudic.net
 ewei.com
@@ -369,18 +392,22 @@ figmacn.com
 fiio.com
 fir.im
 firefox.com
+fj12379.com
+fjdzyz.com
 fjgdwl.com
 fjhxbank.com
 fliggy.com
 flomoapp.com
 flow.ci
 flyertea.com
+fnnas.com
 fontke.com
 foundertype.com
 foxirj.com
 frdic.com
 freebuf.com
 freeziti.com
+fromgeek.com
 futu5.com
 futunn.com
 fydeos.com
@@ -404,6 +431,7 @@ gitee.com
 gitee.io
 godic.net
 golaravel.com
+goofish.com
 googletagmanager.com
 gratisography.com
 growingio.com
@@ -425,6 +453,7 @@ hdb.com
 hdbits.org
 hdchina.org
 hddolby.com
+hdfans.org
 hdhome.org
 hdsky.me
 hdslb.com
@@ -434,12 +463,14 @@ heweather.com
 hexun.com
 hexunimg.com
 hicloud.com
+hihonor.com
 hikvision.com
 hitv.com
 hiwifi.com
 homestyler.com
 hommk.com
 hongxiu.com
+honor.com
 hostbuf.com
 hostker.com
 hotmail.com
@@ -454,6 +485,7 @@ huiji.wiki
 huijistatic.com
 huijiwiki.com
 hujiang.com
+hunan-bank.com
 huomao.com
 hupu.com
 huxiu.com
@@ -496,12 +528,14 @@ imququ.com
 indienova.com
 infinitynewtab.com
 infoq.com
+insta360.com
 installbi.me
 intercomcdn.com
 ip-api.com
 ip-cdn.com
 ip.la
 ip.sb
+ip138.com
 ipip.net
 iplaysoft.com
 ipv6-test.com
@@ -515,6 +549,7 @@ it168.com
 iteye.com
 ithome.com
 itjuzi.com
+ixigua.com
 jandan.net
 java.com
 javaeye.com
@@ -525,6 +560,7 @@ jd.hk
 jdkindle.com
 jdpay.com
 jetbrains.com
+jfdaily.com
 jfrft.com
 jhdec.com
 jianguoyun.com
@@ -546,7 +582,6 @@ jpopsuki.eu
 jqhtml.com
 js.design
 jsdelivr.com
-jsdelivr.net
 juejin.im
 juji.tv
 kaiyanapp.com
@@ -611,6 +646,7 @@ le.com
 lecloud.com
 leetcode-cn.com
 lemicp.com
+lenovo.net
 lenovomobile.com
 letv.com
 letvimg.com
@@ -653,6 +689,7 @@ macwk.com
 madsrevolution.net
 magi.com
 mail4geek.com
+mamecn.com
 manmanbuy.com
 maoyan.com
 maoyun.tv
@@ -681,6 +718,7 @@ mengniang.org
 mgtv.com
 mi-img.com
 mi.com
+mianshiya.com
 miaopai.com
 microbit.org
 midifan.com
@@ -706,7 +744,6 @@ momentcdn.com
 momoyu.cc
 moonvy.com
 morethan.tv
-motiff.com
 mozilla.org
 mp4ba.cc
 msftconnecttest.com
@@ -777,6 +814,7 @@ pag.art
 paipai.com
 panda.tv
 panduoduo.net
+paperpass.com
 passthepopcorn.me
 pc6.com
 pcbeta.com
@@ -806,6 +844,7 @@ pstatp.com
 pterclub.com
 pythonclub.org
 qbox.me
+qcc.com
 qcloud.com
 qcloudcdn.com
 qcwgg.com
@@ -816,6 +855,7 @@ qeeyou.com
 qhimg.com
 qhmsg.com
 qhres.com
+qianxin.com
 qichacha.com
 qidian.com
 qihucdn.com
@@ -841,6 +881,7 @@ quanmingjiexi.com
 qudong.com
 qunar.com
 qweather.com
+qwen.ai
 qyer.com
 qyerstatic.com
 rapoo.com
@@ -850,6 +891,7 @@ realme.com
 redacted.ch
 renren.com
 renrenche.com
+renrendoc.com
 researchgate.net
 rework.tools
 rkecloud.com
@@ -874,11 +916,13 @@ sb.sb
 sc115.com
 sciencedirect.com
 sciencemag.org
+scofd.com
 scomper.me
 sdbeta.com
 sdo.com
 seafile.com
 seele.tech
+seewo.com
 segmentfault.com
 sekorm.com
 servicewechat.com
@@ -932,9 +976,6 @@ staticdn.net
 staticfile.org
 steamcn.com
 steamcontent.com
-steamdb.info
-steampowered.com
-steamstatic.com
 subhd.tv
 sui.com
 suning.com
@@ -947,6 +988,7 @@ takungpao.com
 talkingdata.com
 tangdou.com
 tangdouddn.com
+tangdouedn.com
 tanx.com
 taobao.com
 taobao.org
@@ -959,16 +1001,17 @@ tcdn.qq.com
 tcl.com
 teambition.com
 teamviewer.com
+teandy.com
 tencent-cloud.com
 tencent-cloud.net
 tencent.com
 tencentmind.com
+tengshiauto.com
 tenpay.com
 tenxcloud.com
 test-ipv6.com
 tgbus.com
 thefuture.top
-thetype.com
 thomsonreuters.com
 tianyancha.com
 tietuku.com
@@ -1062,6 +1105,7 @@ weiosx.com
 weixinbridge.com
 weiyun.com
 westlakemuseum.com
+wey.com
 whatismyip.com
 wht.im
 wiley.com
@@ -1077,10 +1121,12 @@ woyoo.com
 wps.com
 wscdns.com
 wulihub.com
+wxb.com
 xbongbong.com
 xclient.info
 xdccpro.com
 xf9168.com
+xhscdn.com
 xiachufang.com
 xiami.com
 xiami.net
@@ -1118,6 +1164,7 @@ xycdn.com
 xywy.com
 yamibo.com
 yangkeduo.com
+yangwangauto.com
 yaohuo.me
 yd-jxt.com
 ydstatic.com
